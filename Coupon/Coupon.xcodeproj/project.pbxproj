@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C4F16B5251F1CAA0059C61F /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4F16B4251F1CAA0059C61F /* AddViewController.swift */; };
+		3C4F16B7251F28590059C61F /* Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4F16B6251F28590059C61F /* Coupon.swift */; };
 		3CC3C785251CB57300A90018 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC3C784251CB57300A90018 /* AppDelegate.swift */; };
 		3CC3C787251CB57300A90018 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC3C786251CB57300A90018 /* SceneDelegate.swift */; };
 		3CC3C789251CB57300A90018 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC3C788251CB57300A90018 /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C4F16B4251F1CAA0059C61F /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		3C4F16B6251F28590059C61F /* Coupon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coupon.swift; sourceTree = "<group>"; };
 		3CC3C781251CB57300A90018 /* Coupon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coupon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CC3C784251CB57300A90018 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CC3C786251CB57300A90018 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +63,8 @@
 				3CC3C784251CB57300A90018 /* AppDelegate.swift */,
 				3CC3C786251CB57300A90018 /* SceneDelegate.swift */,
 				3CC3C788251CB57300A90018 /* ViewController.swift */,
+				3C4F16B4251F1CAA0059C61F /* AddViewController.swift */,
+				3C4F16B6251F28590059C61F /* Coupon.swift */,
 				3CC3C78A251CB57300A90018 /* Main.storyboard */,
 				3CC3C78D251CB57B00A90018 /* Assets.xcassets */,
 				3CC3C78F251CB57B00A90018 /* LaunchScreen.storyboard */,
@@ -138,8 +144,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C4F16B7251F28590059C61F /* Coupon.swift in Sources */,
 				3CC3C789251CB57300A90018 /* ViewController.swift in Sources */,
 				3CC3C785251CB57300A90018 /* AppDelegate.swift in Sources */,
+				3C4F16B5251F1CAA0059C61F /* AddViewController.swift in Sources */,
 				3CC3C787251CB57300A90018 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,6 +293,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CR62K5U9WM;
 				INFOPLIST_FILE = Coupon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -302,6 +311,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CR62K5U9WM;
 				INFOPLIST_FILE = Coupon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
