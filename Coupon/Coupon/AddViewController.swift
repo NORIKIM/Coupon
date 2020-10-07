@@ -9,13 +9,19 @@
 import UIKit
 
 class AddViewController: UIViewController {
+    @IBOutlet weak var cafeButton: UIButton!
+    @IBOutlet weak var restaurantButton: UIButton!
+    @IBOutlet weak var shoppingButton: UIButton!
+    @IBOutlet weak var convenienceStoreButton: UIButton!
+    
+    var categoryButton = [UIButton]()
     var category = ""
     @IBOutlet weak var content: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        categoryButton = [cafeButton,restaurantButton,shoppingButton,convenienceStoreButton]
     }
     
 
@@ -25,7 +31,16 @@ class AddViewController: UIViewController {
         
     }
     @IBAction func selectCategory(_ sender: UIButton) {
-        sender.tintColor = .systemYellow
-        category = String((sender.currentTitle?.dropFirst())!)
+        for button in categoryButton {
+            if sender.tag == button.tag {
+                button.isSelected = true
+                button.tintColor = .systemYellow
+            } else {
+                button.isSelected = false
+                button.tintColor = .lightGray
+            }
+        }        
     }
+    
+    
 }

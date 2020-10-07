@@ -135,7 +135,7 @@
                                     <action selector="selectCategory:" destination="5Ak-3m-I8g" eventType="touchUpInside" id="Aiv-hn-PcH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTd-GE-8Of">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTd-GE-8Of">
                                 <rect key="frame" x="149" y="82" width="76" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -146,7 +146,7 @@
                                     <action selector="selectCategory:" destination="5Ak-3m-I8g" eventType="touchUpInside" id="0lv-sG-rBS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PaD-UD-gPw">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PaD-UD-gPw">
                                 <rect key="frame" x="233" y="82" width="66" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -157,7 +157,7 @@
                                     <action selector="selectCategory:" destination="5Ak-3m-I8g" eventType="touchUpInside" id="BLn-Ks-erU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UKv-l9-JuX">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UKv-l9-JuX">
                                 <rect key="frame" x="307" y="82" width="73" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -239,6 +239,12 @@
                     <navigationItem key="navigationItem" id="zde-xS-Fyu">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="hYg-tw-f0b"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="cafeButton" destination="K27-lg-RHv" id="GeL-wq-clO"/>
+                        <outlet property="convenienceStoreButton" destination="UKv-l9-JuX" id="OOi-Ke-CnK"/>
+                        <outlet property="restaurantButton" destination="cTd-GE-8Of" id="sQT-SC-D02"/>
+                        <outlet property="shoppingButton" destination="PaD-UD-gPw" id="OzX-7S-dYF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="54W-ta-9Xl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
