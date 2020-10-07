@@ -30,16 +30,15 @@ class AddViewController: UIViewController {
     func couponContent() {
         
     }
+    
     @IBAction func selectCategory(_ sender: UIButton) {
         for button in categoryButton {
             if sender.tag == button.tag {
-                button.isSelected = true
                 button.tintColor = .systemYellow
             } else {
-                button.isSelected = false
                 button.tintColor = .lightGray
             }
-        }        
+        }
     }
     
     
