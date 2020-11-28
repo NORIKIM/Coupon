@@ -125,7 +125,7 @@ class AddViewController: UIViewController, UITextFieldDelegate {
                     textField.text = formatString
                     return false
                 }
-            } else {
+            } else { // 숫자 입력이 아니면
                 if string == "" {
                     let lastIndex = beforeFormatting.index(beforeFormatting.endIndex, offsetBy: -1)
                     beforeFormatting = String(beforeFormatting[..<lastIndex])
@@ -133,8 +133,6 @@ class AddViewController: UIViewController, UITextFieldDelegate {
                         textField.text = formattedString
                         return false
                     }
-                } else {
-                    return false
                 }
             }
         }
