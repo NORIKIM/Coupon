@@ -67,6 +67,59 @@ func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange
     }
 ```
 
+### 유효기간
 
+텍스트필드 대신 데이트피커가 보여지고
 
- 
+데이트피커에 툴바를 이용해 done 버튼을 추가하여 날짜 선택 완료 후 키보드가 내려가도록 한다.
+
+(touchesBegan과 동일한 기능이지만 완료버튼이 있으므로 선택을 완료했음을 인지하도록 함)
+
+선택한 날짜는 DateFormatter를 이용해서 보기 좋게 정리하고 텍스트 필드에 삽입한다.
+
+```swift
+func showDatePicker() {
+        fromDate.inputView = datePicker
+        toDate.inputView = datePicker
+        
+        datePicker.datePickerMode = .dateAndTime
+        datePicker.locale = .current
+        datePicker.preferredDatePickerStyle = .wheels
+        
+        // toolbar
+        let toolbar = UIToolbar()
+        toolbar.barStyle = .default
+        toolbar.translatesAutoresizingMaskIntoConstraints = true
+        
+        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let done = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(datePickerDone))
+        toolbar.setItems([space,done], animated: false)
+        toolbar.isUserInteractionEnabled = true
+        toolbar.sizeToFit()
+        fromDate.inputAccessoryView = toolbar
+        toDate.inputAccessoryView = toolbar
+    }
+    
+    @IBAction func selectDateTextField(_ sender: UITextField) {
+        let dateFormat = DateFormatter()
+        dateFormat.dateFormat = "yyyy년 MM월 dd일 hh:mm a"
+        let selectDate = dateFormat.string(from: datePicker.date)
+       
+        if sender.tag == 0 {
+            fromDate.text = selectDate
+        } else {
+            toDate.text = selectDate
+        }
+    }
+    
+    @objc func datePickerDone() {
+        self.view.endEditing(true)
+    }
+```
+
+데이트피커가 한글로 나오도록 설정
+
+```swift
+infoPlist - Localization native development region - Korea
+```
+
