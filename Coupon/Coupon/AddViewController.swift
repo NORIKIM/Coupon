@@ -109,7 +109,7 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    // 숫자가 입력되면 셋째 자리 수마다 콤마 삽입
+    /// 숫자가 입력되면 셋째 자리 수마다 콤마 삽입
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let numberFormat = NumberFormatter()
         numberFormat.numberStyle = .decimal
@@ -139,7 +139,7 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    //데이트피커 설정
+    ///데이트피커 설정
    func showDatePicker() {
         fromDate.inputView = datePicker
         toDate.inputView = datePicker
@@ -178,7 +178,7 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
-    
+    /// 내용 입력 창 
     // 참고 : https://zeddios.tistory.com/406
     // NSTextAttachment
     func couponContent() {
