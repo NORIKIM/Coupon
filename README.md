@@ -123,3 +123,19 @@ func showDatePicker() {
 infoPlist - Localization native development region - Korea
 ```
 
+### 키보드 설정
+
+내용을 입력 받으려면 키보드가 필요한데 키보드가 화면에 올라오면서 내용 텍스트필드를 가려버린다.따라서 내용을 입력할 때 화면이 전체적으로 키보드 높이 만큼 올라가게 되면 입력 창을 가리지 않게 된다.
+
+그러나 키보드 높이보다 위에 위치한 다른 텍스트필드들에게는 화면 높이 조정이 불필요 하므로 내용 텍스트필드에만 화면의 높이를 조정하면 되었다.
+
+notification에 observer를 추가해주고 selector objc 함수에서 내용이 선택이 되었을 경우에만 키보드 높이가 조정 되도록 했다.
+
+```swift
+if self.content.isFirstResponder { ...... }
+```
+
+
+
+
+
