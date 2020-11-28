@@ -32,6 +32,9 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     
     var categoryButton = [UIButton]()
     var datePicker = UIDatePicker()
+    var notiCenter = NotificationCenter.default
+    var keyboardShown:Bool = false // 키보드 상태 확인
+    var originY:CGFloat? // 오브젝트의 기본 위치
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +44,56 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         price.delegate = self
     }
 
-    // 키보드 내림
+    /// 키보드가 텍스트 입력창을 가리지 않도록 함
+    // 키보드가 나타나고 사라질때 노티피케이션
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillShow(note:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillHide(note:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name:UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name:UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(note: NSNotification) {
+        if self.content.isFirstResponder {
+            if let keyboardSize = (note.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                if keyboardSize.height == 0.0 || keyboardShown == true {
+                    return
+                }
+
+                UIView.animate(withDuration: 0.33, animations: { () -> Void in
+                    if self.originY == nil { self.originY = self.view.frame.origin.y }
+                    self.view.frame.origin.y = self.originY! - keyboardSize.height
+                }, completion: {_ in
+                    self.keyboardShown = true
+                })
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(note: NSNotification) {
+        if self.content.isFirstResponder {
+            if let _ = (note.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+                if keyboardShown == false {
+                    return
+                }
+
+                UIView.animate(withDuration: 0.33, animations: { () -> Void in
+                    guard let originY = self.originY else { return }
+                    self.view.frame.origin.y = originY
+                }, completion: {_ in
+                    self.keyboardShown = false
+                })
+            }
+        }
+    }
+    
+    // superview 터치 시 키보드 내림
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
