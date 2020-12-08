@@ -215,24 +215,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xMS-DC-M2j">
-                                <rect key="frame" x="91" y="240" width="268" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="selectDateTextField:" destination="5Ak-3m-I8g" eventType="editingDidEnd" id="TVu-py-pKu"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EKR-fd-t1w">
-                                <rect key="frame" x="91" y="295" width="268" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="selectDateTextField:" destination="5Ak-3m-I8g" eventType="editingDidEnd" id="Bsx-i8-YES"/>
-                                </connections>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="유효기간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqM-MN-m75">
                                 <rect key="frame" x="14" y="253" width="59" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -241,6 +223,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xMS-DC-M2j">
+                                <rect key="frame" x="91" y="246" width="268" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gGm-Dk-KEA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -252,11 +240,10 @@
                         <outlet property="cafe" destination="K27-lg-RHv" id="GeL-wq-clO"/>
                         <outlet property="content" destination="LRd-5n-R8f" id="vEx-fs-uKQ"/>
                         <outlet property="convenienceStore" destination="UKv-l9-JuX" id="OOi-Ke-CnK"/>
-                        <outlet property="fromDate" destination="xMS-DC-M2j" id="ReN-nZ-EMZ"/>
+                        <outlet property="expireDate" destination="xMS-DC-M2j" id="al8-Bs-wYj"/>
                         <outlet property="price" destination="QKh-eO-1Bo" id="miA-dg-8zV"/>
                         <outlet property="restaurant" destination="cTd-GE-8Of" id="sQT-SC-D02"/>
                         <outlet property="shopping" destination="PaD-UD-gPw" id="OzX-7S-dYF"/>
-                        <outlet property="toDate" destination="EKR-fd-t1w" id="W3Y-hX-GFu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="54W-ta-9Xl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

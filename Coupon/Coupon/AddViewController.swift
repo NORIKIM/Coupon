@@ -26,9 +26,9 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var shopping: UIButton!
     @IBOutlet weak var convenienceStore: UIButton!
     @IBOutlet weak var price: UITextField!
-    @IBOutlet weak var fromDate: UITextField!
-    @IBOutlet weak var toDate: UITextField!
+    @IBOutlet weak var expireDate: UITextField!
     @IBOutlet weak var content: UITextView!
+    
     
     var categoryButton = [UIButton]()
     var datePicker = UIDatePicker()
@@ -141,8 +141,7 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     
     ///데이트피커 설정
    func showDatePicker() {
-        fromDate.inputView = datePicker
-        toDate.inputView = datePicker
+        expireDate.inputView = datePicker
         
         datePicker.datePickerMode = .dateAndTime
         datePicker.locale = .current
@@ -158,23 +157,15 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         toolbar.setItems([space,done], animated: false)
         toolbar.isUserInteractionEnabled = true
         toolbar.sizeToFit()
-        fromDate.inputAccessoryView = toolbar
-        toDate.inputAccessoryView = toolbar
+        expireDate.inputAccessoryView = toolbar
     }
     
-    @IBAction func selectDateTextField(_ sender: UITextField) {
+    @objc func datePickerDone() {
         let dateFormat = DateFormatter()
         dateFormat.dateFormat = "yyyy년 MM월 dd일 hh:mm a"
         let selectDate = dateFormat.string(from: datePicker.date)
        
-        if sender.tag == 0 {
-            fromDate.text = selectDate
-        } else {
-            toDate.text = selectDate
-        }
-    }
-    
-    @objc func datePickerDone() {
+        expireDate.text = selectDate
         self.view.endEditing(true)
     }
     
