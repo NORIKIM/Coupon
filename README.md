@@ -135,7 +135,16 @@ notification에 observer를 추가해주고 selector objc 함수에서 내용이
 if self.content.isFirstResponder { ...... }
 ```
 
+### ERROR
 
+다른 피시에서 프로젝트를 실행하니 갑자기 레이아웃 에러가 발생했다
+"Unable to simultaneously stisfy constraints. ... Make a symbolic breakpoint at UIViewAlertForUnsatisfiableConstraints to catch this in the debugger."
+데이트피커에 설정한 툴바의 레이아웃 문제로 툴바의 폭을 임의로 뒀을때 화면 너비로 설정하게 되는거 같은데 이게 에러를 발생시킨다.
+그래서 그냥 초기화 시켰던 툴바를 사이즈를 아예 정해주게 되면 에러가 발생하지 않는다.
 
+```swift
+let toolbar = UIToolbar() // 기존 error 발생
+let toolbar = UIToolbar(frame: CGRect(origin: .zero, size: CGSize(width: datePicker.layer.frame,width, height: CGFloat(40)))) // 변경 error 사라짐
+```
 
 
