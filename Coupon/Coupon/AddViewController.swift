@@ -34,7 +34,7 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     var datePicker = UIDatePicker()
     var keyboardShown:Bool = false // 키보드 상태 확인
     var originY:CGFloat? // 오브젝트의 기본 위치
-    
+    var category = ""
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -104,6 +104,7 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         for button in categoryButton {
             if sender.tag == button.tag {
                 button.tintColor = .systemYellow
+                category = (button.currentTitle!).components(separatedBy: [" "]).joined()
             } else {
                 button.tintColor = .lightGray
             }
