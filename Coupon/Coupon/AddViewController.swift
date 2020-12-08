@@ -20,7 +20,7 @@
 
 import UIKit
 
-class AddViewController: UIViewController, UITextFieldDelegate {
+class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var cafe: UIButton!
     @IBOutlet weak var restaurant: UIButton!
     @IBOutlet weak var shopping: UIButton!
@@ -29,12 +29,13 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var expireDate: UITextField!
     @IBOutlet weak var content: UITextView!
     
-    
     var categoryButton = [UIButton]()
     var datePicker = UIDatePicker()
     var keyboardShown:Bool = false // 키보드 상태 확인
     var originY:CGFloat? // 오브젝트의 기본 위치
     var category = ""
+    let imagePickerController = UIImagePickerController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -172,9 +173,21 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     }
     
     /// 내용 입력 창 
-    // 참고 : https://zeddios.tistory.com/406
-    // NSTextAttachment
-    func couponContent() {
-        
+    @IBAction func addPhoto(_ sender: UIButton) {
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
+        present(imagePickerController, animated: true, completion: nil)
     }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let attributedString = NSMutableAttributedString(string: "")
+        let attachment = NSTextAttachment()
+        if let image = info[UIImagePickerController.InfoKey.originalImage] {
+            attachment.image = (image as! UIImage)
+            attachment.bounds = CGRect(x: 0, y: 0, width: 60, height: 60)
+            attributedString.append(NSAttributedString(attachment: attachment))
+            content.attributedText = attributedString
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
 }
