@@ -32,7 +32,6 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     
     var categoryButton = [UIButton]()
     var datePicker = UIDatePicker()
-    var notiCenter = NotificationCenter.default
     var keyboardShown:Bool = false // 키보드 상태 확인
     var originY:CGFloat? // 오브젝트의 기본 위치
     
@@ -42,6 +41,8 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         categoryButton = [cafe,restaurant,shopping,convenienceStore]
         showDatePicker()
         price.delegate = self
+        content.layer.borderColor = #colorLiteral(red: 0.7999381423, green: 0.8000349402, blue: 0.7999051213, alpha: 1)
+        content.layer.borderWidth = 1.0
     }
 
     /// 키보드가 텍스트 입력창을 가리지 않도록 함
