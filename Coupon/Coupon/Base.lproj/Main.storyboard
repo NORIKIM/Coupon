@@ -268,7 +268,7 @@
         <!--Photo Zoom View Controller-->
         <scene sceneID="ekY-VL-FRK">
             <objects>
-                <viewController id="xz5-vE-jsf" customClass="PhotoZoomViewController" customModule="Coupon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="photoZoom" id="xz5-vE-jsf" customClass="PhotoZoomViewController" customModule="Coupon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s5q-o0-Zqo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -279,7 +279,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7IN-rd-Vkk"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="7IN-rd-Vkk" firstAttribute="trailing" secondItem="wFr-of-WbR" secondAttribute="trailing" id="ChW-uv-Wy7"/>
