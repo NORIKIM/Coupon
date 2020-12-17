@@ -265,6 +265,46 @@
             </objects>
             <point key="canvasLocation" x="1544.8" y="127.28635682158921"/>
         </scene>
+        <!--Photo Zoom View Controller-->
+        <scene sceneID="ekY-VL-FRK">
+            <objects>
+                <viewController id="xz5-vE-jsf" customClass="PhotoZoomViewController" customModule="Coupon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="s5q-o0-Zqo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wFr-of-WbR">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="7IN-rd-Vkk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="7IN-rd-Vkk" firstAttribute="trailing" secondItem="wFr-of-WbR" secondAttribute="trailing" id="ChW-uv-Wy7"/>
+                            <constraint firstItem="wFr-of-WbR" firstAttribute="top" secondItem="7IN-rd-Vkk" secondAttribute="top" id="Yht-du-m1Q"/>
+                            <constraint firstItem="7IN-rd-Vkk" firstAttribute="bottom" secondItem="wFr-of-WbR" secondAttribute="bottom" id="ab1-qB-OAn"/>
+                            <constraint firstItem="wFr-of-WbR" firstAttribute="leading" secondItem="7IN-rd-Vkk" secondAttribute="leading" id="iCl-q3-Eoe"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="CC3-5I-gSj" appends="YES" id="xcb-mO-vmN"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="photo" destination="wFr-of-WbR" id="TdX-HF-QZ9"/>
+                        <outlet property="pinchGesture" destination="CC3-5I-gSj" id="sB9-je-pTH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AqB-He-m8f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="CC3-5I-gSj">
+                    <connections>
+                        <action selector="photoZoom:" destination="xz5-vE-jsf" id="rD0-Yd-Kh2"/>
+                    </connections>
+                </pinchGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2236" y="127"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Gnu-mP-zmQ">
             <objects>
