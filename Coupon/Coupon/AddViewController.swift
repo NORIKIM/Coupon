@@ -28,6 +28,7 @@ class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerCont
     @IBOutlet weak var price: UITextField!
     @IBOutlet weak var expireDate: UITextField!
     @IBOutlet weak var content: UITextView!
+    @IBOutlet weak var photo: UIImageView!
     
     var categoryButton = [UIButton]()
     var datePicker = UIDatePicker()
@@ -35,6 +36,7 @@ class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerCont
     var originY:CGFloat? // 오브젝트의 기본 위치
     var category = ""
     let imagePickerController = UIImagePickerController()
+    var contentImage: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -178,16 +180,37 @@ class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerCont
         imagePickerController.sourceType = .photoLibrary
         present(imagePickerController, animated: true, completion: nil)
     }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let attributedString = NSMutableAttributedString(string: "")
         let attachment = NSTextAttachment()
         if let image = info[UIImagePickerController.InfoKey.originalImage] {
-            attachment.image = (image as! UIImage)
-            attachment.bounds = CGRect(x: 0, y: 0, width: 60, height: 60)
-            attributedString.append(NSAttributedString(attachment: attachment))
-            content.attributedText = attributedString
+            let selectImage = image as! UIImage
+            photo.image = resizeImage(image: selectImage, size: photo.bounds.width)
+            contentImage = selectImage
         }
+        // 이미지뷰에 사진이 선택되어져 있을 때만 탭제스쳐 액션 삽입
+        let photoGesture = UITapGestureRecognizer(target: self, action: #selector(photoZoom))
+        photo.isUserInteractionEnabled = true
+        photo.addGestureRecognizer(photoGesture)
+        
         dismiss(animated: true, completion: nil)
+    }
+    
+    // 선택한 이미지를 이미지뷰 사이즈에 맞게 조절
+    func resizeImage(image: UIImage, size: CGFloat) -> UIImage {
+        UIGraphicsBeginImageContext(CGSize(width: size, height: size))
+        image.draw(in: CGRect(x: 0, y: 0, width: size, height: size))
+        let newimg = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newimg!
+    }
+    
+    // 선택한 이미지를 크게 볼 수 있도록 줌컨트롤러로 연결
+    @objc func photoZoom() {
+        let photoZoomView = self.storyboard?.instantiateViewController(withIdentifier: "photoZoom") as! PhotoZoomViewController
+        photoZoomView.image = contentImage
+        self.navigationController?.pushViewController(photoZoomView, animated: true)
     }
     
 }
