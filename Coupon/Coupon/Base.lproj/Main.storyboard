@@ -49,6 +49,9 @@
                                 <rect key="frame" x="223" y="581" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="전체"/>
+                                <connections>
+                                    <segue destination="vWb-yw-SLh" kind="show" id="01c-r6-7Pl"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -66,23 +69,23 @@
             </objects>
             <point key="canvasLocation" x="842" y="129"/>
         </scene>
-        <!--View Controller-->
+        <!--List View Controller-->
         <scene sceneID="T4r-CC-f5i">
             <objects>
-                <viewController id="vWb-yw-SLh" sceneMemberID="viewController">
+                <viewController id="vWb-yw-SLh" customClass="ListViewController" customModule="Coupon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GKm-Ez-rC4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="7gA-Gq-sgb">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XlQ-uk-j3l">
-                                <rect key="frame" x="0.0" y="56" width="375" height="611"/>
+                                <rect key="frame" x="0.0" y="100" width="375" height="567"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="BR8-nH-SYb">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="BR8-nH-SYb">
                                         <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BR8-nH-SYb" id="Fve-GM-tDy">
@@ -105,6 +108,10 @@
                             <constraint firstItem="7gA-Gq-sgb" firstAttribute="top" secondItem="dag-i9-xBA" secondAttribute="top" id="ofN-4R-u2k"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Och-hf-CJ7"/>
+                    <connections>
+                        <outlet property="list" destination="XlQ-uk-j3l" id="1XA-VL-fsx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ur-95-aPR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
