@@ -15,15 +15,15 @@ class Coupon {
     var price: String?
     var expireDate: Date
     var content: String?
-    var cnotentPhoto: UIImage?
+    var contentPhoto: UIImage?
     
-    init(category: String, shop: String, price: String?, expireDate: Date, content: String?, cnotentPhoto: UIImage?) {
+    init(category: String, shop: String, price: String?, expireDate: Date, content: String?, contentPhoto: UIImage?) {
         self.category = category
         self.shop = shop
         self.price = price
         self.expireDate = expireDate
         self.content = content
-        self.cnotentPhoto = cnotentPhoto
+        self.contentPhoto = contentPhoto
     }
 }
 
