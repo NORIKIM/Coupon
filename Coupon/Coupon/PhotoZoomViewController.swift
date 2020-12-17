@@ -9,22 +9,19 @@
 import UIKit
 
 class PhotoZoomViewController: UIViewController {
+    @IBOutlet weak var photo: UIImageView!
+    @IBOutlet var pinchGesture: UIPinchGestureRecognizer!
+    var image: UIImage?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        photo.image = image
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func photoZoom(_ sender: Any) {
+        photo.isUserInteractionEnabled = true
+        photo.transform = photo.transform.scaledBy(x: pinchGesture.scale, y: pinchGesture.scale)
+        pinchGesture.scale = 1.0
     }
-    */
-
 }
