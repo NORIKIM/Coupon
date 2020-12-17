@@ -247,7 +247,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="zde-xS-Fyu">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="hYg-tw-f0b"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="hYg-tw-f0b">
+                            <connections>
+                                <action selector="saveData:" destination="5Ak-3m-I8g" id="ts0-fH-QRY"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="cafe" destination="K27-lg-RHv" id="GeL-wq-clO"/>
@@ -257,6 +261,7 @@
                         <outlet property="photo" destination="4RI-cV-1Kr" id="mZQ-d7-8wU"/>
                         <outlet property="price" destination="QKh-eO-1Bo" id="miA-dg-8zV"/>
                         <outlet property="restaurant" destination="cTd-GE-8Of" id="sQT-SC-D02"/>
+                        <outlet property="shopName" destination="srB-CE-Wk3" id="PkZ-dy-Mvh"/>
                         <outlet property="shopping" destination="PaD-UD-gPw" id="OzX-7S-dYF"/>
                     </connections>
                 </viewController>
