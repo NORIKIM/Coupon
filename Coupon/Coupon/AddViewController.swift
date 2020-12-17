@@ -25,6 +25,7 @@ class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerCont
     @IBOutlet weak var restaurant: UIButton!
     @IBOutlet weak var shopping: UIButton!
     @IBOutlet weak var convenienceStore: UIButton!
+    @IBOutlet weak var shopName: UITextField!
     @IBOutlet weak var price: UITextField!
     @IBOutlet weak var expireDate: UITextField!
     @IBOutlet weak var content: UITextView!
@@ -182,8 +183,6 @@ class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerCont
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let attributedString = NSMutableAttributedString(string: "")
-        let attachment = NSTextAttachment()
         if let image = info[UIImagePickerController.InfoKey.originalImage] {
             let selectImage = image as! UIImage
             photo.image = resizeImage(image: selectImage, size: photo.bounds.width)
@@ -213,4 +212,13 @@ class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerCont
         self.navigationController?.pushViewController(photoZoomView, animated: true)
     }
     
+    @IBAction func saveData(_ sender: Any) {
+        let format = DateFormatter()
+        format.dateFormat = "yyyy년 MM월 dd일 hh:mm a"
+        format.timeZone = NSTimeZone(name: "UTC") as TimeZone?
+        let expire = format.date(from: expireDate.text!)
+        
+        _ = Coupon(category: category, shop: shopName.text!, price: price.text, expireDate: expire!, content: content.text, contentPhoto: contentImage)
+        self.navigationController?.popViewController(animated: true)
+    }
 }
