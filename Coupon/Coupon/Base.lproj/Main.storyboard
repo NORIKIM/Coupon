@@ -229,14 +229,19 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LRd-5n-R8f">
-                                <rect key="frame" x="16" y="339" width="343" height="301"/>
+                                <rect key="frame" x="16" y="372" width="343" height="268"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="camera.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="4RI-cV-1Kr">
+                                <rect key="frame" x="105" y="285" width="85" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gGm-Dk-KEA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -249,6 +254,7 @@
                         <outlet property="content" destination="LRd-5n-R8f" id="vEx-fs-uKQ"/>
                         <outlet property="convenienceStore" destination="UKv-l9-JuX" id="OOi-Ke-CnK"/>
                         <outlet property="expireDate" destination="xMS-DC-M2j" id="al8-Bs-wYj"/>
+                        <outlet property="photo" destination="4RI-cV-1Kr" id="mZQ-d7-8wU"/>
                         <outlet property="price" destination="QKh-eO-1Bo" id="miA-dg-8zV"/>
                         <outlet property="restaurant" destination="cTd-GE-8Of" id="sQT-SC-D02"/>
                         <outlet property="shopping" destination="PaD-UD-gPw" id="OzX-7S-dYF"/>
@@ -279,6 +285,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera.fill" catalog="system" width="128" height="94"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
