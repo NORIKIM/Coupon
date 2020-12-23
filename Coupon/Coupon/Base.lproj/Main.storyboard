@@ -285,37 +285,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wFr-of-WbR">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ssB-nn-3xB">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </imageView>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tn4-8g-ds0">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Tn4-8g-ds0" secondAttribute="bottom" id="4JV-6Y-TcD"/>
+                                    <constraint firstItem="Tn4-8g-ds0" firstAttribute="leading" secondItem="ssB-nn-3xB" secondAttribute="leading" id="VSJ-aL-bui"/>
+                                    <constraint firstItem="Tn4-8g-ds0" firstAttribute="centerX" secondItem="ssB-nn-3xB" secondAttribute="centerX" id="VyI-4Z-olS"/>
+                                    <constraint firstItem="Tn4-8g-ds0" firstAttribute="centerY" secondItem="ssB-nn-3xB" secondAttribute="centerY" id="XD1-Bk-uOM"/>
+                                    <constraint firstItem="Tn4-8g-ds0" firstAttribute="top" secondItem="ssB-nn-3xB" secondAttribute="top" id="YVV-2Y-EcI"/>
+                                    <constraint firstAttribute="trailing" secondItem="Tn4-8g-ds0" secondAttribute="trailing" id="eKX-Na-QCu"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7IN-rd-Vkk"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="7IN-rd-Vkk" firstAttribute="trailing" secondItem="wFr-of-WbR" secondAttribute="trailing" id="ChW-uv-Wy7"/>
-                            <constraint firstItem="wFr-of-WbR" firstAttribute="top" secondItem="7IN-rd-Vkk" secondAttribute="top" id="Yht-du-m1Q"/>
-                            <constraint firstItem="7IN-rd-Vkk" firstAttribute="bottom" secondItem="wFr-of-WbR" secondAttribute="bottom" id="ab1-qB-OAn"/>
-                            <constraint firstItem="wFr-of-WbR" firstAttribute="leading" secondItem="7IN-rd-Vkk" secondAttribute="leading" id="iCl-q3-Eoe"/>
+                            <constraint firstItem="ssB-nn-3xB" firstAttribute="leading" secondItem="7IN-rd-Vkk" secondAttribute="leading" id="O3q-dE-kar"/>
+                            <constraint firstItem="ssB-nn-3xB" firstAttribute="top" secondItem="7IN-rd-Vkk" secondAttribute="top" id="hE9-Iz-WcK"/>
+                            <constraint firstItem="7IN-rd-Vkk" firstAttribute="bottom" secondItem="ssB-nn-3xB" secondAttribute="bottom" id="hk2-av-e3Q"/>
+                            <constraint firstItem="7IN-rd-Vkk" firstAttribute="trailing" secondItem="ssB-nn-3xB" secondAttribute="trailing" id="qqP-KG-w3F"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="CC3-5I-gSj" appends="YES" id="xcb-mO-vmN"/>
-                        </connections>
                     </view>
                     <connections>
-                        <outlet property="photo" destination="wFr-of-WbR" id="TdX-HF-QZ9"/>
-                        <outlet property="pinchGesture" destination="CC3-5I-gSj" id="sB9-je-pTH"/>
+                        <outlet property="photo" destination="Tn4-8g-ds0" id="orc-EL-oIa"/>
+                        <outlet property="scrollView" destination="ssB-nn-3xB" id="rNr-Od-xcx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AqB-He-m8f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <pinchGestureRecognizer id="CC3-5I-gSj">
-                    <connections>
-                        <action selector="photoZoom:" destination="xz5-vE-jsf" id="rD0-Yd-Kh2"/>
-                    </connections>
-                </pinchGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2236" y="127"/>
+            <point key="canvasLocation" x="2236" y="126.38680659670166"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Gnu-mP-zmQ">
