@@ -16,6 +16,7 @@ struct Database {
     
     init() {
         db = openDB()
+        createTable()
     }
     
     // db open
@@ -74,6 +75,7 @@ struct Database {
         return coupon
     }
     
+    // insert data
     func insert(category: String, shop: String, price: String, expireDate: Date, content: String, contentPhoto: UIImage) {
         let insertQuery = "INSERT INTO coupon(category, shop, price, expireDate, content, contentPhoto) VALUES(?,?,?,?,?,?)"
         var insertStmt:OpaquePointer? = nil
