@@ -35,7 +35,7 @@ struct Database {
     
     // create table
     func createTable() {
-        let creatQuery = "CREATE TABLE coupon(category TEXT, shop TEXT, price TEXT, expireDate TEXT, content TEXT, contentPhoto BLOB)"
+        let creatQuery = "CREATE TABLE IF NOT EXISTS coupon(category TEXT, shop TEXT, price TEXT, expireDate TEXT, content TEXT, contentPhoto BLOB)"
         var createStmt: OpaquePointer? = nil
         
         if sqlite3_prepare_v2(db, creatQuery, -1, &createStmt, nil) == SQLITE_OK {
