@@ -10,22 +10,22 @@ import UIKit
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var list: UITableView!
-    
-    var couponList = [Coupon]()
+    var couponlist: [Coupon] = []
+    let db = Database()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        couponlist = db.readDB()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        couponList.count
+        couponlist.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = couponList[indexPath.row].shop
+        cell.textLabel?.text = couponlist[indexPath.row].shop
         return cell
     }
 }
