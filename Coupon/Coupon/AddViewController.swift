@@ -19,6 +19,7 @@
 
 
 import UIKit
+import SQLite3
 
 class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var cafe: UIButton!
@@ -38,6 +39,8 @@ class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerCont
     var category = ""
     let imagePickerController = UIImagePickerController()
     var contentImage: UIImage?
+    var dbConnect: OpaquePointer? //sqlite 연결 정보
+    var stmt: OpaquePointer? // 컴파일된 sql
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -218,7 +221,10 @@ class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerCont
         format.timeZone = NSTimeZone(name: "UTC") as TimeZone?
         let expire = format.date(from: expireDate.text!)
         
-        _ = Coupon(category: category, shop: shopName.text!, price: price.text, expireDate: expire!, content: content.text, contentPhoto: contentImage)
+        let db = Database()
+        db.insert(category: category, shop: shopName.text!, price: price.text!, expireDate: expire!, content: content.text, contentPhoto: contentImage!)
+        
         self.navigationController?.popViewController(animated: true)
     }
 }
+
