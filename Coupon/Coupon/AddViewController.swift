@@ -39,8 +39,6 @@ class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerCont
     var category = ""
     let imagePickerController = UIImagePickerController()
     var contentImage: UIImage?
-    var dbConnect: OpaquePointer? //sqlite 연결 정보
-    var stmt: OpaquePointer? // 컴파일된 sql
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -215,6 +213,7 @@ class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerCont
         self.navigationController?.pushViewController(photoZoomView, animated: true)
     }
     
+    // 쿠폰값 저장
     @IBAction func saveData(_ sender: Any) {
         let format = DateFormatter()
         format.dateFormat = "yyyy년 MM월 dd일 hh:mm a"
