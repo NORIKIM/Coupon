@@ -49,11 +49,14 @@ struct Database {
     }
     
     // read db
-    func readDB() -> [Coupon] {
-        let selectQuery = "SELECT * FROM coupon"
+    func readDB(select: String) -> [Coupon] {
+        var selectQuery = "SELECT * FROM coupon"
         var selectStmt: OpaquePointer? = nil
         var coupon = [Coupon]()
         
+        if select != "전체" {
+            selectQuery = "SELECT * FROM coupon WHERE category = '\(select)'"
+        }
         
         if sqlite3_prepare_v2(db, selectQuery, -1, &selectStmt, nil) == SQLITE_OK {
             while sqlite3_step(selectStmt) == SQLITE_ROW {
