@@ -135,6 +135,10 @@ notification에 observer를 추가해주고 selector objc 함수에서 내용이
 if self.content.isFirstResponder { ...... }
 ```
 
+### 저장
+
+입력된 쿠폰의 정보들을 저장하기 위해 userDefault, coreData, SQLite 중 어떤 방식을 이용해야 하는지 고민했다. 단순히 쿠폰의 정보를 저장하고 원하는 때에 원하는 정보만 보여주기만 하면 되므로 SQLite의 사용을 결정하였다.
+
 ### ERROR
 
 다른 피시에서 프로젝트를 실행하니 갑자기 레이아웃 에러가 발생했다
