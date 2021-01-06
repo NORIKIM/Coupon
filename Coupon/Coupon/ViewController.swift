@@ -10,12 +10,20 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
-    
-
+    @IBAction func category(_ sender: UIButton) {
+        let listView = self.storyboard?.instantiateViewController(withIdentifier: "listView") as! ListViewController
+        
+        if let select = sender.currentTitle {
+            listView.category = select
+        }
+        
+        self.navigationController?.pushViewController(listView, animated: true)
+    }
 }
 

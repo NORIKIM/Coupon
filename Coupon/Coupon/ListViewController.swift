@@ -12,6 +12,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var list: UITableView!
     var couponlist: [Coupon] = []
     let db = Database()
+    var category = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
