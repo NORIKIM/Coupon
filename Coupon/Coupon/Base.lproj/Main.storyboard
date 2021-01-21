@@ -58,18 +58,16 @@
                                 </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="cL9-qj-VQV">
-                                <rect key="frame" x="126" y="319" width="123" height="28"/>
+                                <rect key="frame" x="126" y="336" width="123" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="pageIndicatorTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="currentPageIndicatorTintColor" red="0.91539567710000003" green="0.74147647620000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </pageControl>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BY6-mS-MWJ">
-                                <rect key="frame" x="45" y="117" width="284" height="190"/>
+                                <rect key="frame" x="45" y="117" width="284" height="207"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.91539567710000003" green="0.74147647620000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <viewLayoutGuide key="contentLayoutGuide" id="ALn-Cv-Acp"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="neA-91-aUE"/>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
