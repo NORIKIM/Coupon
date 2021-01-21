@@ -13,42 +13,40 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var pageControl: UIPageControl!
     
     let db = Database().readDB(select: "전체")
+    let page = 3
     var dbRowCount = 0
-    var expireCoupon = [Coupon]()
+//    var expireCoupon = [Coupon]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         nearExpire()
         
-        if expireCoupon.count > 1 {
-            pageControl.numberOfPages = expireCoupon.count
-        }
+//        if expireCoupon.count > 1 {
+            pageControl.numberOfPages = page//db.count
+//        }
         setCouponScreen()
-        scrollView.delegate = self
     }
 
     func setCouponScreen() {
-        var frame = CGRect.zero
-        for idx in 0 ..< expireCoupon.count {
-            frame.origin.x = scrollView.frame.size.width * CGFloat(idx)
-            frame.size = scrollView.frame.size
-            
-            let couponInfoLB = UILabel(frame: CGRect(x: 0, y: 0, width: scrollView.frame.size.width, height: scrollView.frame.size.height))
+        let scrollwidth = self.scrollView.frame.width
+        let scrollheight = self.scrollView.frame.height
+        
+        scrollView.contentSize = CGSize(width: CGFloat(page) * self.scrollView.frame.width, height: 0)
+        
+        for idx in 0 ..< page{//db.count {
+            let couponInfoLB = UILabel(frame: CGRect(x: CGFloat(idx) * scrollwidth , y: 0 , width: scrollwidth, height: scrollheight))
             couponInfoLB.textAlignment = .center
-            couponInfoLB.text = "\(expireCoupon[idx].category) \n \(expireCoupon[idx].shop) \n \(expireCoupon[idx].expireDate)"
+            couponInfoLB.text = "\(db[idx].category) \n \(db[idx].shop) \n \(db[idx].expireDate)"
             couponInfoLB.numberOfLines = 3
             
             self.scrollView.addSubview(couponInfoLB)
         }
-        
-        scrollView.contentSize = CGSize(width: (scrollView.frame.size.width * CGFloat(expireCoupon.count)), height: scrollView.frame.size.height)
         scrollView.delegate = self
     }
     
     func nearExpire() {
         print("near")
-        expireCoupon.append(db[0])
         /*if db.count == 0 {
             nearestExpireCoupon!.setTitle("등록된 쿠폰이 없습니다.:)", for: .normal)
         } else if db.count == 1 {
@@ -78,8 +76,13 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
-        pageControl.currentPage = Int(pageNumber)
+//        let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
+//        pageControl.currentPage = Int(pageNumber)
+        
+        if fmod(scrollView.contentOffset.x, scrollView.frame.maxX) == 0 {
+            // Switch the location of the page.
+            pageControl.currentPage = Int(scrollView.contentOffset.x / scrollView.frame.maxX)
+        }
     }
 }
 
