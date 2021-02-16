@@ -26,19 +26,3 @@ class Coupon {
         self.contentPhoto = contentPhoto
     }
 }
-
-class Cafe: Coupon {
-    
-}
-
-class Restaurant: Coupon {
-    
-}
-
-class Shopping: Coupon {
-    
-}
-
-class ConvenienceStore: Coupon {
-    
-}
