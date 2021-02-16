@@ -12,7 +12,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     
-    let db = Database().readDB(select: "전체")
+    var db = Database().readDB(select: "전체")
     let userDefaults = UserDefaults.standard
     let userDefaultsKey = "couponIndex"
 
@@ -20,12 +20,18 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         
         setCouponScreen()
+        NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: NSNotification.Name(rawValue: "save"), object: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
         setCouponScreen()
+    }
+    
+    @objc func refresh() {
+        db = Database().readDB(select: "전체")
+        findExpireCoupon()
     }
     
     func findExpireCoupon() -> Void {

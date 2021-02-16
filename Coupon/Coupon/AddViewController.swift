@@ -224,6 +224,8 @@ class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerCont
         db.insert(category: category, shop: shopName.text!, price: price.text!, expireDate: expire!, content: content.text, contentPhoto: contentImage!)
         
         self.navigationController?.popViewController(animated: true)
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "save"), object: nil)
     }
 }
 
