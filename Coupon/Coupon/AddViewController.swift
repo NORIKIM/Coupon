@@ -148,12 +148,11 @@ class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerCont
     
     ///데이트피커 설정
    func showDatePicker() {
-        expireDate.inputView = datePicker
-        
         datePicker.datePickerMode = .dateAndTime
         datePicker.locale = .current
         datePicker.preferredDatePickerStyle = .wheels
-        
+        expireDate.inputView = datePicker
+    
         // toolbar
         let toolbar = UIToolbar()
         toolbar.barStyle = .default
@@ -216,8 +215,9 @@ class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerCont
     // 쿠폰값 저장
     @IBAction func saveData(_ sender: Any) {
         let format = DateFormatter()
+        format.locale = Locale(identifier: "ko_KR")
+        format.timeZone = TimeZone(abbreviation: "KST")
         format.dateFormat = "yyyy년 MM월 dd일 hh:mm a"
-        format.timeZone = NSTimeZone(name: "UTC") as TimeZone?
         let expire = format.date(from: expireDate.text!)
         
         let db = Database()
