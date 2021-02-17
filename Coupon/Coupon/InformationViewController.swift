@@ -21,8 +21,26 @@ class InformationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let dateFormat = DateFormatter()
+        dateFormat.dateFormat = "yyyy년 MM월 dd일 hh:mm a"
+        let expireDate = dateFormat.string(from: coupon!.expireDate)
+        
+        categoryLB.text = coupon?.category
+        shopNameLB.text = coupon?.shop
+        priceLB.text = coupon?.price
+        expireDateLB.text = expireDate
+        
+        if coupon?.contentPhoto == nil {
+            contentImg.isHidden = true
+            let y = contentView.frame.origin.y
+            contentView.frame.origin.y = y - 30
+            contentView.text = coupon?.content
+        }  else if coupon?.content == "" {
+            contentView.isHidden = true
+        } else if coupon?.contentPhoto != nil && coupon?.content != "" {
+            contentImg.image = coupon?.contentPhoto
+            contentView.text = coupon?.content
+        }
     }
-    
-
 
 }

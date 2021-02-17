@@ -29,6 +29,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         setCouponScreen()
     }
     
+    // 쿠폰이 추가되면 디비를 다시 읽어온 후 쿠폰 유효기간 확인
     @objc func refresh() {
         db = Database().readDB(select: "전체")
         findExpireCoupon()
@@ -114,6 +115,17 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         }
         
         self.navigationController?.pushViewController(listView, animated: true)
+    }
+    
+    @IBAction func showCouponInfo(_ sender: UITapGestureRecognizer) {
+        let scrollViewCurrentPage = pageControl.currentPage
+        let expireCoupon = userDefaults.object(forKey: userDefaultsKey) as! [Int]
+        let currentCouponIndex = expireCoupon[scrollViewCurrentPage]
+        let currentCoupon = db[currentCouponIndex]
+        
+        let couponInfoView = self.storyboard?.instantiateViewController(withIdentifier: "information") as! InformationViewController
+        couponInfoView.coupon = Coupon(category: currentCoupon.category, shop: currentCoupon.shop, price: currentCoupon.price, expireDate: currentCoupon.expireDate, content: currentCoupon.content, contentPhoto: currentCoupon.contentPhoto)
+        self.navigationController?.pushViewController(couponInfoView, animated: true)
     }
 }
 
