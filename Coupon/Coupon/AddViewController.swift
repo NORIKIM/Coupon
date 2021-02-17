@@ -214,18 +214,47 @@ class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerCont
     
     // 쿠폰값 저장
     @IBAction func saveData(_ sender: Any) {
-        let format = DateFormatter()
-        format.locale = Locale(identifier: "ko_KR")
-        format.timeZone = TimeZone(abbreviation: "KST")
-        format.dateFormat = "yyyy년 MM월 dd일 hh:mm a"
-        let expire = format.date(from: expireDate.text!)
+        if category == "" {
+            alert(nilCheck: "category")
+        } else if shopName.text == "" {
+            alert(nilCheck: "shopName")
+        } else if expireDate.text == "" {
+            alert(nilCheck: "expire")
+        } else {
+            let format = DateFormatter()
+            format.locale = Locale(identifier: "ko_KR")
+            format.timeZone = TimeZone(abbreviation: "KST")
+            format.dateFormat = "yyyy년 MM월 dd일 hh:mm a"
+            let expire = format.date(from: expireDate.text!)
+            
+            let db = Database()
+            db.insert(category: category, shop: shopName.text!, price: price.text ?? "0", expireDate: expire!, content: content.text, contentPhoto: contentImage ?? UIImage())
+            
+            self.navigationController?.popViewController(animated: true)
+            
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "save"), object: nil)
+        }
+    }
+    
+    // 필수 항목 미기재시 에러메세지 알럿
+    func alert(nilCheck: String) {
+        var message = ""
         
-        let db = Database()
-        db.insert(category: category, shop: shopName.text!, price: price.text!, expireDate: expire!, content: content.text, contentPhoto: contentImage ?? UIImage())
+        switch nilCheck {
+        case "shopName":
+            message = "상호를 입력해주세요"
+        case "category":
+            message = "분류를 선택해주세요"
+        case "expire":
+            message = "쿠폰의 만료일을 선택하여 주세요"
+        default:
+            message = "필수 항목이 입력되지 않았습니다."
+        }
         
-        self.navigationController?.popViewController(animated: true)
-        
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "save"), object: nil)
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default)
+        alert.addAction(ok)
+        present(alert, animated: true, completion: nil)
     }
 }
 
