@@ -120,13 +120,20 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     @IBAction func showCouponInfo(_ sender: UITapGestureRecognizer) {
         let scrollViewCurrentPage = pageControl.currentPage
-        let expireCoupon = userDefaults.object(forKey: userDefaultsKey) as! [Int]
-        let currentCouponIndex = expireCoupon[scrollViewCurrentPage]
-        let currentCoupon = db[currentCouponIndex]
+        let expireCoupon: [Int]
+        if userDefaults.object(forKey: userDefaultsKey) == nil {
+            sender.isEnabled = true
+        } else {
+            expireCoupon = userDefaults.object(forKey: userDefaultsKey) as! [Int]
+            let currentCouponIndex = expireCoupon[scrollViewCurrentPage]
+            let currentCoupon = db[currentCouponIndex]
+            
+            let couponInfoView = self.storyboard?.instantiateViewController(withIdentifier: "information") as! InformationViewController
+            couponInfoView.coupon = Coupon(category: currentCoupon.category, shop: currentCoupon.shop, price: currentCoupon.price, expireDate: currentCoupon.expireDate, content: currentCoupon.content, contentPhoto: currentCoupon.contentPhoto)
+            self.navigationController?.pushViewController(couponInfoView, animated: true)
+        }
         
-        let couponInfoView = self.storyboard?.instantiateViewController(withIdentifier: "information") as! InformationViewController
-        couponInfoView.coupon = Coupon(category: currentCoupon.category, shop: currentCoupon.shop, price: currentCoupon.price, expireDate: currentCoupon.expireDate, content: currentCoupon.content, contentPhoto: currentCoupon.contentPhoto)
-        self.navigationController?.pushViewController(couponInfoView, animated: true)
+        
     }
 }
 
