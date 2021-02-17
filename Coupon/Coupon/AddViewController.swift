@@ -184,8 +184,8 @@ class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerCont
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] {
-            let selectImage = image as! UIImage
-            photo.image = resizeImage(image: selectImage, size: photo.bounds.width)
+            let selectImage = image as? UIImage
+            photo.image = resizeImage(image: selectImage ?? UIImage(), size: photo.bounds.width)
             contentImage = selectImage
         }
         // 이미지뷰에 사진이 선택되어져 있을 때만 탭제스쳐 액션 삽입
@@ -221,7 +221,7 @@ class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerCont
         let expire = format.date(from: expireDate.text!)
         
         let db = Database()
-        db.insert(category: category, shop: shopName.text!, price: price.text!, expireDate: expire!, content: content.text, contentPhoto: contentImage!)
+        db.insert(category: category, shop: shopName.text!, price: price.text!, expireDate: expire!, content: content.text, contentPhoto: contentImage ?? UIImage())
         
         self.navigationController?.popViewController(animated: true)
         
