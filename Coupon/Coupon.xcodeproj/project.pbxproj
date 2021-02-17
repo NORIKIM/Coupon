@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C34730525DD07E500655858 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C34730425DD07E500655858 /* InformationViewController.swift */; };
 		3C3D11A2259B654600926442 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3D11A1259B654600926442 /* Database.swift */; };
 		3C4F16B5251F1CAA0059C61F /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4F16B4251F1CAA0059C61F /* AddViewController.swift */; };
 		3C4F16B7251F28590059C61F /* Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4F16B6251F28590059C61F /* Coupon.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C34730425DD07E500655858 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		3C3D11A1259B654600926442 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		3C4F16B4251F1CAA0059C61F /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		3C4F16B6251F28590059C61F /* Coupon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coupon.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				3CC3C786251CB57300A90018 /* SceneDelegate.swift */,
 				3CC3C788251CB57300A90018 /* ViewController.swift */,
 				3C4F16B4251F1CAA0059C61F /* AddViewController.swift */,
+				3C34730425DD07E500655858 /* InformationViewController.swift */,
 				3C4FBBF2258B60F400AB1CE1 /* PhotoZoomViewController.swift */,
 				3C4FBBF5258B6A2800AB1CE1 /* ListViewController.swift */,
 				3C3D11A1259B654600926442 /* Database.swift */,
@@ -161,6 +164,7 @@
 				3CC3C787251CB57300A90018 /* SceneDelegate.swift in Sources */,
 				3C3D11A2259B654600926442 /* Database.swift in Sources */,
 				3C4FBBF6258B6A2800AB1CE1 /* ListViewController.swift in Sources */,
+				3C34730525DD07E500655858 /* InformationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
