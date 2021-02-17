@@ -97,6 +97,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                 couponInfoLB.numberOfLines = 3
                 self.scrollView.addSubview(couponInfoLB)
             }
+            scrollView.contentSize = CGSize(width: scrollView.frame.size.width * CGFloat(couponIndexArr.count), height: scrollView.frame.size.height)
             scrollView.delegate = self
         }
     }
