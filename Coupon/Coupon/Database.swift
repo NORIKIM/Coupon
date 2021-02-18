@@ -82,7 +82,7 @@ struct Database {
     func insert(category: String, shop: String, price: String, expireDate: Date, content: String, contentPhoto: UIImage) {
         let insertQuery = "INSERT INTO coupon(category, shop, price, expireDate, content, contentPhoto) VALUES(?,?,?,?,?,?)"
         var insertStmt:OpaquePointer? = nil
-        let imgData = contentPhoto.pngData()! as NSData
+        let imgData = contentPhoto.pngData() as NSData?
 
         if sqlite3_prepare_v2(db, insertQuery, -1, &insertStmt, nil) == SQLITE_OK {
             sqlite3_bind_text(insertStmt, 1, (category as NSString).utf8String, -1, nil)
@@ -90,7 +90,7 @@ struct Database {
             sqlite3_bind_text(insertStmt, 3, (price as NSString).utf8String, -1, nil)
             sqlite3_bind_double(insertStmt, 4, expireDate.timeIntervalSinceReferenceDate)
             sqlite3_bind_text(insertStmt, 5, (content as NSString).utf8String, -1, nil)
-            sqlite3_bind_blob(insertStmt, 6, imgData.bytes, Int32(imgData.length), nil)
+            sqlite3_bind_blob(insertStmt, 6, imgData?.bytes, Int32(imgData?.length ?? 0), nil)
             
             if sqlite3_step(insertStmt) == SQLITE_DONE {
                 print("SUCCESS")
