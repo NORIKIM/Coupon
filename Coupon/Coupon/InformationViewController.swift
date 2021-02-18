@@ -30,14 +30,25 @@ class InformationViewController: UIViewController {
         priceLB.text = coupon?.price
         expireDateLB.text = expireDate
         
-        if coupon?.contentPhoto == nil {
+        // 이미지 No, 내용 No
+        if coupon?.contentPhoto == nil && coupon?.content == "" {
+            contentImg.isHidden = true
+            contentView.isHidden = true
+        }
+        // 이미지 No, 내용 Yes
+        else if coupon?.contentPhoto == nil && coupon?.content != "" {
             contentImg.isHidden = true
             let y = contentView.frame.origin.y
             contentView.frame.origin.y = y - 30
             contentView.text = coupon?.content
-        }  else if coupon?.content == "" {
+        }
+        // 이미지 Yes, 내용 No
+        else if coupon?.contentPhoto != nil && coupon?.content == "" {
+            contentImg.image = coupon?.contentPhoto
             contentView.isHidden = true
-        } else if coupon?.contentPhoto != nil && coupon?.content != "" {
+        }
+        // 이미지 Yes, 내용 Yes
+        else {
             contentImg.image = coupon?.contentPhoto
             contentView.text = coupon?.content
         }
