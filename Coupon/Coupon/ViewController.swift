@@ -42,7 +42,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         } else {
             var couponIndexArr = userDefaults.object(forKey: userDefaultsKey) as! [Int]
             let dateformatter = DateFormatter()
-            dateformatter.dateStyle = .long
+            dateformatter.dateFormat = "yyyyMMdd"
             let baseDate = dateformatter.string(from: db[couponIndexArr[0]].expireDate)
             let addedDate = dateformatter.string(from: db[db.count-1].expireDate)
             
