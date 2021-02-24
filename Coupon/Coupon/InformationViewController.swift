@@ -22,7 +22,7 @@ class InformationViewController: UIViewController {
         super.viewDidLoad()
 
         let dateFormat = DateFormatter()
-        dateFormat.dateFormat = "yyyy년 MM월 dd일 hh:mm a"
+        dateFormat.dateFormat = "yyyy년 MM월 dd일"
         let expireDate = dateFormat.string(from: coupon!.expireDate)
         
         categoryLB.text = coupon?.category

@@ -87,7 +87,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             clearScrollView()
             
             let dateFormat = DateFormatter()
-            dateFormat.dateFormat = "yyyy년 MM월 dd일 hh:mm a"
+            dateFormat.dateFormat = "yyyy년 MM월 dd일"
 
             for idx in 0 ..< couponIndexArr.count {
                 let date = dateFormat.string(from: db[couponIndexArr[idx]].expireDate)

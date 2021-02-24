@@ -148,7 +148,7 @@ class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerCont
     
     ///데이트피커 설정
    func showDatePicker() {
-        datePicker.datePickerMode = .dateAndTime
+        datePicker.datePickerMode = .date
         datePicker.locale = .current
         datePicker.preferredDatePickerStyle = .wheels
         expireDate.inputView = datePicker
@@ -168,7 +168,7 @@ class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerCont
     
     @objc func datePickerDone() {
         let dateFormat = DateFormatter()
-        dateFormat.dateFormat = "yyyy년 MM월 dd일 hh:mm a"
+        dateFormat.dateFormat = "yyyy년 MM월 dd일"
         let selectDate = dateFormat.string(from: datePicker.date)
        
         expireDate.text = selectDate
@@ -240,7 +240,7 @@ class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerCont
             let format = DateFormatter()
             format.locale = Locale(identifier: "ko_KR")
             format.timeZone = TimeZone(abbreviation: "KST")
-            format.dateFormat = "yyyy년 MM월 dd일 hh:mm a"
+            format.dateFormat = "yyyy년 MM월 dd일"
             let expire = format.date(from: expireDate.text!)
             
             let db = Database()

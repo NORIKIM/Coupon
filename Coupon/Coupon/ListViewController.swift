@@ -27,7 +27,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let dateFormat = DateFormatter()
-        dateFormat.dateFormat = "yyyy년 MM월 dd일 hh:mm a"
+        dateFormat.dateFormat = "yyyy년 MM월 dd일"
         let date = dateFormat.string(from: couponlist[indexPath.row].expireDate)
         
         cell.textLabel?.text = couponlist[indexPath.row].shop
