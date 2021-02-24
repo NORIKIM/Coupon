@@ -149,6 +149,7 @@ class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerCont
     ///데이트피커 설정
    func showDatePicker() {
         datePicker.datePickerMode = .date
+    datePicker.minimumDate = Date()
         datePicker.locale = .current
         datePicker.preferredDatePickerStyle = .wheels
         expireDate.inputView = datePicker
