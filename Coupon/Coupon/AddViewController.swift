@@ -182,11 +182,27 @@ class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerCont
         present(imagePickerController, animated: true, completion: nil)
     }
     
+    // 이미지 방향이 정방향이 아니면 정방향으로 돌려줌
+    func imageRotate(image: UIImage) -> UIImage {
+        if image.imageOrientation == .up {
+            return image
+        }
+        
+        UIGraphicsBeginImageContextWithOptions(image.size, false, image.scale)
+        let rect = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+        image.draw(in: rect)
+        
+        let normal = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        return normal
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] {
             let selectImage = image as? UIImage
             photo.image = resizeImage(image: selectImage ?? UIImage(), size: photo.bounds.width)
-            contentImage = selectImage
+            contentImage = imageRotate(image: selectImage!)
         }
         // 이미지뷰에 사진이 선택되어져 있을 때만 탭제스쳐 액션 삽입
         let photoGesture = UITapGestureRecognizer(target: self, action: #selector(photoZoom))
