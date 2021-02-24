@@ -485,6 +485,7 @@
                     <connections>
                         <outlet property="categoryLB" destination="3Js-tB-TDF" id="4iP-kO-7YE"/>
                         <outlet property="contentImg" destination="PT8-zA-GBZ" id="ths-54-6Ua"/>
+                        <outlet property="contentTitleLB" destination="PXx-lR-wio" id="tVe-vg-5mG"/>
                         <outlet property="contentView" destination="5iw-mG-F2M" id="wGN-x6-6Lm"/>
                         <outlet property="expireDateLB" destination="pkM-Ne-9Tw" id="nGf-h0-wft"/>
                         <outlet property="priceLB" destination="xa8-FP-XlY" id="yoa-Mh-TTm"/>

@@ -15,6 +15,7 @@ class InformationViewController: UIViewController {
     @IBOutlet weak var expireDateLB: UILabel!
     @IBOutlet weak var contentImg: UIImageView!
     @IBOutlet weak var contentView: UITextView!
+    @IBOutlet weak var contentTitleLB: UILabel!
     
     var coupon: Coupon?
 
@@ -34,6 +35,7 @@ class InformationViewController: UIViewController {
         if coupon?.contentPhoto == nil && coupon?.content == "" {
             contentImg.isHidden = true
             contentView.isHidden = true
+            contentTitleLB.isHidden = true
         }
         // 이미지 No, 내용 Yes
         else if coupon?.contentPhoto == nil && coupon?.content != "" {
