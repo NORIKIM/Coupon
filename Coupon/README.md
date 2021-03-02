@@ -153,7 +153,7 @@ let toolbar = UIToolbar(frame: CGRect(origin: .zero, size: CGSize(width: datePic
 
 ## 메인화면-------
 
-### 메인으로 보여줄 쿠폰정보 버튼
+### 메인으로 보여줄 쿠폰정보
 
 유효기간이 임박한 쿠폰 정보를 보여준다.
 
@@ -165,18 +165,15 @@ let toolbar = UIToolbar(frame: CGRect(origin: .zero, size: CGSize(width: datePic
 
 보여주어야 할 쿠폰이 만약 여러개 라면, 버튼으로는 여러개의 쿠폰을 보여 줄 수 없으므로 scrollView와 pageControl을 사용하도록 변경하였다.
 
-### '+' 버튼을 통해 데이터베이스에 쿠폰이 새로 저장된 후 메인뷰에서 비교 처리 하기
+--------------
 
 AddViewController의 save버튼이 눌리면 MainViewController를 다운캐스팅 해와서 MainViewController에서 쿠폰을 비교 처리하는 메소드를 호출해본다.
 
 호출 된 메소드는 실행은 되지만 실제 MainViewConroller에 반영이 되지 않는다.
 
--> 읽어온 데이터베이스가 저장된 변수 db는 새로 추가된 쿠폰을 가지고 있지 않기 때문이다.
-
 ---------------
 
+**-> 읽어온 데이터베이스가 저장된 변수 db는 새로 추가된 쿠폰을 가지고 있지 않기 때문이다. <-**
+
 딜리게이트 또는 노티피케이션을 이용한 방법도 있지만 굳이 이것들을 사용하지 않아도 해결 할 수 있으리라 생각했다
-
-----------------------
-
 viewWillAppear는 뷰가 나타날 때마다 호출이되므로 여기에서 데이터베이스를 업데이트 해주면 새로 추가된 쿠폰 디비를 읽어올 수 있었다.
