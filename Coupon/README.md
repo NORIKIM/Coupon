@@ -134,7 +134,9 @@ notification에 observer를 추가해주고 selector objc 함수에서 내용이
 ```swift
 if self.content.isFirstResponder { ...... }
 ```
-
+### 쿠폰 이미지 선택
+문제 : 쿠폰 내용 중 이미지를 추가하는 경우 앨범에서 선택한 이미지가 저장 전에는 정방향으로 보였는데 db에 저장하고 나서 불러오면 거꾸로 보인다
+해결 : 그래서 앨범에서 선택한 이미지의 orientation이 정방향이 아니면 UIGraphicsBeginImageContextWithOptions를 이용하여 이미지를 정방향으로 변형하여 가져오도록 함
 ### 저장
 
 입력된 쿠폰의 정보들을 저장하기 위해 userDefault, coreData, SQLite 중 어떤 방식을 이용해야 하는지 고민했다. 단순히 쿠폰의 정보를 저장하고 원하는 때에 원하는 정보만 보여주기만 하면 되므로 SQLite의 사용을 결정하였다.
