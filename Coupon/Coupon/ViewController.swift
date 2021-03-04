@@ -122,15 +122,14 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     @IBAction func showCouponInfo(_ sender: UITapGestureRecognizer) {
         let scrollViewCurrentPage = pageControl.currentPage
-        let expireCoupon: [Int]
         let indexData = userDefaults.object(forKey: userDefaultsKey) as? [Int]
         
         if indexData?.count == nil || indexData?.count == 0 {
             sender.isEnabled = true
         } else {
-            expireCoupon = userDefaults.object(forKey: userDefaultsKey) as! [Int]
-            let currentCouponIndex = expireCoupon[scrollViewCurrentPage]
-            let currentCoupon = data[currentCouponIndex]
+            let currentCouponPagenumber = indexData![scrollViewCurrentPage]
+            let currentCoupon = data[currentCouponPagenumber]
+            
             
             let couponInfoView = self.storyboard?.instantiateViewController(withIdentifier: "information") as! InformationViewController
             couponInfoView.coupon = Coupon(category: currentCoupon.category, shop: currentCoupon.shop, price: currentCoupon.price, expireDate: currentCoupon.expireDate, content: currentCoupon.content, contentPhoto: currentCoupon.contentPhoto)
