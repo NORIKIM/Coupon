@@ -79,6 +79,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         }
         
         if couponIndexArr.count == 0 {
+            clearScrollView()
             let couponInfoLB = UILabel(frame: CGRect(x: 0 , y: 0 , width: scrollwidth, height: scrollheight))
             couponInfoLB.textAlignment = .center
             couponInfoLB.numberOfLines = 3
