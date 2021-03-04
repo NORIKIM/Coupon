@@ -123,7 +123,9 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     @IBAction func showCouponInfo(_ sender: UITapGestureRecognizer) {
         let scrollViewCurrentPage = pageControl.currentPage
         let expireCoupon: [Int]
-        if userDefaults.object(forKey: userDefaultsKey) == nil {
+        let indexData = userDefaults.object(forKey: userDefaultsKey) as? [Int]
+        
+        if indexData?.count == nil || indexData?.count == 0 {
             sender.isEnabled = true
         } else {
             expireCoupon = userDefaults.object(forKey: userDefaultsKey) as! [Int]
