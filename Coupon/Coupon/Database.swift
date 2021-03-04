@@ -103,4 +103,24 @@ struct Database {
         }
         sqlite3_finalize(insertStmt)
     }
+    
+    // 삭제
+        func delete(cell: Int32) {
+            let deleteQuery = "DELETE FROM coupon WHERE id = \(cell)"
+            var deleteStmt: OpaquePointer? = nil
+            
+            if sqlite3_prepare_v2(db, deleteQuery, -1, &deleteStmt, nil) == SQLITE_OK {
+                sqlite3_bind_int(deleteStmt, 1, cell)
+                
+                if sqlite3_step(deleteStmt) == SQLITE_DONE {
+                    print("success delete")
+                } else {
+                    print("fail delete")
+                }
+            } else {
+                print("delete not be prepared")
+            }
+            
+            sqlite3_finalize(deleteStmt)
+        }
 }
