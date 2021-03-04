@@ -6,7 +6,6 @@
 //  Copyright © 2020 김지나. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import SQLite3
 
@@ -36,7 +35,7 @@ struct Database {
     
     // create table
     func createTable() {
-        let creatQuery = "CREATE TABLE IF NOT EXISTS coupon(category TEXT, shop TEXT, price TEXT, expireDate TEXT, content TEXT, contentPhoto BLOB)"
+        let creatQuery = "CREATE TABLE IF NOT EXISTS coupon(id INTEGER primary key autoincrement, category TEXT, shop TEXT, price TEXT, expireDate TEXT, content TEXT, contentPhoto BLOB)"
         var createStmt: OpaquePointer? = nil
         
         if sqlite3_prepare_v2(db, creatQuery, -1, &createStmt, nil) == SQLITE_OK {
@@ -61,14 +60,14 @@ struct Database {
         
         if sqlite3_prepare_v2(db, selectQuery, -1, &selectStmt, nil) == SQLITE_OK {
             while sqlite3_step(selectStmt) == SQLITE_ROW {
-                let category = String(describing: String(cString: sqlite3_column_text(selectStmt, 0)))
-                let shop = String(describing: String(cString: sqlite3_column_text(selectStmt, 1)))
-                let price = String(describing: String(cString: sqlite3_column_text(selectStmt, 2)))
-                let expireDate = Date(timeIntervalSinceReferenceDate: sqlite3_column_double(selectStmt, 3))
-                let content = String(describing: String(cString: sqlite3_column_text(selectStmt, 4)))
+                let category = String(describing: String(cString: sqlite3_column_text(selectStmt, 1)))
+                let shop = String(describing: String(cString: sqlite3_column_text(selectStmt, 2)))
+                let price = String(describing: String(cString: sqlite3_column_text(selectStmt, 3)))
+                let expireDate = Date(timeIntervalSinceReferenceDate: sqlite3_column_double(selectStmt, 4))
+                let content = String(describing: String(cString: sqlite3_column_text(selectStmt, 5)))
                 
-                let lenght:Int = Int(sqlite3_column_bytes(selectStmt, 5));
-                let contentPhoto : NSData = NSData(bytes: sqlite3_column_blob(selectStmt, 5), length: lenght)
+                let lenght:Int = Int(sqlite3_column_bytes(selectStmt, 6))
+                let contentPhoto : NSData = NSData(bytes: sqlite3_column_blob(selectStmt, 6), length: lenght)
                 let contentImg = UIImage(data: contentPhoto as Data)
                 coupon.append(Coupon(category: category, shop: shop, price: price, expireDate: expireDate, content: content, contentPhoto: contentImg))
             }
