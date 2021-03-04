@@ -11,6 +11,7 @@ import UIKit
 import SQLite3
 
 struct Database {
+    static let shared = Database()
     let dbName = "coupon.sqlite"
     var db: OpaquePointer?
     
