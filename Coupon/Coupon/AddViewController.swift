@@ -222,6 +222,11 @@ class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerCont
         return newimg!
     }
     
+    @IBAction func clearPhoto(_ sender: UIButton) {
+        photo.image = UIImage(systemName: "camera.fill")
+        contentImage = nil
+    }
+    
     // 선택한 이미지를 크게 볼 수 있도록 줌컨트롤러로 연결
     @objc func photoZoom() {
         let photoZoomView = self.storyboard?.instantiateViewController(withIdentifier: "photoZoom") as! PhotoZoomViewController
@@ -244,7 +249,7 @@ class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerCont
             format.dateFormat = "yyyy년 MM월 dd일"
             let expire = format.date(from: expireDate.text!)
             
-            let db = Database()
+            let db = Database.shared
             db.insert(category: category, shop: shopName.text!, price: price.text ?? "0", expireDate: expire!, content: content.text, contentPhoto: contentImage ?? UIImage())
             
             self.navigationController?.popViewController(animated: true)
