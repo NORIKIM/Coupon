@@ -323,6 +323,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="cafe" destination="K27-lg-RHv" id="GeL-wq-clO"/>
+                        <outlet property="clear" destination="2Qf-0Y-7ya" id="Awa-dy-0TQ"/>
                         <outlet property="content" destination="LRd-5n-R8f" id="vEx-fs-uKQ"/>
                         <outlet property="convenienceStore" destination="UKv-l9-JuX" id="OOi-Ke-CnK"/>
                         <outlet property="expireDate" destination="xMS-DC-M2j" id="al8-Bs-wYj"/>
