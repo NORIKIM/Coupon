@@ -12,45 +12,46 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     
-    var db = Database().readDB(select: "전체")
+    let db = Database.shared
+    var data = [Coupon]()
     let userDefaults = UserDefaults.standard
     let userDefaultsKey = "couponIndex"
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        data = db.readDB(select: "전체")
         setCouponScreen()
         NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: NSNotification.Name(rawValue: "save"), object: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
+        data = db.readDB(select: "전체")
         setCouponScreen()
     }
     
     // 쿠폰이 추가되면 디비를 다시 읽어온 후 쿠폰 유효기간 확인
     @objc func refresh() {
-        db = Database().readDB(select: "전체")
+        data = db.readDB(select: "전체")
         findExpireCoupon()
     }
     
     func findExpireCoupon() -> Void {
-        if db.count == 1 {
-            userDefaults.set([db.count - 1], forKey: userDefaultsKey)
+        if data.count == 1 {
+            userDefaults.set([data.count - 1], forKey: userDefaultsKey)
             return
         } else {
             var couponIndexArr = userDefaults.object(forKey: userDefaultsKey) as! [Int]
             let dateformatter = DateFormatter()
             dateformatter.dateFormat = "yyyyMMdd"
-            let baseDate = dateformatter.string(from: db[couponIndexArr[0]].expireDate)
-            let addedDate = dateformatter.string(from: db[db.count-1].expireDate)
+            let baseDate = dateformatter.string(from: data[couponIndexArr[0]].expireDate)
+            let addedDate = dateformatter.string(from: data[data.count-1].expireDate)
             
             if baseDate > addedDate {
-                userDefaults.set([db.count - 1], forKey: userDefaultsKey)
+                userDefaults.set([data.count - 1], forKey: userDefaultsKey)
                 return
             } else if baseDate == addedDate {
-                couponIndexArr.append(db.count - 1)
+                couponIndexArr.append(data.count - 1)
                 userDefaults.set(couponIndexArr, forKey: userDefaultsKey)
                 return
             }
@@ -90,10 +91,10 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             dateFormat.dateFormat = "yyyy년 MM월 dd일"
 
             for idx in 0 ..< couponIndexArr.count {
-                let date = dateFormat.string(from: db[couponIndexArr[idx]].expireDate)
+                let date = dateFormat.string(from: data[couponIndexArr[idx]].expireDate)
                 let couponInfoLB = UILabel(frame: CGRect(x: CGFloat(idx) * scrollwidth , y: 0 , width: scrollwidth, height: scrollheight))
                 couponInfoLB.textAlignment = .center
-                couponInfoLB.text = "\(db[couponIndexArr[idx]].category) \n \(db[couponIndexArr[idx]].shop) \n \(date)"
+                couponInfoLB.text = "\(data[couponIndexArr[idx]].category) \n \(data[couponIndexArr[idx]].shop) \n \(date)"
                 couponInfoLB.numberOfLines = 3
                 self.scrollView.addSubview(couponInfoLB)
             }
@@ -126,7 +127,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         } else {
             expireCoupon = userDefaults.object(forKey: userDefaultsKey) as! [Int]
             let currentCouponIndex = expireCoupon[scrollViewCurrentPage]
-            let currentCoupon = db[currentCouponIndex]
+            let currentCoupon = data[currentCouponIndex]
             
             let couponInfoView = self.storyboard?.instantiateViewController(withIdentifier: "information") as! InformationViewController
             couponInfoView.coupon = Coupon(category: currentCoupon.category, shop: currentCoupon.shop, price: currentCoupon.price, expireDate: currentCoupon.expireDate, content: currentCoupon.content, contentPhoto: currentCoupon.contentPhoto)

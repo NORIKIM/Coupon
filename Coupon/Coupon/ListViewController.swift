@@ -11,7 +11,7 @@ import UIKit
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var list: UITableView!
     var couponlist: [Coupon] = []
-    let db = Database()
+    let db = Database.shared
     var category = ""
     
     override func viewDidLoad() {
