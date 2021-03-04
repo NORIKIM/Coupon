@@ -31,6 +31,7 @@ class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerCont
     @IBOutlet weak var expireDate: UITextField!
     @IBOutlet weak var content: UITextView!
     @IBOutlet weak var photo: UIImageView!
+    @IBOutlet weak var clear: UIButton!
     
     var categoryButton = [UIButton]()
     var datePicker = UIDatePicker()
@@ -224,6 +225,7 @@ class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerCont
     
     @IBAction func clearPhoto(_ sender: UIButton) {
         photo.image = UIImage(systemName: "camera.fill")
+        photo.isUserInteractionEnabled = false
         contentImage = nil
     }
     
