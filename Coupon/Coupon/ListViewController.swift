@@ -20,6 +20,11 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         couponlist = db.readDB(select: category)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        couponlist = db.readDB(select: category)
+    }
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         couponlist.count
     }
@@ -35,4 +40,29 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         return cell
     }
+    
+    // 셀 편집 활성화
+        func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+            return true
+        }
+        
+        // 셀 편집에 대한 동작
+        func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+            let index = indexPath.row
+            
+            if editingStyle == .delete {
+                db.delete(cell: Int32(index) + 1)
+                couponlist.remove(at: index)
+                
+                var expireCoupon = UserDefaults.standard.object(forKey: "couponIndex") as! [Int]
+                for idx in 0 ..< expireCoupon.count {
+                    if index == idx {
+                        expireCoupon.remove(at: idx)
+                        UserDefaults.standard.set(expireCoupon, forKey: "couponIndex")
+                    }
+                }
+                self.list.reloadData()
+            }
+            
+        }
 }
