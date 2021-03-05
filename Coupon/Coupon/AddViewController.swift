@@ -148,13 +148,13 @@ class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerCont
     }
     
     ///데이트피커 설정
-   func showDatePicker() {
+    func showDatePicker() {
         datePicker.datePickerMode = .date
-    datePicker.minimumDate = Date()
+        datePicker.minimumDate = Date()
         datePicker.locale = .current
         datePicker.preferredDatePickerStyle = .wheels
         expireDate.inputView = datePicker
-    
+        
         // toolbar
         let toolbar = UIToolbar()
         toolbar.barStyle = .default
@@ -223,6 +223,7 @@ class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerCont
         return newimg!
     }
     
+    // 선택 이미지 삭제
     @IBAction func clearPhoto(_ sender: UIButton) {
         photo.image = UIImage(systemName: "camera.fill")
         photo.isUserInteractionEnabled = false
