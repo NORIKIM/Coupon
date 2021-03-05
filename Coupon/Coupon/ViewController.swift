@@ -87,6 +87,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             let couponInfoLB = UILabel(frame: CGRect(x: 0 , y: 0 , width: scrollwidth, height: scrollheight))
             couponInfoLB.textAlignment = .center
             couponInfoLB.numberOfLines = 3
+            couponInfoLB.font = UIFont(name: "독립기념관체", size: 17)
             couponInfoLB.text = "등록된 쿠폰이 없습니다"
             self.scrollView.addSubview(couponInfoLB)
         } else {
@@ -99,6 +100,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                 let date = dateFormat.string(from: data[couponIndexArr[idx]].expireDate)
                 let couponInfoLB = UILabel(frame: CGRect(x: CGFloat(idx) * scrollwidth , y: 0 , width: scrollwidth, height: scrollheight))
                 couponInfoLB.textAlignment = .center
+                couponInfoLB.font = UIFont(name: "독립기념관체", size: 17)
                 couponInfoLB.text = "\(data[couponIndexArr[idx]].category) \n \(data[couponIndexArr[idx]].shop) \n \(date)"
                 couponInfoLB.numberOfLines = 3
                 self.scrollView.addSubview(couponInfoLB)
