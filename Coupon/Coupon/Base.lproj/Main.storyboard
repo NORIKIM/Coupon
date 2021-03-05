@@ -8,6 +8,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="독립기념관체.ttf">
+            <string>TheIndependenceHallofKorea-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -18,40 +23,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQs-Yx-wvL">
-                                <rect key="frame" x="99" y="443" width="30" height="30"/>
+                                <rect key="frame" x="99" y="443" width="30" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="TheIndependenceHallofKorea-Regular" family="독립기념관체" pointSize="17"/>
                                 <state key="normal" title="카페"/>
                                 <connections>
                                     <action selector="category:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HFX-Ka-WfY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e4V-2V-8x6">
-                                <rect key="frame" x="219" y="443" width="39" height="30"/>
+                                <rect key="frame" x="217" y="443" width="45" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="TheIndependenceHallofKorea-Regular" family="독립기념관체" pointSize="17"/>
                                 <state key="normal" title="음식점"/>
                                 <connections>
                                     <action selector="category:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0yR-hW-iO3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ms-Wd-9Yo">
-                                <rect key="frame" x="99" y="516" width="30" height="30"/>
+                                <rect key="frame" x="99" y="516" width="30" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="TheIndependenceHallofKorea-Regular" family="독립기념관체" pointSize="17"/>
                                 <state key="normal" title="쇼핑"/>
                                 <connections>
                                     <action selector="category:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LFC-lO-Qf4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dy-oq-J1a">
-                                <rect key="frame" x="223" y="581" width="30" height="30"/>
+                                <rect key="frame" x="223" y="581" width="30" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="TheIndependenceHallofKorea-Regular" family="독립기념관체" pointSize="17"/>
                                 <state key="normal" title="전체"/>
                                 <connections>
                                     <action selector="category:" destination="BYZ-38-t0r" eventType="touchUpInside" id="06O-rp-9PE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Qd-b3-Ror">
-                                <rect key="frame" x="219" y="516" width="39" height="30"/>
+                                <rect key="frame" x="217" y="516" width="45" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="TheIndependenceHallofKorea-Regular" family="독립기념관체" pointSize="17"/>
                                 <state key="normal" title="편의점"/>
                                 <connections>
                                     <action selector="category:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nMC-lt-CNH"/>

@@ -5,9 +5,13 @@
 //  Created by 김지나 on 2020/09/24.
 //  Copyright © 2020 김지나. All rights reserved.
 //
+//-------------------------------------------------
+// = 라이센스 표기 필요 =
+// 폰트 : https://togethergroup.co.kr/sub/type/view.asp?idx=2439
+//-------------------------------------------------
 
 import UIKit
-// 이거
+
 class ViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
