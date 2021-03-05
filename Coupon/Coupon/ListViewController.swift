@@ -41,6 +41,16 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
+    // 선택한 셀 정보를 수정페이지로 전달
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let index = indexPath.row
+        let coupon = couponlist[index]
+        
+        let couponInfoView = self.storyboard?.instantiateViewController(withIdentifier: "information") as! InformationViewController
+        couponInfoView.coupon = Coupon(category: coupon.category, shop: coupon.shop, price: coupon.price, expireDate: coupon.expireDate, content: coupon.content, contentPhoto: coupon.contentPhoto)
+        self.navigationController?.pushViewController(couponInfoView, animated: true)
+    }
+    
     // 셀 편집 활성화
         func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
             return true
