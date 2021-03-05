@@ -122,4 +122,22 @@ struct Database {
             
             sqlite3_finalize(deleteStmt)
         }
+    
+    // 수정
+    func update(id: Int, item: String, revised contents: String) {
+        let updateQuery = "UPDATE coupon SET \(item) = '\(contents)' WHERE id == \(id)"
+        var updateStmt: OpaquePointer? = nil
+        
+        if sqlite3_prepare_v2(db, updateQuery, -1, &updateStmt, nil) == SQLITE_OK {
+            if sqlite3_step(updateStmt) == SQLITE_DONE {
+                print("success update")
+            } else {
+                print("fail update")
+            }
+        } else {
+            print("update could not be prepared")
+        }
+        
+        sqlite3_finalize(updateStmt)
+    }
 }
