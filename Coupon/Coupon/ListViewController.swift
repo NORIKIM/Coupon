@@ -59,9 +59,11 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         // 셀 편집에 대한 동작
         func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
             let index = indexPath.row
-            
+            let data = db.readDB(select: "전체")
+            let select = data[index].id
+
             if editingStyle == .delete {
-                db.delete(cell: Int32(index) + 1)
+                db.delete(cell: select)
                 couponlist.remove(at: index)
                 
                 var expireCoupon = UserDefaults.standard.object(forKey: "couponIndex") as! [Int]
