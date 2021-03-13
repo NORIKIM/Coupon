@@ -253,7 +253,15 @@ class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerCont
             let expire = format.date(from: expireDate.text!)
             
             let db = Database.shared
-            db.insert(category: category, shop: shopName.text!, price: price.text ?? "0", expireDate: expire!, content: content.text, contentPhoto: contentImage ?? UIImage())
+            var id = db.getID()
+            
+            if id == 0 {
+                id = 1
+            } else {
+                id += 1
+            }
+            
+            db.insert(id: id, category: category, shop: shopName.text!, price: price.text ?? "0", expireDate: expire!, content: content.text, contentPhoto: contentImage ?? UIImage())
             
             self.navigationController?.popViewController(animated: true)
             
