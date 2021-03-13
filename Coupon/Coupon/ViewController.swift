@@ -137,11 +137,10 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             sender.isEnabled = true
         } else {
             let currentCouponPagenumber = indexData![scrollViewCurrentPage]
-            let currentCoupon = data[currentCouponPagenumber]
-            
-            
+            let currentCoupon = db.readDB(select: "전체", id: currentCouponPagenumber)[0]
             let couponInfoView = self.storyboard?.instantiateViewController(withIdentifier: "information") as! InformationViewController
-            couponInfoView.coupon = Coupon(category: currentCoupon.category, shop: currentCoupon.shop, price: currentCoupon.price, expireDate: currentCoupon.expireDate, content: currentCoupon.content, contentPhoto: currentCoupon.contentPhoto)
+            
+            couponInfoView.coupon = Coupon(id: currentCoupon.id, category: currentCoupon.category, shop: currentCoupon.shop, price: currentCoupon.price, expireDate: currentCoupon.expireDate, content: currentCoupon.content, contentPhoto: currentCoupon.contentPhoto)
             self.navigationController?.pushViewController(couponInfoView, animated: true)
         }
         
