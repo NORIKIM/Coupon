@@ -35,7 +35,7 @@ struct Database {
     
     // create table
     func createTable() {
-        let creatQuery = "CREATE TABLE IF NOT EXISTS coupon(id INTEGER primary key autoincrement, category TEXT, shop TEXT, price TEXT, expireDate TEXT, content TEXT, contentPhoto BLOB)"
+        let creatQuery = "CREATE TABLE IF NOT EXISTS coupon(id INTEGER primary key, category TEXT, shop TEXT, price TEXT, expireDate TEXT, content TEXT, contentPhoto BLOB)"
         var createStmt: OpaquePointer? = nil
         
         if sqlite3_prepare_v2(db, creatQuery, -1, &createStmt, nil) == SQLITE_OK {
@@ -49,7 +49,7 @@ struct Database {
     }
     
     // read db
-    func readDB(select: String) -> [Coupon] {
+    func readDB(select: String, id: Int = 0) -> [Coupon] {
         var selectQuery = "SELECT * FROM coupon"
         var selectStmt: OpaquePointer? = nil
         var coupon = [Coupon]()
@@ -60,6 +60,7 @@ struct Database {
         
         if sqlite3_prepare_v2(db, selectQuery, -1, &selectStmt, nil) == SQLITE_OK {
             while sqlite3_step(selectStmt) == SQLITE_ROW {
+                let id = Int(sqlite3_column_int(selectStmt, 0))
                 let category = String(describing: String(cString: sqlite3_column_text(selectStmt, 1)))
                 let shop = String(describing: String(cString: sqlite3_column_text(selectStmt, 2)))
                 let price = String(describing: String(cString: sqlite3_column_text(selectStmt, 3)))
@@ -69,7 +70,7 @@ struct Database {
                 let lenght:Int = Int(sqlite3_column_bytes(selectStmt, 6))
                 let contentPhoto : NSData = NSData(bytes: sqlite3_column_blob(selectStmt, 6), length: lenght)
                 let contentImg = UIImage(data: contentPhoto as Data)
-                coupon.append(Coupon(category: category, shop: shop, price: price, expireDate: expireDate, content: content, contentPhoto: contentImg))
+                coupon.append(Coupon(id: id, category: category, shop: shop, price: price, expireDate: expireDate, content: content, contentPhoto: contentImg))
             }
         } else {
             print("ERROR select statement could not be prepared")
@@ -79,18 +80,19 @@ struct Database {
     }
     
     // insert data
-    func insert(category: String, shop: String, price: String, expireDate: Date, content: String, contentPhoto: UIImage) {
+    func insert(id: Int, category: String, shop: String, price: String, expireDate: Date, content: String, contentPhoto: UIImage) {
         let insertQuery = "INSERT INTO coupon(category, shop, price, expireDate, content, contentPhoto) VALUES(?,?,?,?,?,?)"
         var insertStmt:OpaquePointer? = nil
         let imgData = contentPhoto.pngData() as NSData?
 
         if sqlite3_prepare_v2(db, insertQuery, -1, &insertStmt, nil) == SQLITE_OK {
-            sqlite3_bind_text(insertStmt, 1, (category as NSString).utf8String, -1, nil)
-            sqlite3_bind_text(insertStmt, 2, (shop as NSString).utf8String, -1, nil)
-            sqlite3_bind_text(insertStmt, 3, (price as NSString).utf8String, -1, nil)
-            sqlite3_bind_double(insertStmt, 4, expireDate.timeIntervalSinceReferenceDate)
-            sqlite3_bind_text(insertStmt, 5, (content as NSString).utf8String, -1, nil)
-            sqlite3_bind_blob(insertStmt, 6, imgData?.bytes, Int32(imgData?.length ?? 0), nil)
+            sqlite3_bind_int(insertStmt, 1, Int32(id))
+            sqlite3_bind_text(insertStmt, 2, (category as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(insertStmt, 3, (shop as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(insertStmt, 4, (price as NSString).utf8String, -1, nil)
+            sqlite3_bind_double(insertStmt, 5, expireDate.timeIntervalSinceReferenceDate)
+            sqlite3_bind_text(insertStmt, 6, (content as NSString).utf8String, -1, nil)
+            sqlite3_bind_blob(insertStmt, 7, imgData?.bytes, Int32(imgData?.length ?? 0), nil)
             
             if sqlite3_step(insertStmt) == SQLITE_DONE {
                 print("SUCCESS")

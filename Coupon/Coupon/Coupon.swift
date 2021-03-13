@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class Coupon {
+    var id: Int
     var category: String
     var shop: String
     var price: String?
@@ -17,7 +18,8 @@ class Coupon {
     var content: String?
     var contentPhoto: UIImage?
     
-    init(category: String, shop: String, price: String?, expireDate: Date, content: String?, contentPhoto: UIImage?) {
+    init(id: Int, category: String, shop: String, price: String?, expireDate: Date, content: String?, contentPhoto: UIImage?) {
+        self.id = id
         self.category = category
         self.shop = shop
         self.price = price
