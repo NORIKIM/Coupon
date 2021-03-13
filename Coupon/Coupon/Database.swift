@@ -108,12 +108,12 @@ struct Database {
     }
     
     // 삭제
-        func delete(cell: Int32) {
+        func delete(cell: Int) {
             let deleteQuery = "DELETE FROM coupon WHERE id = \(cell)"
             var deleteStmt: OpaquePointer? = nil
             
             if sqlite3_prepare_v2(db, deleteQuery, -1, &deleteStmt, nil) == SQLITE_OK {
-                sqlite3_bind_int(deleteStmt, 1, cell)
+                sqlite3_bind_int(deleteStmt, 1, Int32(cell))
                 
                 if sqlite3_step(deleteStmt) == SQLITE_DONE {
                     print("success delete")
