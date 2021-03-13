@@ -83,7 +83,7 @@ struct Database {
     
     // insert data
     func insert(id: Int, category: String, shop: String, price: String, expireDate: Date, content: String, contentPhoto: UIImage) {
-        let insertQuery = "INSERT INTO coupon(category, shop, price, expireDate, content, contentPhoto) VALUES(?,?,?,?,?,?)"
+        let insertQuery = "INSERT INTO coupon(id, category, shop, price, expireDate, content, contentPhoto) VALUES(?,?,?,?,?,?,?)"
         var insertStmt:OpaquePointer? = nil
         let imgData = contentPhoto.pngData() as NSData?
 
