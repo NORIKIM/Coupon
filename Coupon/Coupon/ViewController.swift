@@ -74,6 +74,8 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     // 임박한 쿠폰 보여주기
     func setCouponScreen() {
         guard let scroll = self.scrollView else {return}
+        scroll.layer.cornerRadius = 11
+        
         let scrollwidth = scroll.frame.width
         let scrollheight = scroll.frame.height
         let couponIndexArr = userDefaults.object(forKey: userDefaultsKey) as? [Int] ?? [Int]()
@@ -90,6 +92,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             couponInfoLB.textAlignment = .center
             couponInfoLB.numberOfLines = 3
             couponInfoLB.font = UIFont(name: "독립기념관체", size: 17)
+            couponInfoLB.textColor = UIColor.white
             couponInfoLB.text = "등록된 쿠폰이 없습니다"
             self.scrollView.addSubview(couponInfoLB)
         } else {
@@ -104,6 +107,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                 let couponInfoLB = UILabel(frame: CGRect(x: CGFloat(idx) * scrollwidth , y: 0 , width: scrollwidth, height: scrollheight))
                 couponInfoLB.textAlignment = .center
                 couponInfoLB.font = UIFont(name: "독립기념관체", size: 17)
+                couponInfoLB.textColor = UIColor.white
                 couponInfoLB.text = "\(couponData.category) \n \(couponData.shop) \n \(date)"
                 couponInfoLB.numberOfLines = 3
                 self.scrollView.addSubview(couponInfoLB)
