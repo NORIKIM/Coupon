@@ -47,7 +47,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         let coupon = couponlist[index]
         
         let couponInfoView = self.storyboard?.instantiateViewController(withIdentifier: "information") as! InformationViewController
-        couponInfoView.coupon = Coupon(category: coupon.category, shop: coupon.shop, price: coupon.price, expireDate: coupon.expireDate, content: coupon.content, contentPhoto: coupon.contentPhoto)
+        couponInfoView.coupon = Coupon(id: coupon.id, category: coupon.category, shop: coupon.shop, price: coupon.price, expireDate: coupon.expireDate, content: coupon.content, contentPhoto: coupon.contentPhoto)
         self.navigationController?.pushViewController(couponInfoView, animated: true)
     }
     
