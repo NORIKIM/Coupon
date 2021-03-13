@@ -41,8 +41,10 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func findExpireCoupon() -> Void {
+        let maxID = db.getID()
+        
         if data.count == 1 {
-            userDefaults.set([data.count - 1], forKey: userDefaultsKey)
+            userDefaults.set([1], forKey: userDefaultsKey)
             return
         } else {
             var couponIndexArr = userDefaults.object(forKey: userDefaultsKey) as! [Int]
@@ -52,10 +54,10 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             let addedDate = dateformatter.string(from: data[data.count-1].expireDate)
             
             if baseDate > addedDate {
-                userDefaults.set([data.count - 1], forKey: userDefaultsKey)
+                userDefaults.set([maxID], forKey: userDefaultsKey)
                 return
             } else if baseDate == addedDate {
-                couponIndexArr.append(data.count - 1)
+                couponIndexArr.append(maxID)
                 userDefaults.set(couponIndexArr, forKey: userDefaultsKey)
                 return
             }
