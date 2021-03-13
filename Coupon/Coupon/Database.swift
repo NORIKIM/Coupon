@@ -56,6 +56,8 @@ struct Database {
         
         if select != "전체" {
             selectQuery = "SELECT * FROM coupon WHERE category = '\(select)'"
+        }  else if id != 0 {
+            selectQuery = "SELECT * FROM coupon WHERE id = '\(id)'"
         }
         
         if sqlite3_prepare_v2(db, selectQuery, -1, &selectStmt, nil) == SQLITE_OK {
