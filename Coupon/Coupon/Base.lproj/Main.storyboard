@@ -25,10 +25,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQs-Yx-wvL">
                                 <rect key="frame" x="99" y="443" width="30" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="TheIndependenceHallofKorea-Regular" family="독립기념관체" pointSize="17"/>
                                 <state key="normal" title="카페">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" systemColor="systemPurpleColor"/>
                                 </state>
                                 <connections>
                                     <action selector="category:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HFX-Ka-WfY"/>
@@ -37,10 +36,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e4V-2V-8x6">
                                 <rect key="frame" x="217" y="443" width="45" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="TheIndependenceHallofKorea-Regular" family="독립기념관체" pointSize="17"/>
                                 <state key="normal" title="음식점">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" systemColor="systemPurpleColor"/>
                                 </state>
                                 <connections>
                                     <action selector="category:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0yR-hW-iO3"/>
@@ -49,10 +47,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ms-Wd-9Yo">
                                 <rect key="frame" x="99" y="516" width="30" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="TheIndependenceHallofKorea-Regular" family="독립기념관체" pointSize="17"/>
                                 <state key="normal" title="쇼핑">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" systemColor="systemPurpleColor"/>
                                 </state>
                                 <connections>
                                     <action selector="category:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LFC-lO-Qf4"/>
@@ -61,10 +58,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dy-oq-J1a">
                                 <rect key="frame" x="223" y="581" width="30" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="TheIndependenceHallofKorea-Regular" family="독립기념관체" pointSize="17"/>
                                 <state key="normal" title="전체">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" systemColor="systemPurpleColor"/>
                                 </state>
                                 <connections>
                                     <action selector="category:" destination="BYZ-38-t0r" eventType="touchUpInside" id="06O-rp-9PE"/>
@@ -73,10 +69,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Qd-b3-Ror">
                                 <rect key="frame" x="217" y="516" width="45" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="TheIndependenceHallofKorea-Regular" family="독립기념관체" pointSize="17"/>
                                 <state key="normal" title="편의점">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" systemColor="systemPurpleColor"/>
                                 </state>
                                 <connections>
                                     <action selector="category:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nMC-lt-CNH"/>
@@ -105,6 +100,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="whf-ba-GWe">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="bl8-uP-Nji">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="5Ak-3m-I8g" kind="show" id="exE-Ik-LGa"/>
                             </connections>
@@ -301,18 +297,6 @@
                                 <color key="textColor" systemColor="systemPurpleColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Yj-k7-Zbg">
-                                <rect key="frame" x="67" y="303" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="TheIndependenceHallofKorea-Regular" family="독립기념관체" pointSize="15"/>
-                                <state key="normal" title="사진">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="addPhoto:" destination="5Ak-3m-I8g" eventType="touchUpInside" id="JGc-Fy-z9f"/>
-                                </connections>
-                            </button>
                             <textView multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LRd-5n-R8f">
                                 <rect key="frame" x="16" y="372" width="343" height="268"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -339,12 +323,25 @@
                                     <action selector="clearPhoto:" destination="5Ak-3m-I8g" eventType="touchUpInside" id="vhO-h1-pBP"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Yj-k7-Zbg">
+                                <rect key="frame" x="80" y="338" width="23" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="TheIndependenceHallofKorea-Regular" family="독립기념관체" pointSize="23"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addPhoto:" destination="5Ak-3m-I8g" eventType="touchUpInside" id="JGc-Fy-z9f"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gGm-Dk-KEA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="zde-xS-Fyu">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="hYg-tw-f0b">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="saveData:" destination="5Ak-3m-I8g" id="ts0-fH-QRY"/>
                             </connections>
