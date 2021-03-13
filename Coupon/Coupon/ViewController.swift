@@ -99,11 +99,12 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             dateFormat.dateFormat = "yyyy년 MM월 dd일"
 
             for idx in 0 ..< couponIndexArr.count {
-                let date = dateFormat.string(from: data[couponIndexArr[idx]].expireDate)
+                let couponData = db.readDB(select: "전체", id: couponIndexArr[idx])[0]
+                let date = dateFormat.string(from: couponData.expireDate)
                 let couponInfoLB = UILabel(frame: CGRect(x: CGFloat(idx) * scrollwidth , y: 0 , width: scrollwidth, height: scrollheight))
                 couponInfoLB.textAlignment = .center
                 couponInfoLB.font = UIFont(name: "독립기념관체", size: 17)
-                couponInfoLB.text = "\(data[couponIndexArr[idx]].category) \n \(data[couponIndexArr[idx]].shop) \n \(date)"
+                couponInfoLB.text = "\(couponData.category) \n \(couponData.shop) \n \(date)"
                 couponInfoLB.numberOfLines = 3
                 self.scrollView.addSubview(couponInfoLB)
             }
