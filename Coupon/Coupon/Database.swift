@@ -144,4 +144,21 @@ struct Database {
         
         sqlite3_finalize(updateStmt)
     }
+    
+    // ID 최대값
+    func getID() -> Int {
+            let selectIDQuery = "SELECT max(id) FROM coupon"
+            var selectStmt: OpaquePointer? = nil
+            var index = 0
+            if sqlite3_prepare_v2(db, selectIDQuery, -1, &selectStmt, nil) == SQLITE_OK {
+                while sqlite3_step(selectStmt) == SQLITE_ROW {
+                    index = Int(sqlite3_column_int(selectStmt, 0))
+                }
+            } else {
+                print("ERROR select statement could not be prepared")
+            }
+            sqlite3_finalize(selectStmt)
+            return index
+        }
+
 }
