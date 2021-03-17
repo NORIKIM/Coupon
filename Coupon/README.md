@@ -179,3 +179,17 @@ AddViewController의 save버튼이 눌리면 MainViewController를 다운캐스�
 
 딜리게이트 또는 노티피케이션을 이용한 방법도 있지만 굳이 이것들을 사용하지 않아도 해결 할 수 있으리라 생각했다
 viewWillAppear는 뷰가 나타날 때마다 호출이되므로 여기에서 데이터베이스를 업데이트 해주면 새로 추가된 쿠폰 디비를 읽어올 수 있었다.
+
+
+
+## 저작권 정보
+
+[ 폰트 ]
+
+네이버에서 제공한 나눔글꼴이 적용되어 있습니다. - 나눔스퀘어라운드
+
+라이센스 :
+
+https://help.naver.com/support/contents/contents.help?serviceNo=1074&categoryNo=3497
+
+다운로드 : https://hangeul.naver.com/
