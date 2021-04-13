@@ -34,71 +34,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQs-Yx-wvL">
-                                <rect key="frame" x="99" y="443" width="37" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="NanumSquareRoundR" family="NanumSquareRound" pointSize="17"/>
-                                <state key="normal" title="카페">
-                                    <color key="titleColor" systemColor="systemPurpleColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="category:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HFX-Ka-WfY"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e4V-2V-8x6">
-                                <rect key="frame" x="217" y="443" width="51" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="NanumSquareRoundR" family="NanumSquareRound" pointSize="17"/>
-                                <state key="normal" title="음식점">
-                                    <color key="titleColor" systemColor="systemPurpleColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="category:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0yR-hW-iO3"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ms-Wd-9Yo">
-                                <rect key="frame" x="99" y="516" width="37" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="NanumSquareRoundR" family="NanumSquareRound" pointSize="17"/>
-                                <state key="normal" title="쇼핑">
-                                    <color key="titleColor" systemColor="systemPurpleColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="category:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LFC-lO-Qf4"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dy-oq-J1a">
-                                <rect key="frame" x="223" y="581" width="35" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="NanumSquareRoundR" family="NanumSquareRound" pointSize="17"/>
-                                <state key="normal" title="전체">
-                                    <color key="titleColor" systemColor="systemPurpleColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="category:" destination="BYZ-38-t0r" eventType="touchUpInside" id="06O-rp-9PE"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Qd-b3-Ror">
-                                <rect key="frame" x="217" y="516" width="51" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="NanumSquareRoundR" family="NanumSquareRound" pointSize="17"/>
-                                <state key="normal" title="편의점">
-                                    <color key="titleColor" systemColor="systemPurpleColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="category:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nMC-lt-CNH"/>
-                                </connections>
-                            </button>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="cL9-qj-VQV">
-                                <rect key="frame" x="126" y="336" width="123" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="cSd-yk-AS5" userLabel="Shopping">
+                                <rect key="frame" x="90" y="484" width="79" height="77.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ms-Wd-9Yo" userLabel="쇼핑">
+                                        <rect key="frame" x="0.0" y="0.0" width="79" height="56"/>
+                                        <state key="normal" title="쇼핑" image="shopping-bag">
+                                            <color key="titleColor" systemColor="systemPurpleColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="category:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LFC-lO-Qf4"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="쇼핑" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GI6-0B-KN5">
+                                        <rect key="frame" x="0.0" y="57" width="79" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="GI6-0B-KN5" firstAttribute="width" secondItem="6Ms-Wd-9Yo" secondAttribute="width" id="vPz-yI-Rff"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tg9-UM-lUx" userLabel="ConvenienceStore">
+                                <rect key="frame" x="205" y="484" width="78.5" height="76.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Qd-b3-Ror" userLabel="편의점">
+                                        <rect key="frame" x="0.0" y="0.0" width="78.5" height="56"/>
+                                        <state key="normal" title="편의점" image="online-shopping">
+                                            <color key="titleColor" systemColor="systemPurpleColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="category:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nMC-lt-CNH"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="편의점" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mkr-sM-KLD">
+                                        <rect key="frame" x="0.0" y="56" width="78.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="mkr-sM-KLD" firstAttribute="width" secondItem="7Qd-b3-Ror" secondAttribute="width" id="y8D-Ty-5E4"/>
+                                </constraints>
+                            </stackView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="cL9-qj-VQV">
+                                <rect key="frame" x="126" y="319.5" width="123" height="27.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="pageIndicatorTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="currentPageIndicatorTintColor" systemColor="systemPurpleColor"/>
                             </pageControl>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BY6-mS-MWJ">
-                                <rect key="frame" x="45" y="117" width="284" height="207"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BY6-mS-MWJ">
+                                <rect key="frame" x="56.5" y="123.5" width="262.5" height="186.5"/>
                                 <color key="backgroundColor" systemColor="systemPurpleColor"/>
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
@@ -106,9 +95,111 @@
                                     <outletCollection property="gestureRecognizers" destination="ohh-9s-XBG" appends="YES" id="XHv-ov-gvh"/>
                                 </connections>
                             </scrollView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ByK-jl-YZo" userLabel="Cafe">
+                                <rect key="frame" x="90" y="380" width="79" height="76"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQs-Yx-wvL" userLabel="카페">
+                                        <rect key="frame" x="0.0" y="0.0" width="79" height="56"/>
+                                        <state key="normal" title="카페" image="free-icon-coffee-4433050">
+                                            <color key="titleColor" systemColor="systemPurpleColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="category:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HFX-Ka-WfY"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카페" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4jJ-Hp-O2B">
+                                        <rect key="frame" x="0.0" y="56" width="79" height="20"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareRoundB" family="NanumSquareRound" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="4jJ-Hp-O2B" firstAttribute="width" secondItem="JQs-Yx-wvL" secondAttribute="width" id="xUI-SC-FQD"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="nBS-zE-FMw" userLabel="Restarant">
+                                <rect key="frame" x="205" y="380" width="78.5" height="77.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e4V-2V-8x6" userLabel="음식점">
+                                        <rect key="frame" x="0.0" y="0.0" width="78.5" height="56"/>
+                                        <state key="normal" title="음식점" image="cooking-pot">
+                                            <color key="titleColor" systemColor="systemPurpleColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="category:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0yR-hW-iO3"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="음식점" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAE-0J-knU">
+                                        <rect key="frame" x="0.0" y="57" width="78.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="IAE-0J-knU" firstAttribute="width" secondItem="e4V-2V-8x6" secondAttribute="width" id="hxg-WV-7Gs"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="osk-Uo-THR" userLabel="All">
+                                <rect key="frame" x="90" y="591" width="116.5" height="56"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dy-oq-J1a" userLabel="전체">
+                                        <rect key="frame" x="0.0" y="0.0" width="79" height="56"/>
+                                        <state key="normal" title="전체" image="discount-voucher">
+                                            <color key="titleColor" systemColor="systemPurpleColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="category:" destination="BYZ-38-t0r" eventType="touchUpInside" id="06O-rp-9PE"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전체" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qkr-AT-KKy">
+                                        <rect key="frame" x="87" y="0.0" width="29.5" height="56"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nBS-zE-FMw" firstAttribute="top" secondItem="cL9-qj-VQV" secondAttribute="bottom" constant="33" id="0I3-3D-txW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tg9-UM-lUx" secondAttribute="trailing" constant="91.5" id="0TN-9e-cDb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cL9-qj-VQV" secondAttribute="trailing" constant="126" id="1Fu-4d-gDe"/>
+                            <constraint firstItem="BY6-mS-MWJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1kx-Ge-sgi"/>
+                            <constraint firstItem="ByK-jl-YZo" firstAttribute="top" secondItem="cL9-qj-VQV" secondAttribute="bottom" constant="33" id="3qZ-aB-Kk2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nBS-zE-FMw" secondAttribute="trailing" constant="91.5" id="6zi-j9-MR8"/>
+                            <constraint firstItem="osk-Uo-THR" firstAttribute="top" secondItem="cSd-yk-AS5" secondAttribute="bottom" constant="29.5" id="7Tb-6U-teD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cL9-qj-VQV" secondAttribute="bottom" constant="320" id="An9-EU-MeK"/>
+                            <constraint firstItem="osk-Uo-THR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="90" id="DGB-sJ-HQM"/>
+                            <constraint firstItem="6Ms-Wd-9Yo" firstAttribute="height" secondItem="e4V-2V-8x6" secondAttribute="height" id="J7R-0O-q4t"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="osk-Uo-THR" secondAttribute="bottom" constant="20" id="KmF-qe-XKH"/>
+                            <constraint firstItem="6Ms-Wd-9Yo" firstAttribute="width" secondItem="e4V-2V-8x6" secondAttribute="width" id="MdV-qj-VxL"/>
+                            <constraint firstItem="7Qd-b3-Ror" firstAttribute="height" secondItem="6Ms-Wd-9Yo" secondAttribute="height" id="NJk-16-rb2"/>
+                            <constraint firstItem="JQs-Yx-wvL" firstAttribute="height" secondItem="BY6-mS-MWJ" secondAttribute="height" multiplier="0.3" id="S68-La-o7l"/>
+                            <constraint firstItem="nBS-zE-FMw" firstAttribute="leading" secondItem="ByK-jl-YZo" secondAttribute="trailing" constant="36" id="TNG-Mv-tPh"/>
+                            <constraint firstItem="tg9-UM-lUx" firstAttribute="leading" secondItem="cSd-yk-AS5" secondAttribute="trailing" constant="36" id="Tga-Zy-KbF"/>
+                            <constraint firstItem="BY6-mS-MWJ" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.28" id="VRi-4O-7MY"/>
+                            <constraint firstItem="3dy-oq-J1a" firstAttribute="height" secondItem="6Ms-Wd-9Yo" secondAttribute="height" id="Z2L-CR-i8j"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="osk-Uo-THR" secondAttribute="trailing" constant="168.5" id="ZN1-hX-QK4"/>
+                            <constraint firstItem="BY6-mS-MWJ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.65" id="ahr-fH-Nsb"/>
+                            <constraint firstItem="tg9-UM-lUx" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="484" id="ejG-Kt-5uf"/>
+                            <constraint firstItem="tg9-UM-lUx" firstAttribute="top" secondItem="nBS-zE-FMw" secondAttribute="bottom" constant="26.5" id="ekz-XJ-ndL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tg9-UM-lUx" secondAttribute="bottom" constant="106.5" id="eyW-iv-dB1"/>
+                            <constraint firstItem="3dy-oq-J1a" firstAttribute="width" secondItem="6Ms-Wd-9Yo" secondAttribute="width" id="fj9-bj-GCN"/>
+                            <constraint firstItem="7Qd-b3-Ror" firstAttribute="width" secondItem="6Ms-Wd-9Yo" secondAttribute="width" id="fjR-Qz-Rs9"/>
+                            <constraint firstItem="cSd-yk-AS5" firstAttribute="top" secondItem="ByK-jl-YZo" secondAttribute="bottom" constant="28" id="kSc-Ww-kwo"/>
+                            <constraint firstItem="ByK-jl-YZo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="90" id="lg7-9L-btD"/>
+                            <constraint firstItem="cL9-qj-VQV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="126" id="oAM-0H-57t"/>
+                            <constraint firstItem="JQs-Yx-wvL" firstAttribute="width" secondItem="BY6-mS-MWJ" secondAttribute="width" multiplier="0.3" id="oRq-mj-6Os"/>
+                            <constraint firstItem="BY6-mS-MWJ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.7" id="pSf-6Z-ly2"/>
+                            <constraint firstItem="cSd-yk-AS5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="90" id="q6w-yE-u5p"/>
+                            <constraint firstItem="e4V-2V-8x6" firstAttribute="height" secondItem="JQs-Yx-wvL" secondAttribute="height" id="rvH-aL-GUo"/>
+                            <constraint firstItem="tg9-UM-lUx" firstAttribute="top" secondItem="cSd-yk-AS5" secondAttribute="top" id="vOG-KS-VYJ"/>
+                            <constraint firstItem="e4V-2V-8x6" firstAttribute="width" secondItem="JQs-Yx-wvL" secondAttribute="width" id="zeX-hD-pIr"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="whf-ba-GWe">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="info.circle.fill" catalog="system" style="plain" id="x72-Eh-4Xt">
@@ -155,21 +246,21 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="ize-X0-iNU" detailTextLabel="Hd2-B6-CaH" style="IBUITableViewCellStyleSubtitle" id="BR8-nH-SYb">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="55.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="47.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BR8-nH-SYb" id="Fve-GM-tDy">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="55.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="47.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ize-X0-iNU">
-                                                    <rect key="frame" x="16" y="10.5" width="29" height="15.5"/>
+                                                    <rect key="frame" x="16" y="6.5" width="29" height="15.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="NanumSquareRoundR" family="NanumSquareRound" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hd2-B6-CaH">
-                                                    <rect key="frame" x="16" y="28.5" width="51" height="15.5"/>
+                                                    <rect key="frame" x="16" y="24.5" width="51" height="15.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="NanumSquareRoundR" family="NanumSquareRound" pointSize="14"/>
                                                     <nil key="textColor"/>
@@ -214,124 +305,200 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="분류" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8iJ-kS-i2K">
-                                <rect key="frame" x="16" y="68" width="39" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="hkQ-rr-i8i" userLabel="Category">
+                                <rect key="frame" x="16" y="69" width="343" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="분류" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8iJ-kS-i2K">
+                                        <rect key="frame" x="0.0" y="0.0" width="35" height="34"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareRoundB" family="NanumSquareRound" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemPurpleColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K27-lg-RHv">
+                                        <rect key="frame" x="41" y="0.0" width="72.5" height="34"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareRoundR" family="NanumSquareRound" pointSize="17"/>
+                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title=" 카페" image="checkmark" catalog="system">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="selectCategory:" destination="5Ak-3m-I8g" eventType="touchUpInside" id="Aiv-hn-PcH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTd-GE-8Of">
+                                        <rect key="frame" x="119.5" y="0.0" width="69.5" height="34"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareRoundR" family="NanumSquareRound" pointSize="17"/>
+                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title=" 음식점" image="checkmark" catalog="system">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="selectCategory:" destination="5Ak-3m-I8g" eventType="touchUpInside" id="0lv-sG-rBS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PaD-UD-gPw">
+                                        <rect key="frame" x="195" y="0.0" width="72.5" height="34"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareRoundR" family="NanumSquareRound" pointSize="17"/>
+                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title=" 쇼핑" image="checkmark" catalog="system">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="selectCategory:" destination="5Ak-3m-I8g" eventType="touchUpInside" id="BLn-Ks-erU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UKv-l9-JuX">
+                                        <rect key="frame" x="273.5" y="0.0" width="69.5" height="34"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareRoundR" family="NanumSquareRound" pointSize="17"/>
+                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title=" 편의점" image="checkmark" catalog="system">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="selectCategory:" destination="5Ak-3m-I8g" eventType="touchUpInside" id="3fQ-QP-ZSa"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="8iJ-kS-i2K" firstAttribute="leading" secondItem="hkQ-rr-i8i" secondAttribute="leading" id="2MI-ur-4Cd"/>
+                                    <constraint firstAttribute="trailing" secondItem="UKv-l9-JuX" secondAttribute="trailing" id="Hu9-Hz-XGY"/>
+                                    <constraint firstItem="UKv-l9-JuX" firstAttribute="leading" secondItem="PaD-UD-gPw" secondAttribute="trailing" constant="6" id="Lev-eb-xCF"/>
+                                    <constraint firstItem="K27-lg-RHv" firstAttribute="leading" secondItem="8iJ-kS-i2K" secondAttribute="trailing" constant="6" id="O6L-kC-4kR"/>
+                                    <constraint firstItem="8iJ-kS-i2K" firstAttribute="top" secondItem="hkQ-rr-i8i" secondAttribute="top" id="TgT-p5-opc"/>
+                                    <constraint firstItem="cTd-GE-8Of" firstAttribute="width" secondItem="UKv-l9-JuX" secondAttribute="width" id="Ygj-Cg-cC2"/>
+                                    <constraint firstItem="K27-lg-RHv" firstAttribute="height" secondItem="PaD-UD-gPw" secondAttribute="height" id="eJI-hX-GT3"/>
+                                    <constraint firstItem="UKv-l9-JuX" firstAttribute="top" secondItem="hkQ-rr-i8i" secondAttribute="top" id="jAp-LB-Z3e"/>
+                                    <constraint firstAttribute="bottom" secondItem="UKv-l9-JuX" secondAttribute="bottom" id="oTq-Oc-Trq"/>
+                                    <constraint firstItem="cTd-GE-8Of" firstAttribute="height" secondItem="UKv-l9-JuX" secondAttribute="height" id="tk6-Qj-CW5"/>
+                                    <constraint firstAttribute="bottom" secondItem="8iJ-kS-i2K" secondAttribute="bottom" id="wbl-ho-S6Z"/>
+                                    <constraint firstItem="K27-lg-RHv" firstAttribute="width" secondItem="PaD-UD-gPw" secondAttribute="width" id="zGs-M4-OJO"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6kF-2d-KpX" userLabel="Price">
+                                <rect key="frame" x="16" y="187" width="343" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="금액" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuC-EB-AHW">
+                                        <rect key="frame" x="0.0" y="0.0" width="35" height="34"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareRoundB" family="NanumSquareRound" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemPurpleColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QKh-eO-1Bo">
+                                        <rect key="frame" x="43" y="0.0" width="300" height="34"/>
+                                        <fontDescription key="fontDescription" name="TheIndependenceHallofKorea-Regular" family="독립기념관체" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mFb-Od-pcf" userLabel="ShopName">
+                                <rect key="frame" x="16" y="128" width="343" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQG-R0-EXj">
+                                        <rect key="frame" x="0.0" y="0.0" width="35" height="34"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareRoundB" family="NanumSquareRound" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemPurpleColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="srB-CE-Wk3">
+                                        <rect key="frame" x="43" y="0.0" width="300" height="34"/>
+                                        <fontDescription key="fontDescription" name="TheIndependenceHallofKorea-Regular" family="독립기념관체" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rpB-dx-wRx" userLabel="ExpireDate">
+                                <rect key="frame" x="16" y="246" width="343" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="유효기간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqM-MN-m75">
+                                        <rect key="frame" x="0.0" y="0.0" width="69.5" height="34"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareRoundB" family="NanumSquareRound" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemPurpleColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xMS-DC-M2j">
+                                        <rect key="frame" x="77.5" y="0.0" width="265.5" height="34"/>
+                                        <fontDescription key="fontDescription" name="TheIndependenceHallofKorea-Regular" family="독립기념관체" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="2Fh-gE-XWZ" appends="YES" id="4v4-6R-7A4"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YN9-m5-QUf">
+                                <rect key="frame" x="71" y="297" width="104" height="68"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Yj-k7-Zbg">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="68"/>
+                                        <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="TheIndependenceHallofKorea-Regular" family="독립기념관체" pointSize="23"/>
+                                        <state key="normal" title="+">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addPhoto:" destination="5Ak-3m-I8g" eventType="touchUpInside" id="JGc-Fy-z9f"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="4RI-cV-1Kr">
+                                        <rect key="frame" x="30" y="0.5" width="74" height="66"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="4RI-cV-1Kr" firstAttribute="top" secondItem="YN9-m5-QUf" secondAttribute="top" id="DiP-dc-TNJ"/>
+                                    <constraint firstItem="5Yj-k7-Zbg" firstAttribute="top" secondItem="YN9-m5-QUf" secondAttribute="top" id="UWG-Uf-HFC"/>
+                                    <constraint firstAttribute="bottom" secondItem="5Yj-k7-Zbg" secondAttribute="bottom" id="bjK-b4-Pvd"/>
+                                    <constraint firstItem="5Yj-k7-Zbg" firstAttribute="leading" secondItem="YN9-m5-QUf" secondAttribute="leading" id="gPn-kW-Yjc"/>
+                                    <constraint firstAttribute="trailing" secondItem="4RI-cV-1Kr" secondAttribute="trailing" id="j92-c4-q2i"/>
+                                    <constraint firstAttribute="bottom" secondItem="4RI-cV-1Kr" secondAttribute="bottom" id="u8O-1c-Dpu"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내용" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJ6-Av-5ne">
+                                <rect key="frame" x="16" y="305" width="35" height="34"/>
                                 <fontDescription key="fontDescription" name="NanumSquareRoundB" family="NanumSquareRound" pointSize="17"/>
                                 <color key="textColor" systemColor="systemPurpleColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K27-lg-RHv">
-                                <rect key="frame" x="63" y="68" width="64" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="NanumSquareRoundR" family="NanumSquareRound" pointSize="17"/>
-                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title=" 카페" image="checkmark" catalog="system">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="selectCategory:" destination="5Ak-3m-I8g" eventType="touchUpInside" id="Aiv-hn-PcH"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTd-GE-8Of">
-                                <rect key="frame" x="135" y="69" width="76" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="NanumSquareRoundR" family="NanumSquareRound" pointSize="17"/>
-                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title=" 음식점" image="checkmark" catalog="system">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="selectCategory:" destination="5Ak-3m-I8g" eventType="touchUpInside" id="0lv-sG-rBS"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PaD-UD-gPw">
-                                <rect key="frame" x="217" y="70" width="66" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="NanumSquareRoundR" family="NanumSquareRound" pointSize="17"/>
-                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title=" 쇼핑" image="checkmark" catalog="system">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="selectCategory:" destination="5Ak-3m-I8g" eventType="touchUpInside" id="BLn-Ks-erU"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UKv-l9-JuX">
-                                <rect key="frame" x="286" y="71" width="73" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="NanumSquareRoundR" family="NanumSquareRound" pointSize="17"/>
-                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title=" 편의점" image="checkmark" catalog="system">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="selectCategory:" destination="5Ak-3m-I8g" eventType="touchUpInside" id="3fQ-QP-ZSa"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="상호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQG-R0-EXj">
-                                <rect key="frame" x="16" y="130" width="32" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="NanumSquareRoundB" family="NanumSquareRound" pointSize="17"/>
-                                <color key="textColor" systemColor="systemPurpleColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="srB-CE-Wk3">
-                                <rect key="frame" x="56" y="123" width="303" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="TheIndependenceHallofKorea-Regular" family="독립기념관체" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="금액" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuC-EB-AHW">
-                                <rect key="frame" x="16" y="186" width="32" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="NanumSquareRoundB" family="NanumSquareRound" pointSize="17"/>
-                                <color key="textColor" systemColor="systemPurpleColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QKh-eO-1Bo">
-                                <rect key="frame" x="56" y="179" width="303" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="TheIndependenceHallofKorea-Regular" family="독립기념관체" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="내용" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJ6-Av-5ne">
-                                <rect key="frame" x="16" y="306" width="32" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="NanumSquareRoundB" family="NanumSquareRound" pointSize="17"/>
-                                <color key="textColor" systemColor="systemPurpleColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xMS-DC-M2j">
-                                <rect key="frame" x="91" y="235" width="268" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="TheIndependenceHallofKorea-Regular" family="독립기념관체" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="유효기간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqM-MN-m75">
-                                <rect key="frame" x="14" y="242" width="69" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="NanumSquareRoundB" family="NanumSquareRound" pointSize="17"/>
-                                <color key="textColor" systemColor="systemPurpleColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LRd-5n-R8f">
-                                <rect key="frame" x="16" y="372" width="343" height="268"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LRd-5n-R8f">
+                                <rect key="frame" x="16" y="384" width="343" height="258"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" name="NanumSquareRoundR" family="NanumSquareRound" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="camera.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="4RI-cV-1Kr">
-                                <rect key="frame" x="105" y="285" width="85" height="79"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nGE-Bv-3ia" userLabel="DatePickerView">
+                                <rect key="frame" x="0.0" y="407" width="375" height="260"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="p1y-se-L4J">
+                                        <rect key="frame" x="0.0" y="44" width="375" height="216"/>
+                                    </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="614-TP-3mx">
+                                        <rect key="frame" x="324" y="14" width="37" height="30"/>
+                                        <state key="normal" title="Done"/>
+                                        <connections>
+                                            <action selector="datePickerDone" destination="5Ak-3m-I8g" eventType="touchUpInside" id="knn-F9-QDJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Qf-0Y-7ya">
-                                <rect key="frame" x="168" y="285" width="22" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstItem="614-TP-3mx" firstAttribute="top" secondItem="nGE-Bv-3ia" secondAttribute="top" constant="14" id="ALE-MH-wlR"/>
+                                    <constraint firstItem="p1y-se-L4J" firstAttribute="leading" secondItem="nGE-Bv-3ia" secondAttribute="leading" id="E8B-PT-fxO"/>
+                                    <constraint firstItem="p1y-se-L4J" firstAttribute="top" secondItem="614-TP-3mx" secondAttribute="bottom" id="LBt-pL-PzB"/>
+                                    <constraint firstAttribute="bottom" secondItem="p1y-se-L4J" secondAttribute="bottom" id="MDj-FW-v5i"/>
+                                    <constraint firstAttribute="trailing" secondItem="p1y-se-L4J" secondAttribute="trailing" id="QMG-jR-ZQv"/>
+                                    <constraint firstItem="p1y-se-L4J" firstAttribute="top" secondItem="614-TP-3mx" secondAttribute="bottom" id="TcA-Vy-Fxu"/>
+                                    <constraint firstItem="614-TP-3mx" firstAttribute="leading" secondItem="nGE-Bv-3ia" secondAttribute="leading" constant="324" id="ZfG-Tv-U3H"/>
+                                    <constraint firstAttribute="trailing" secondItem="614-TP-3mx" secondAttribute="trailing" constant="14" id="rKo-oo-MVt"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zb9-tD-5E8" userLabel="ScreenView">
+                                <rect key="frame" x="0.0" y="44" width="375" height="363"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Qf-0Y-7ya">
+                                <rect key="frame" x="151" y="297" width="24" height="28"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="clear.fill" catalog="system">
@@ -341,21 +508,58 @@
                                     <action selector="clearPhoto:" destination="5Ak-3m-I8g" eventType="touchUpInside" id="vhO-h1-pBP"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Yj-k7-Zbg">
-                                <rect key="frame" x="80" y="338" width="23" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="TheIndependenceHallofKorea-Regular" family="독립기념관체" pointSize="23"/>
-                                <state key="normal" title="+">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="addPhoto:" destination="5Ak-3m-I8g" eventType="touchUpInside" id="JGc-Fy-z9f"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gGm-Dk-KEA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zb9-tD-5E8" firstAttribute="top" secondItem="gGm-Dk-KEA" secondAttribute="top" id="1MB-Rs-Ho1"/>
+                            <constraint firstItem="YN9-m5-QUf" firstAttribute="width" secondItem="RJ6-Av-5ne" secondAttribute="width" multiplier="3" id="5cL-4k-fNu"/>
+                            <constraint firstItem="nGE-Bv-3ia" firstAttribute="top" secondItem="zb9-tD-5E8" secondAttribute="bottom" id="71a-R1-7kD"/>
+                            <constraint firstItem="rpB-dx-wRx" firstAttribute="top" secondItem="6kF-2d-KpX" secondAttribute="bottom" constant="25" id="7Il-wD-CcK"/>
+                            <constraint firstItem="YN9-m5-QUf" firstAttribute="height" secondItem="RJ6-Av-5ne" secondAttribute="height" multiplier="2" id="8ck-Lh-ATb"/>
+                            <constraint firstItem="aqM-MN-m75" firstAttribute="width" secondItem="KuC-EB-AHW" secondAttribute="width" multiplier="2" id="FCj-dv-LFP"/>
+                            <constraint firstItem="mFb-Od-pcf" firstAttribute="top" secondItem="hkQ-rr-i8i" secondAttribute="bottom" constant="25" id="FmO-6h-NdA"/>
+                            <constraint firstItem="2Qf-0Y-7ya" firstAttribute="leading" secondItem="YN9-m5-QUf" secondAttribute="leading" constant="80" id="GgN-T2-s3A"/>
+                            <constraint firstItem="LRd-5n-R8f" firstAttribute="leading" secondItem="gGm-Dk-KEA" secondAttribute="leading" constant="16" id="GnW-VV-uXf"/>
+                            <constraint firstItem="KuC-EB-AHW" firstAttribute="width" secondItem="VQG-R0-EXj" secondAttribute="width" id="Krf-on-Sqn"/>
+                            <constraint firstItem="nGE-Bv-3ia" firstAttribute="leading" secondItem="gGm-Dk-KEA" secondAttribute="leading" id="KxB-po-Klf"/>
+                            <constraint firstItem="LRd-5n-R8f" firstAttribute="top" secondItem="YN9-m5-QUf" secondAttribute="bottom" constant="19" id="LAw-1f-wIW"/>
+                            <constraint firstItem="2Qf-0Y-7ya" firstAttribute="top" secondItem="rpB-dx-wRx" secondAttribute="bottom" constant="17" id="NAZ-Mn-ZdY"/>
+                            <constraint firstItem="gGm-Dk-KEA" firstAttribute="trailing" secondItem="hkQ-rr-i8i" secondAttribute="trailing" constant="16" id="OpH-4A-CB8"/>
+                            <constraint firstItem="6kF-2d-KpX" firstAttribute="top" secondItem="mFb-Od-pcf" secondAttribute="bottom" constant="25" id="PLK-WI-xKu"/>
+                            <constraint firstItem="8iJ-kS-i2K" firstAttribute="height" secondItem="VQG-R0-EXj" secondAttribute="height" id="Q7g-Wo-upR"/>
+                            <constraint firstItem="RJ6-Av-5ne" firstAttribute="leading" secondItem="gGm-Dk-KEA" secondAttribute="leading" constant="16" id="QTY-lb-5B5"/>
+                            <constraint firstItem="YN9-m5-QUf" firstAttribute="trailing" secondItem="2Qf-0Y-7ya" secondAttribute="trailing" id="Qfp-mn-KMk"/>
+                            <constraint firstItem="rpB-dx-wRx" firstAttribute="leading" secondItem="gGm-Dk-KEA" secondAttribute="leading" constant="16" id="Ris-Kc-JvC"/>
+                            <constraint firstItem="zb9-tD-5E8" firstAttribute="trailing" secondItem="gGm-Dk-KEA" secondAttribute="trailing" id="SMr-Fu-xeQ"/>
+                            <constraint firstAttribute="bottom" secondItem="zb9-tD-5E8" secondAttribute="bottom" constant="260" id="SSi-Vy-nes"/>
+                            <constraint firstItem="aqM-MN-m75" firstAttribute="height" secondItem="KuC-EB-AHW" secondAttribute="height" id="Srs-TL-RiP"/>
+                            <constraint firstItem="gGm-Dk-KEA" firstAttribute="trailing" secondItem="mFb-Od-pcf" secondAttribute="trailing" constant="16" id="TMZ-Md-Moi"/>
+                            <constraint firstItem="YN9-m5-QUf" firstAttribute="top" secondItem="rpB-dx-wRx" secondAttribute="bottom" constant="17" id="UU4-Or-obt"/>
+                            <constraint firstItem="zb9-tD-5E8" firstAttribute="centerX" secondItem="gGm-Dk-KEA" secondAttribute="centerX" id="W6E-ho-YJ9"/>
+                            <constraint firstItem="RJ6-Av-5ne" firstAttribute="height" secondItem="VQG-R0-EXj" secondAttribute="height" id="WHp-Na-wzP"/>
+                            <constraint firstItem="gGm-Dk-KEA" firstAttribute="trailing" secondItem="YN9-m5-QUf" secondAttribute="trailing" constant="200" id="ZNS-e9-kU0"/>
+                            <constraint firstItem="zb9-tD-5E8" firstAttribute="leading" secondItem="gGm-Dk-KEA" secondAttribute="leading" id="a6L-BU-4uS"/>
+                            <constraint firstItem="8iJ-kS-i2K" firstAttribute="width" secondItem="VQG-R0-EXj" secondAttribute="width" id="atz-aT-m8d"/>
+                            <constraint firstItem="hkQ-rr-i8i" firstAttribute="leading" secondItem="gGm-Dk-KEA" secondAttribute="leading" constant="16" id="bzF-aH-p0o"/>
+                            <constraint firstItem="YN9-m5-QUf" firstAttribute="leading" secondItem="RJ6-Av-5ne" secondAttribute="trailing" constant="20" id="bzo-7D-frH"/>
+                            <constraint firstItem="hkQ-rr-i8i" firstAttribute="top" secondItem="gGm-Dk-KEA" secondAttribute="top" constant="25" id="cJn-vh-f0g"/>
+                            <constraint firstItem="zb9-tD-5E8" firstAttribute="centerX" secondItem="gGm-Dk-KEA" secondAttribute="centerX" id="eFM-hW-PIZ"/>
+                            <constraint firstItem="nGE-Bv-3ia" firstAttribute="centerX" secondItem="gGm-Dk-KEA" secondAttribute="centerX" id="exh-ym-zW0"/>
+                            <constraint firstItem="gGm-Dk-KEA" firstAttribute="trailing" secondItem="LRd-5n-R8f" secondAttribute="trailing" constant="16" id="h46-3e-yxH"/>
+                            <constraint firstItem="gGm-Dk-KEA" firstAttribute="bottom" secondItem="LRd-5n-R8f" secondAttribute="bottom" constant="25" id="jmr-4p-cXU"/>
+                            <constraint firstItem="KuC-EB-AHW" firstAttribute="height" secondItem="VQG-R0-EXj" secondAttribute="height" id="nJ2-Es-uAR"/>
+                            <constraint firstItem="nGE-Bv-3ia" firstAttribute="trailing" secondItem="gGm-Dk-KEA" secondAttribute="trailing" id="poL-2R-aBr"/>
+                            <constraint firstItem="RJ6-Av-5ne" firstAttribute="width" secondItem="VQG-R0-EXj" secondAttribute="width" id="r25-kx-Uo0"/>
+                            <constraint firstItem="6kF-2d-KpX" firstAttribute="leading" secondItem="gGm-Dk-KEA" secondAttribute="leading" constant="16" id="sTN-WO-nIF"/>
+                            <constraint firstItem="gGm-Dk-KEA" firstAttribute="trailing" secondItem="rpB-dx-wRx" secondAttribute="trailing" constant="16" id="sZ7-QM-vVk"/>
+                            <constraint firstItem="RJ6-Av-5ne" firstAttribute="top" secondItem="rpB-dx-wRx" secondAttribute="bottom" constant="25" id="u1C-kG-8F3"/>
+                            <constraint firstItem="LRd-5n-R8f" firstAttribute="top" secondItem="RJ6-Av-5ne" secondAttribute="bottom" constant="45" id="uYt-pS-KqT"/>
+                            <constraint firstItem="nGE-Bv-3ia" firstAttribute="bottom" secondItem="gGm-Dk-KEA" secondAttribute="bottom" id="uZS-pZ-JjZ"/>
+                            <constraint firstItem="gGm-Dk-KEA" firstAttribute="trailing" secondItem="6kF-2d-KpX" secondAttribute="trailing" constant="16" id="y1p-oh-tck"/>
+                            <constraint firstItem="mFb-Od-pcf" firstAttribute="leading" secondItem="gGm-Dk-KEA" secondAttribute="leading" constant="16" id="zey-44-PF7"/>
+                            <constraint firstItem="YN9-m5-QUf" firstAttribute="bottom" secondItem="2Qf-0Y-7ya" secondAttribute="bottom" constant="40" id="zwv-4Z-XSE"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zde-xS-Fyu">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="hYg-tw-f0b">
@@ -370,15 +574,23 @@
                         <outlet property="clear" destination="2Qf-0Y-7ya" id="Awa-dy-0TQ"/>
                         <outlet property="content" destination="LRd-5n-R8f" id="vEx-fs-uKQ"/>
                         <outlet property="convenienceStore" destination="UKv-l9-JuX" id="OOi-Ke-CnK"/>
+                        <outlet property="datePicker" destination="p1y-se-L4J" id="mZ7-YP-7Jd"/>
+                        <outlet property="datePickerView" destination="nGE-Bv-3ia" id="sEZ-bi-iT8"/>
                         <outlet property="expireDate" destination="xMS-DC-M2j" id="al8-Bs-wYj"/>
                         <outlet property="photo" destination="4RI-cV-1Kr" id="mZQ-d7-8wU"/>
                         <outlet property="price" destination="QKh-eO-1Bo" id="miA-dg-8zV"/>
                         <outlet property="restaurant" destination="cTd-GE-8Of" id="sQT-SC-D02"/>
+                        <outlet property="screenView" destination="zb9-tD-5E8" id="DzH-5m-TbQ"/>
                         <outlet property="shopName" destination="srB-CE-Wk3" id="PkZ-dy-Mvh"/>
                         <outlet property="shopping" destination="PaD-UD-gPw" id="OzX-7S-dYF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="54W-ta-9Xl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="2Fh-gE-XWZ">
+                    <connections>
+                        <action selector="showDatePic:" destination="5Ak-3m-I8g" id="mtn-Hp-Dps"/>
+                    </connections>
+                </tapGestureRecognizer>
                 <tapGestureRecognizer id="e1o-z8-wYM"/>
             </objects>
             <point key="canvasLocation" x="1544.8" y="127.28635682158921"/>
@@ -464,9 +676,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="분류 버튼 이미지" translatesAutoresizingMaskIntoConstraints="NO" id="M4X-Nn-cKu">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4X-Nn-cKu">
                                 <rect key="frame" x="20" y="101.5" width="335" height="545.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <mutableString key="text">[ 폰트 ]
+
+네이버에서 제공한 나눔글꼴이 적용되어 있습니다. - 나눔스퀘어라운드
+
+라이센스 :
+
+https://help.naver.com/support/contents/contents.help?serviceNo=1074&amp;categoryNo=3497
+
+다운로드 : https://hangeul.naver.com/
+
+[ 이미지 ]
+
+&lt;div&gt;아이콘 제작자 &lt;a href="https://www.freepik.com" title="Freepik"&gt;Freepik&lt;/a&gt; from &lt;a href="https://www.flaticon.com/kr/" title="Flaticon"&gt;www.flaticon.com&lt;/a&gt;&lt;/div&gt;
+
+https://www.flaticon.com/packs/sales-113</mutableString>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" name="NanumSquareRoundL" family="NanumSquareRound" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -504,122 +731,133 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상호" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9UV-YZ-2BH">
-                                <rect key="frame" x="20" y="103" width="31" height="19"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="NanumSquareRoundB" family="NanumSquareRound" pointSize="17"/>
-                                <color key="textColor" systemColor="systemPurpleColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="금액" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MMo-Sz-i5h">
-                                <rect key="frame" x="21" y="157" width="31" height="19"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="NanumSquareRoundB" family="NanumSquareRound" pointSize="17"/>
-                                <color key="textColor" systemColor="systemPurpleColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="유효기간" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09N-Uh-crN">
-                                <rect key="frame" x="20" y="214" width="62" height="29"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="NanumSquareRoundB" family="NanumSquareRound" pointSize="17"/>
-                                <color key="textColor" systemColor="systemPurpleColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="분류" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rio-q2-bCD">
-                                <rect key="frame" x="20" y="48" width="31" height="19"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="NanumSquareRoundB" family="NanumSquareRound" pointSize="17"/>
-                                <color key="textColor" systemColor="systemPurpleColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Js-tB-TDF">
-                                <rect key="frame" x="95" y="48" width="260" height="19"/>
-                                <fontDescription key="fontDescription" name="NanumSquareRoundR" family="NanumSquareRound" pointSize="17"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6D-N7-YpJ">
-                                <rect key="frame" x="95" y="102" width="260" height="19"/>
-                                <fontDescription key="fontDescription" name="NanumSquareRoundR" family="NanumSquareRound" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xa8-FP-XlY">
-                                <rect key="frame" x="95" y="157" width="260" height="19"/>
-                                <fontDescription key="fontDescription" name="NanumSquareRoundR" family="NanumSquareRound" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pkM-Ne-9Tw">
-                                <rect key="frame" x="97" y="214" width="258" height="19"/>
-                                <fontDescription key="fontDescription" name="NanumSquareRoundR" family="NanumSquareRound" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PT8-zA-GBZ">
-                                <rect key="frame" x="130" y="258" width="115" height="91"/>
-                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sZu-AJ-Q6p" userLabel="Category">
+                                <rect key="frame" x="16" y="45" width="343" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="분류" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BM-ni-wft">
+                                        <rect key="frame" x="0.0" y="0.0" width="31" height="34"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareRoundB" family="NanumSquareRound" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemPurpleColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Uf-Yf-Yd8">
+                                        <rect key="frame" x="39" y="0.0" width="304" height="34"/>
+                                        <fontDescription key="fontDescription" name="TheIndependenceHallofKorea-Regular" family="독립기념관체" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pTx-7V-ECC" userLabel="ShopName">
+                                <rect key="frame" x="16" y="114" width="343" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krr-vj-ZUb">
+                                        <rect key="frame" x="0.0" y="0.0" width="31" height="34"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareRoundB" family="NanumSquareRound" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemPurpleColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sMS-iL-I43">
+                                        <rect key="frame" x="39" y="0.0" width="304" height="34"/>
+                                        <fontDescription key="fontDescription" name="TheIndependenceHallofKorea-Regular" family="독립기념관체" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="afQ-Lf-BH2" userLabel="Price">
+                                <rect key="frame" x="16" y="183" width="343" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="금액" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="55q-IB-MAW">
+                                        <rect key="frame" x="0.0" y="0.0" width="31" height="34"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareRoundB" family="NanumSquareRound" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemPurpleColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gyx-Ax-J6y">
+                                        <rect key="frame" x="39" y="0.0" width="304" height="34"/>
+                                        <fontDescription key="fontDescription" name="TheIndependenceHallofKorea-Regular" family="독립기념관체" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nbd-c6-7L0" userLabel="ExpireDate">
+                                <rect key="frame" x="16" y="252" width="343" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="유효기간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAA-1k-K3a">
+                                        <rect key="frame" x="0.0" y="0.0" width="62" height="34"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareRoundB" family="NanumSquareRound" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemPurpleColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D4q-OW-U06">
+                                        <rect key="frame" x="70" y="0.0" width="273" height="34"/>
+                                        <fontDescription key="fontDescription" name="TheIndependenceHallofKorea-Regular" family="독립기념관체" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5iw-mG-F2M">
-                                <rect key="frame" x="21" y="368" width="338" height="279"/>
+                                <rect key="frame" x="16" y="366" width="343" height="281"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" name="NanumSquareRoundR" family="NanumSquareRound" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내용" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXx-lR-wio">
-                                <rect key="frame" x="21" y="272" width="31" height="19"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내용" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OMt-PS-b9J">
+                                <rect key="frame" x="16" y="321" width="31" height="34"/>
                                 <fontDescription key="fontDescription" name="NanumSquareRoundB" family="NanumSquareRound" pointSize="17"/>
                                 <color key="textColor" systemColor="systemPurpleColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Cw-uP-nom">
+                                <rect key="frame" x="67" y="294" width="89" height="64"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="Oef-ss-G9c"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Hpf-7g-vbZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="3Js-tB-TDF" firstAttribute="leading" secondItem="Rio-q2-bCD" secondAttribute="trailing" constant="44" id="4Tv-KK-wUO"/>
-                            <constraint firstItem="5iw-mG-F2M" firstAttribute="leading" secondItem="Hpf-7g-vbZ" secondAttribute="leading" constant="21" id="57B-dt-e7V"/>
-                            <constraint firstItem="Hpf-7g-vbZ" firstAttribute="trailing" secondItem="5iw-mG-F2M" secondAttribute="trailing" constant="16" id="5Mo-PB-Xdj"/>
-                            <constraint firstItem="9UV-YZ-2BH" firstAttribute="leading" secondItem="Hpf-7g-vbZ" secondAttribute="leading" constant="20" id="8px-f0-ZDf"/>
-                            <constraint firstItem="xa8-FP-XlY" firstAttribute="leading" secondItem="MMo-Sz-i5h" secondAttribute="trailing" constant="43" id="BWC-K0-soB"/>
-                            <constraint firstItem="w6D-N7-YpJ" firstAttribute="top" secondItem="3Js-tB-TDF" secondAttribute="bottom" constant="35" id="DBc-LO-EDy"/>
-                            <constraint firstItem="5iw-mG-F2M" firstAttribute="top" secondItem="PT8-zA-GBZ" secondAttribute="bottom" constant="19" id="KZW-5L-mK9"/>
-                            <constraint firstItem="5iw-mG-F2M" firstAttribute="top" secondItem="PXx-lR-wio" secondAttribute="bottom" constant="77" id="LnH-xr-7bu"/>
-                            <constraint firstItem="Hpf-7g-vbZ" firstAttribute="trailing" secondItem="w6D-N7-YpJ" secondAttribute="trailing" constant="20" id="Ov8-2N-qR0"/>
-                            <constraint firstItem="pkM-Ne-9Tw" firstAttribute="leading" secondItem="09N-Uh-crN" secondAttribute="trailing" constant="15" id="PFO-WQ-DLR"/>
-                            <constraint firstItem="9UV-YZ-2BH" firstAttribute="top" secondItem="Rio-q2-bCD" secondAttribute="bottom" constant="36" id="QYY-s0-Utt"/>
-                            <constraint firstItem="3Js-tB-TDF" firstAttribute="top" secondItem="Hpf-7g-vbZ" secondAttribute="top" constant="48" id="SFz-Gl-a6T"/>
-                            <constraint firstItem="Rio-q2-bCD" firstAttribute="top" secondItem="Hpf-7g-vbZ" secondAttribute="top" constant="48" id="SYI-p7-lT3"/>
-                            <constraint firstItem="xa8-FP-XlY" firstAttribute="top" secondItem="w6D-N7-YpJ" secondAttribute="bottom" constant="36" id="TLU-Op-XiW"/>
-                            <constraint firstItem="Hpf-7g-vbZ" firstAttribute="bottom" secondItem="5iw-mG-F2M" secondAttribute="bottom" constant="20" id="Ujv-pK-bbo"/>
-                            <constraint firstItem="PT8-zA-GBZ" firstAttribute="top" secondItem="pkM-Ne-9Tw" secondAttribute="bottom" constant="25" id="VS0-Nc-G4U"/>
-                            <constraint firstItem="Hpf-7g-vbZ" firstAttribute="trailing" secondItem="pkM-Ne-9Tw" secondAttribute="trailing" constant="20" id="YYW-Zm-1X1"/>
-                            <constraint firstItem="Hpf-7g-vbZ" firstAttribute="trailing" secondItem="PT8-zA-GBZ" secondAttribute="trailing" constant="130" id="a2l-zc-NaL"/>
-                            <constraint firstItem="5iw-mG-F2M" firstAttribute="top" secondItem="Hpf-7g-vbZ" secondAttribute="top" constant="368" id="dUn-Gx-eaX"/>
-                            <constraint firstItem="pkM-Ne-9Tw" firstAttribute="top" secondItem="xa8-FP-XlY" secondAttribute="bottom" constant="38" id="fL5-60-N1U"/>
-                            <constraint firstItem="09N-Uh-crN" firstAttribute="top" secondItem="MMo-Sz-i5h" secondAttribute="bottom" constant="38" id="hLd-Zh-Dij"/>
-                            <constraint firstItem="PT8-zA-GBZ" firstAttribute="leading" secondItem="Hpf-7g-vbZ" secondAttribute="leading" constant="130" id="jEU-17-dVf"/>
-                            <constraint firstItem="MMo-Sz-i5h" firstAttribute="top" secondItem="9UV-YZ-2BH" secondAttribute="bottom" constant="35" id="lf9-FC-Xaq"/>
-                            <constraint firstItem="PXx-lR-wio" firstAttribute="leading" secondItem="Hpf-7g-vbZ" secondAttribute="leading" constant="21" id="mt8-cb-kAd"/>
-                            <constraint firstItem="Hpf-7g-vbZ" firstAttribute="trailing" secondItem="xa8-FP-XlY" secondAttribute="trailing" constant="20" id="prU-DP-vAL"/>
-                            <constraint firstItem="w6D-N7-YpJ" firstAttribute="leading" secondItem="9UV-YZ-2BH" secondAttribute="trailing" constant="44" id="rED-jE-Ssj"/>
-                            <constraint firstItem="Rio-q2-bCD" firstAttribute="leading" secondItem="Hpf-7g-vbZ" secondAttribute="leading" constant="20" id="rV1-JI-JzU"/>
-                            <constraint firstItem="PXx-lR-wio" firstAttribute="top" secondItem="09N-Uh-crN" secondAttribute="bottom" constant="29" id="vVE-L5-fIm"/>
-                            <constraint firstItem="Hpf-7g-vbZ" firstAttribute="trailing" secondItem="3Js-tB-TDF" secondAttribute="trailing" constant="20" id="vfW-Bn-Ipq"/>
-                            <constraint firstItem="09N-Uh-crN" firstAttribute="leading" secondItem="Hpf-7g-vbZ" secondAttribute="leading" constant="20" id="ygq-7O-z9e"/>
-                            <constraint firstItem="MMo-Sz-i5h" firstAttribute="leading" secondItem="Hpf-7g-vbZ" secondAttribute="leading" constant="21" id="zCL-ad-dqc"/>
+                            <constraint firstItem="Hpf-7g-vbZ" firstAttribute="trailing" secondItem="pTx-7V-ECC" secondAttribute="trailing" constant="16" id="7J4-pY-vpk"/>
+                            <constraint firstItem="afQ-Lf-BH2" firstAttribute="top" secondItem="pTx-7V-ECC" secondAttribute="bottom" constant="35" id="8Ku-c0-Lz9"/>
+                            <constraint firstItem="1Cw-uP-nom" firstAttribute="top" secondItem="nbd-c6-7L0" secondAttribute="bottom" constant="8" symbolic="YES" id="8Lb-6d-SEh"/>
+                            <constraint firstItem="OMt-PS-b9J" firstAttribute="top" secondItem="nbd-c6-7L0" secondAttribute="bottom" constant="35" id="BMo-S5-Kbu"/>
+                            <constraint firstItem="afQ-Lf-BH2" firstAttribute="leading" secondItem="Hpf-7g-vbZ" secondAttribute="leading" constant="16" id="JvD-qV-MUc"/>
+                            <constraint firstItem="OMt-PS-b9J" firstAttribute="leading" secondItem="Hpf-7g-vbZ" secondAttribute="leading" constant="16" id="KB9-tt-7SQ"/>
+                            <constraint firstItem="pTx-7V-ECC" firstAttribute="leading" secondItem="Hpf-7g-vbZ" secondAttribute="leading" constant="16" id="LAh-xY-215"/>
+                            <constraint firstItem="sZu-AJ-Q6p" firstAttribute="top" secondItem="Hpf-7g-vbZ" secondAttribute="top" constant="45" id="MlY-6T-oNh"/>
+                            <constraint firstItem="nbd-c6-7L0" firstAttribute="leading" secondItem="Hpf-7g-vbZ" secondAttribute="leading" constant="16" id="Njq-Ib-4Ow"/>
+                            <constraint firstItem="Hpf-7g-vbZ" firstAttribute="trailing" secondItem="1Cw-uP-nom" secondAttribute="trailing" constant="219" id="PYo-pB-fXT"/>
+                            <constraint firstItem="Hpf-7g-vbZ" firstAttribute="trailing" secondItem="nbd-c6-7L0" secondAttribute="trailing" constant="16" id="VgK-ID-FKx"/>
+                            <constraint firstItem="pTx-7V-ECC" firstAttribute="top" secondItem="sZu-AJ-Q6p" secondAttribute="bottom" constant="35" id="Wf0-zg-Hq7"/>
+                            <constraint firstItem="OMt-PS-b9J" firstAttribute="width" secondItem="55q-IB-MAW" secondAttribute="width" id="Ydo-IN-6lv"/>
+                            <constraint firstItem="OMt-PS-b9J" firstAttribute="height" secondItem="55q-IB-MAW" secondAttribute="height" id="ZDT-yp-BDd"/>
+                            <constraint firstItem="SAA-1k-K3a" firstAttribute="height" secondItem="55q-IB-MAW" secondAttribute="height" id="bt7-CW-kDh"/>
+                            <constraint firstItem="afQ-Lf-BH2" firstAttribute="top" secondItem="pTx-7V-ECC" secondAttribute="bottom" constant="35" id="gLV-7X-awK"/>
+                            <constraint firstItem="Hpf-7g-vbZ" firstAttribute="bottom" secondItem="5iw-mG-F2M" secondAttribute="bottom" constant="20" id="gqq-fw-P93"/>
+                            <constraint firstItem="nbd-c6-7L0" firstAttribute="top" secondItem="afQ-Lf-BH2" secondAttribute="bottom" constant="35" id="iUZ-DY-dge"/>
+                            <constraint firstItem="Hpf-7g-vbZ" firstAttribute="trailing" secondItem="sZu-AJ-Q6p" secondAttribute="trailing" constant="16" id="j1P-SM-k5Q"/>
+                            <constraint firstItem="pTx-7V-ECC" firstAttribute="top" secondItem="sZu-AJ-Q6p" secondAttribute="bottom" constant="35" id="qax-Bx-ppE"/>
+                            <constraint firstItem="1Cw-uP-nom" firstAttribute="leading" secondItem="OMt-PS-b9J" secondAttribute="trailing" constant="20" id="rEc-hD-MXA"/>
+                            <constraint firstItem="5iw-mG-F2M" firstAttribute="top" secondItem="1Cw-uP-nom" secondAttribute="bottom" constant="8" symbolic="YES" id="s0I-Z6-NhF"/>
+                            <constraint firstItem="5iw-mG-F2M" firstAttribute="leading" secondItem="Hpf-7g-vbZ" secondAttribute="leading" constant="16" id="vDf-1z-7AX"/>
+                            <constraint firstItem="Hpf-7g-vbZ" firstAttribute="trailing" secondItem="afQ-Lf-BH2" secondAttribute="trailing" constant="16" id="vxM-bT-eLP"/>
+                            <constraint firstItem="Hpf-7g-vbZ" firstAttribute="trailing" secondItem="5iw-mG-F2M" secondAttribute="trailing" constant="16" id="yH9-PA-GKM"/>
+                            <constraint firstItem="OMt-PS-b9J" firstAttribute="top" secondItem="nbd-c6-7L0" secondAttribute="bottom" constant="35" id="yOX-8G-spm"/>
+                            <constraint firstItem="sZu-AJ-Q6p" firstAttribute="leading" secondItem="Hpf-7g-vbZ" secondAttribute="leading" constant="16" id="yhL-fd-N1P"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WCB-R2-h1b"/>
                     <connections>
-                        <outlet property="categoryLB" destination="3Js-tB-TDF" id="4iP-kO-7YE"/>
-                        <outlet property="contentImg" destination="PT8-zA-GBZ" id="ths-54-6Ua"/>
-                        <outlet property="contentTitleLB" destination="PXx-lR-wio" id="tVe-vg-5mG"/>
+                        <outlet property="category" destination="7Uf-Yf-Yd8" id="ved-VB-A3A"/>
+                        <outlet property="contentImg" destination="1Cw-uP-nom" id="8Kn-su-KYE"/>
+                        <outlet property="contentTitle" destination="OMt-PS-b9J" id="F8r-6i-c6v"/>
                         <outlet property="contentView" destination="5iw-mG-F2M" id="wGN-x6-6Lm"/>
-                        <outlet property="expireDateLB" destination="pkM-Ne-9Tw" id="nGf-h0-wft"/>
-                        <outlet property="priceLB" destination="xa8-FP-XlY" id="yoa-Mh-TTm"/>
-                        <outlet property="shopNameLB" destination="w6D-N7-YpJ" id="fU2-IQ-tUT"/>
+                        <outlet property="expireDate" destination="D4q-OW-U06" id="JtS-mc-1lX"/>
+                        <outlet property="price" destination="gyx-Ax-J6y" id="wh4-Q2-Q0a"/>
+                        <outlet property="shopName" destination="sMS-iL-I43" id="eEg-d6-gaK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xsM-wL-afP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -631,7 +869,12 @@
         <image name="camera.fill" catalog="system" width="128" height="94"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="clear.fill" catalog="system" width="128" height="114"/>
+        <image name="cooking-pot" width="512" height="512"/>
+        <image name="discount-voucher" width="512" height="512"/>
+        <image name="free-icon-coffee-4433050" width="512" height="512"/>
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="online-shopping" width="512" height="512"/>
+        <image name="shopping-bag" width="512" height="512"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
