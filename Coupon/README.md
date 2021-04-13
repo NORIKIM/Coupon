@@ -193,3 +193,9 @@ viewWillAppear는 뷰가 나타날 때마다 호출이되므로 여기에서 데
 https://help.naver.com/support/contents/contents.help?serviceNo=1074&categoryNo=3497
 
 다운로드 : https://hangeul.naver.com/
+
+[ 이미지 ]
+
+<div>아이콘 제작자 <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/kr/" title="Flaticon">www.flaticon.com</a></div>
+
+https://www.flaticon.com/packs/sales-113
