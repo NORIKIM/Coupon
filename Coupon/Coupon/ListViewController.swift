@@ -33,7 +33,17 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let dateFormat = DateFormatter()
         dateFormat.dateFormat = "yyyy년 MM월 dd일"
+        let today = dateFormat.string(from: Date())
         let date = dateFormat.string(from: couponlist[indexPath.row].expireDate)
+        
+        if today > date {
+            let expireLB = UILabel(frame: CGRect(x: cell.frame.width / 2, y: cell.frame.height / 2, width: 30, height: 10))
+            expireLB.text = "만료"
+            expireLB.font = UIFont.systemFont(ofSize: 13)
+            expireLB.textColor = UIColor.red
+            cell.addSubview(expireLB)
+            //            cell.backgroundColor = UIColor.systemGray5
+        }
         
         cell.textLabel?.text = couponlist[indexPath.row].shop
         cell.detailTextLabel?.text = date
