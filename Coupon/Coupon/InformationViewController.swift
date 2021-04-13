@@ -8,34 +8,44 @@
 
 import UIKit
 
-class InformationViewController: UIViewController {
-    @IBOutlet weak var categoryLB: UILabel!
-    @IBOutlet weak var shopNameLB: UILabel!
-    @IBOutlet weak var priceLB: UILabel!
-    @IBOutlet weak var expireDateLB: UILabel!
+class InformationViewController: UIViewController, UITextFieldDelegate {
+    
+    @IBOutlet weak var category: UITextField!
+    @IBOutlet weak var shopName: UITextField!
+    @IBOutlet weak var price: UITextField!
+    @IBOutlet weak var expireDate: UITextField!
     @IBOutlet weak var contentImg: UIImageView!
     @IBOutlet weak var contentView: UITextView!
-    @IBOutlet weak var contentTitleLB: UILabel!
+    @IBOutlet weak var contentTitle: UILabel!
     
     var coupon: Coupon?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        category.delegate = self
+        shopName.delegate = self
+        price.delegate = self
+        expireDate.delegate = self
+        
+        let photoGesture = UITapGestureRecognizer(target: self, action: #selector(photoZoom))
+        contentImg.isUserInteractionEnabled = true
+        contentImg.addGestureRecognizer(photoGesture)
+        
         let dateFormat = DateFormatter()
         dateFormat.dateFormat = "yyyy년 MM월 dd일"
-        let expireDate = dateFormat.string(from: coupon!.expireDate)
+        let expireDateForm = dateFormat.string(from: coupon!.expireDate)
         
-        categoryLB.text = coupon?.category
-        shopNameLB.text = coupon?.shop
-        priceLB.text = coupon?.price
-        expireDateLB.text = expireDate
+        category.text = coupon?.category
+        shopName.text = coupon?.shop
+        price.text = coupon?.price
+        expireDate.text = expireDateForm
         
         // 이미지 No, 내용 No
         if coupon?.contentPhoto == nil && coupon?.content == "" {
             contentImg.isHidden = true
             contentView.isHidden = true
-            contentTitleLB.isHidden = true
+            contentTitle.isHidden = true
         }
         // 이미지 No, 내용 Yes
         else if coupon?.contentPhoto == nil && coupon?.content != "" {
@@ -55,5 +65,15 @@ class InformationViewController: UIViewController {
             contentView.text = coupon?.content
         }
     }
-
+    
+    @objc func photoZoom() {
+        let photoZoomView = self.storyboard?.instantiateViewController(withIdentifier: "photoZoom") as! PhotoZoomViewController
+        photoZoomView.image = contentImg.image
+        self.navigationController?.pushViewController(photoZoomView, animated: true)
+    }
+  
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
 }
