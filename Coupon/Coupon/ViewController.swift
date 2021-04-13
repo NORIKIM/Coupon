@@ -24,12 +24,13 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         data = db.readDB(select: "전체")
-        setCouponScreen()
+//        setCouponScreen()
         NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: NSNotification.Name(rawValue: "save"), object: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
         data = db.readDB(select: "전체")
         setCouponScreen()
     }
@@ -72,13 +73,36 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     }
     
     // 임박한 쿠폰 보여주기
+    func setCouponScreen2() {
+        let couponIndexArr = userDefaults.object(forKey: userDefaultsKey) as? [Int] ?? [Int]()
+        for i in 0 ..< couponIndexArr.count{
+            let lb = UILabel(frame: CGRect(x: 0, y: 0, width: scrollView.frame.size.width, height: scrollView.frame.size.height))
+            lb.text = "hello world"
+            lb.textAlignment = .center
+            lb.backgroundColor = .blue
+             let xPosition = self.scrollView.frame.width * CGFloat(i)
+            
+            lb.frame = CGRect(x: xPosition, y: 0, width: self.scrollView.frame.width, height: self.scrollView.frame.height)
+            
+            lb.translatesAutoresizingMaskIntoConstraints = false
+            scrollView.addSubview(lb)
+            lb.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor).isActive = true;
+            lb.topAnchor.constraint(equalTo: self.scrollView.topAnchor).isActive = true;
+            lb.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor).isActive = true;
+            lb.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor).isActive = true;
+            
+            lb.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor).isActive = true;
+            lb.heightAnchor.constraint(equalTo: self.scrollView.heightAnchor).isActive = true;
+            
+            
+         }
+        scrollView.delegate = self
+    }
+    
     func setCouponScreen() {
+        let couponIndexArr = userDefaults.object(forKey: userDefaultsKey) as? [Int] ?? [Int]()
         guard let scroll = self.scrollView else {return}
         scroll.layer.cornerRadius = 11
-        
-        let scrollwidth = scroll.frame.width
-        let scrollheight = scroll.frame.height
-        let couponIndexArr = userDefaults.object(forKey: userDefaultsKey) as? [Int] ?? [Int]()
         
         if couponIndexArr.count == 1 || couponIndexArr.count == 0 {
             pageControl.numberOfPages = 0
@@ -88,31 +112,66 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         
         if couponIndexArr.count == 0 {
             clearScrollView()
-            let couponInfoLB = UILabel(frame: CGRect(x: 0 , y: 0 , width: scrollwidth, height: scrollheight))
-            couponInfoLB.textAlignment = .center
-            couponInfoLB.numberOfLines = 3
-            couponInfoLB.font = UIFont(name: "독립기념관체", size: 17)
-            couponInfoLB.textColor = UIColor.white
+            let couponInfoLB = UILabel(frame: CGRect(x: 0 , y: 0 , width: self.scrollView.frame.size.width, height: self.scrollView.frame.size.height))
             couponInfoLB.text = "등록된 쿠폰이 없습니다"
-            self.scrollView.addSubview(couponInfoLB)
+//            couponInfoLB.backgroundColor = .systemPurple
+            couponInfoLB.textAlignment = .center
+            couponInfoLB.font = UIFont(name: "NanumSquareRoundR", size: 17)
+            couponInfoLB.textColor = UIColor.white
+            let xPosition = self.scrollView.frame.width * CGFloat(0)
+            couponInfoLB.frame = CGRect(x: xPosition, y: 0, width: self.scrollView.frame.width, height: self.scrollView.frame.height)
+            
+            couponInfoLB.translatesAutoresizingMaskIntoConstraints = false
+            scrollView.addSubview(couponInfoLB)
+            couponInfoLB.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor).isActive = true
+            couponInfoLB.topAnchor.constraint(equalTo: self.scrollView.topAnchor).isActive = true
+            couponInfoLB.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor).isActive = true
+            couponInfoLB.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor).isActive = true
+            
+            couponInfoLB.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor).isActive = true
+            couponInfoLB.heightAnchor.constraint(equalTo: self.scrollView.heightAnchor).isActive = true
+            
+            scrollView.delegate = self
+            
         } else {
             clearScrollView()
-            
+
             let dateFormat = DateFormatter()
             dateFormat.dateFormat = "yyyy년 MM월 dd일"
 
+            var frame = CGRect.zero
+            
             for idx in 0 ..< couponIndexArr.count {
+                frame.origin.x = scrollView.frame.size.width * CGFloat(idx)
+                frame.size = scrollView.frame.size
+                
                 let couponData = db.readDB(select: "전체", id: couponIndexArr[idx])[0]
                 let date = dateFormat.string(from: couponData.expireDate)
-                let couponInfoLB = UILabel(frame: CGRect(x: CGFloat(idx) * scrollwidth , y: 0 , width: scrollwidth, height: scrollheight))
-                couponInfoLB.textAlignment = .center
-                couponInfoLB.font = UIFont(name: "독립기념관체", size: 17)
-                couponInfoLB.textColor = UIColor.white
+//                let couponInfoLB = UILabel(frame: CGRect(x: CGFloat(idx) * self.scrollView.frame.size.width , y: 0 , width: self.scrollView.frame.size.width, height: self.scrollView.frame.size.height))
+                let couponInfoLB = UILabel(frame: frame)
                 couponInfoLB.text = "\(couponData.category) \n \(couponData.shop) \n \(date)"
+//                couponInfoLB.backgroundColor = UIColor.red
+                couponInfoLB.textAlignment = .center
+                couponInfoLB.font = UIFont(name: "NanumSquareRoundR", size: 17)
+                couponInfoLB.textColor = UIColor.white
                 couponInfoLB.numberOfLines = 3
-                self.scrollView.addSubview(couponInfoLB)
+                
+//                scrollView.contentSize.width = scrollView.frame.size.width * CGFloat(1 * idx)
+                
+//                couponInfoLB.translatesAutoresizingMaskIntoConstraints = false
+                scrollView.addSubview(couponInfoLB)
+                
+//                couponInfoLB.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor).isActive = true
+//                couponInfoLB.topAnchor.constraint(equalTo: self.scrollView.topAnchor).isActive = true
+//                couponInfoLB.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor).isActive = true
+//                couponInfoLB.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor).isActive = true
+
+//                couponInfoLB.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor).isActive = true
+//                couponInfoLB.heightAnchor.constraint(equalTo: self.scrollView.heightAnchor).isActive = true
+
             }
             scrollView.contentSize = CGSize(width: scrollView.frame.size.width * CGFloat(couponIndexArr.count), height: scrollView.frame.size.height)
+            
             scrollView.delegate = self
         }
     }
