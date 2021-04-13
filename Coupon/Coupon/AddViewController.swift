@@ -32,9 +32,11 @@ class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerCont
     @IBOutlet weak var content: UITextView!
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var clear: UIButton!
+    @IBOutlet weak var screenView: UIView!
+    @IBOutlet weak var datePickerView: UIView!
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     var categoryButton = [UIButton]()
-    var datePicker = UIDatePicker()
     var keyboardShown:Bool = false // 키보드 상태 확인
     var originY:CGFloat? // 오브젝트의 기본 위치
     var category = ""
@@ -45,7 +47,7 @@ class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerCont
         super.viewDidLoad()
 
         categoryButton = [cafe,restaurant,shopping,convenienceStore]
-        showDatePicker()
+//        showDatePicker()
         price.delegate = self
         content.layer.borderColor = #colorLiteral(red: 0.7999381423, green: 0.8000349402, blue: 0.7999051213, alpha: 1)
         content.layer.borderWidth = 1.0
@@ -148,33 +150,22 @@ class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerCont
     }
     
     ///데이트피커 설정
-    func showDatePicker() {
-        datePicker.datePickerMode = .date
-        datePicker.minimumDate = Date()
-        datePicker.locale = .current
-        datePicker.preferredDatePickerStyle = .wheels
-        expireDate.inputView = datePicker
-        
-        // toolbar
-        let toolbar = UIToolbar()
-        toolbar.barStyle = .default
-        toolbar.translatesAutoresizingMaskIntoConstraints = true
-        
-        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let done = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(datePickerDone))
-        toolbar.setItems([space,done], animated: false)
-        toolbar.isUserInteractionEnabled = true
-        toolbar.sizeToFit()
-        expireDate.inputAccessoryView = toolbar
+    @IBAction func showDatePic(_ sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+        screenView.isHidden = false
+        datePickerView.isHidden = false
     }
+
     
-    @objc func datePickerDone() {
+    @IBAction func datePickerDone() {
         let dateFormat = DateFormatter()
         dateFormat.dateFormat = "yyyy년 MM월 dd일"
         let selectDate = dateFormat.string(from: datePicker.date)
        
         expireDate.text = selectDate
-        self.view.endEditing(true)
+        
+        screenView.isHidden = true
+        datePickerView.isHidden = true
     }
     
     /// 내용 입력 창 
