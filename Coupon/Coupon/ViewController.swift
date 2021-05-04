@@ -5,14 +5,11 @@
 //  Created by 김지나 on 2020/09/24.
 //  Copyright © 2020 김지나. All rights reserved.
 //
-//-------------------------------------------------
-// = 라이센스 표기 필요 =
-// 폰트 : https://togethergroup.co.kr/sub/type/view.asp?idx=2439
-//-------------------------------------------------
 
 import UIKit
 
 class ViewController: UIViewController, UIScrollViewDelegate {
+    @IBOutlet weak var couponView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     
@@ -24,7 +21,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         data = db.readDB(select: "전체")
-//        setCouponScreen()
+        setCouponScreen()
         NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: NSNotification.Name(rawValue: "save"), object: nil)
     }
 
@@ -72,38 +69,10 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    // 임박한 쿠폰 보여주기
-    func setCouponScreen2() {
-        let couponIndexArr = userDefaults.object(forKey: userDefaultsKey) as? [Int] ?? [Int]()
-        for i in 0 ..< couponIndexArr.count{
-            let lb = UILabel(frame: CGRect(x: 0, y: 0, width: scrollView.frame.size.width, height: scrollView.frame.size.height))
-            lb.text = "hello world"
-            lb.textAlignment = .center
-            lb.backgroundColor = .blue
-             let xPosition = self.scrollView.frame.width * CGFloat(i)
-            
-            lb.frame = CGRect(x: xPosition, y: 0, width: self.scrollView.frame.width, height: self.scrollView.frame.height)
-            
-            lb.translatesAutoresizingMaskIntoConstraints = false
-            scrollView.addSubview(lb)
-            lb.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor).isActive = true;
-            lb.topAnchor.constraint(equalTo: self.scrollView.topAnchor).isActive = true;
-            lb.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor).isActive = true;
-            lb.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor).isActive = true;
-            
-            lb.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor).isActive = true;
-            lb.heightAnchor.constraint(equalTo: self.scrollView.heightAnchor).isActive = true;
-            
-            
-         }
-        scrollView.delegate = self
-    }
-    
+    // 임박한 쿠폰 보여주는 뷰 세팅
     func setCouponScreen() {
         let couponIndexArr = userDefaults.object(forKey: userDefaultsKey) as? [Int] ?? [Int]()
-        guard let scroll = self.scrollView else {return}
-        scroll.layer.cornerRadius = 11
-        
+
         if couponIndexArr.count == 1 || couponIndexArr.count == 0 {
             pageControl.numberOfPages = 0
         } else {
@@ -112,68 +81,39 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         
         if couponIndexArr.count == 0 {
             clearScrollView()
-            let couponInfoLB = UILabel(frame: CGRect(x: 0 , y: 0 , width: self.scrollView.frame.size.width, height: self.scrollView.frame.size.height))
-            couponInfoLB.text = "등록된 쿠폰이 없습니다"
-//            couponInfoLB.backgroundColor = .systemPurple
-            couponInfoLB.textAlignment = .center
-            couponInfoLB.font = UIFont(name: "NanumSquareRoundR", size: 17)
-            couponInfoLB.textColor = UIColor.white
-            let xPosition = self.scrollView.frame.width * CGFloat(0)
-            couponInfoLB.frame = CGRect(x: xPosition, y: 0, width: self.scrollView.frame.width, height: self.scrollView.frame.height)
-            
-            couponInfoLB.translatesAutoresizingMaskIntoConstraints = false
-            scrollView.addSubview(couponInfoLB)
-            couponInfoLB.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor).isActive = true
-            couponInfoLB.topAnchor.constraint(equalTo: self.scrollView.topAnchor).isActive = true
-            couponInfoLB.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor).isActive = true
-            couponInfoLB.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor).isActive = true
-            
-            couponInfoLB.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor).isActive = true
-            couponInfoLB.heightAnchor.constraint(equalTo: self.scrollView.heightAnchor).isActive = true
-            
-            scrollView.delegate = self
-            
+            let lb = UILabel()
+            lb.textAlignment = .center
+            lb.textColor = .white
+            let xPosition = self.couponView.frame.width// * CGFloat(1)
+            lb.frame = CGRect(x: xPosition, y: 0, width: self.couponView.frame.width, height: self.couponView.frame.height)
+            lb.text = "등록된 쿠폰이 없습니다."
+            lb.font = UIFont(name: "NanumSquareRoundR", size: 17)
+            lb.backgroundColor = .red
+            scrollView.contentSize.width = self.couponView.frame.width// * CGFloat(1)
+            scrollView.addSubview(lb)
         } else {
             clearScrollView()
-
+            
             let dateFormat = DateFormatter()
             dateFormat.dateFormat = "yyyy년 MM월 dd일"
-
-            var frame = CGRect.zero
             
-            for idx in 0 ..< couponIndexArr.count {
-                frame.origin.x = scrollView.frame.size.width * CGFloat(idx)
-                frame.size = scrollView.frame.size
-                
-                let couponData = db.readDB(select: "전체", id: couponIndexArr[idx])[0]
+            for coupon in 0 ..< couponIndexArr.count {
+                let couponData = db.readDB(select: "전체", id: couponIndexArr[coupon])[0]
                 let date = dateFormat.string(from: couponData.expireDate)
-//                let couponInfoLB = UILabel(frame: CGRect(x: CGFloat(idx) * self.scrollView.frame.size.width , y: 0 , width: self.scrollView.frame.size.width, height: self.scrollView.frame.size.height))
-                let couponInfoLB = UILabel(frame: frame)
-                couponInfoLB.text = "\(couponData.category) \n \(couponData.shop) \n \(date)"
-//                couponInfoLB.backgroundColor = UIColor.red
-                couponInfoLB.textAlignment = .center
-                couponInfoLB.font = UIFont(name: "NanumSquareRoundR", size: 17)
-                couponInfoLB.textColor = UIColor.white
-                couponInfoLB.numberOfLines = 3
                 
-//                scrollView.contentSize.width = scrollView.frame.size.width * CGFloat(1 * idx)
+                let lb = UILabel()
+                lb.textAlignment = .center
+                lb.textColor = .white
+                lb.frame = CGRect(x: self.couponView.frame.width * CGFloat(coupon), y: 0, width: self.couponView.frame.width, height: self.couponView.frame.height)
+                lb.numberOfLines = 3
+                lb.text = "\(couponData.category) \n \(couponData.shop) \n \(date)"
+                lb.font = UIFont(name: "NanumSquareRoundR", size: 17)
                 
-//                couponInfoLB.translatesAutoresizingMaskIntoConstraints = false
-                scrollView.addSubview(couponInfoLB)
-                
-//                couponInfoLB.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor).isActive = true
-//                couponInfoLB.topAnchor.constraint(equalTo: self.scrollView.topAnchor).isActive = true
-//                couponInfoLB.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor).isActive = true
-//                couponInfoLB.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor).isActive = true
-
-//                couponInfoLB.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor).isActive = true
-//                couponInfoLB.heightAnchor.constraint(equalTo: self.scrollView.heightAnchor).isActive = true
-
+                scrollView.addSubview(lb)
+                scrollView.contentSize.width = self.couponView.frame.width * CGFloat(couponIndexArr.count)
             }
-            scrollView.contentSize = CGSize(width: scrollView.frame.size.width * CGFloat(couponIndexArr.count), height: scrollView.frame.size.height)
-            
-            scrollView.delegate = self
         }
+        scrollView.delegate = self
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
