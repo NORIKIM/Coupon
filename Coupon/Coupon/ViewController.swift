@@ -21,6 +21,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         data = db.readDB(select: "전체")
+        deleteExpireCoupon()
         setCouponScreen()
         NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: NSNotification.Name(rawValue: "save"), object: nil)
     }
@@ -60,6 +61,25 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                 return
             }
         }
+ 
+    }
+    
+    // 쿠폰 유효기간이 지나면 임박쿠폰 리스트에서 삭제
+    func deleteExpireCoupon() {
+        var couponIndexArr = userDefaults.object(forKey: userDefaultsKey) as? [Int] ?? [Int]()
+        let dateFormat = DateFormatter()
+        dateFormat.dateFormat = "yyyy년 MM월 dd일"
+        let today = dateFormat.string(from: Date())
+        
+        for coupon in 0 ..< couponIndexArr.count {
+            let couponData = db.readDB(select: "전체", id: couponIndexArr[coupon])[0]
+            let date = dateFormat.string(from: couponData.expireDate)
+
+            if date < today {
+                couponIndexArr.remove(at: coupon)
+                userDefaults.set(couponIndexArr, forKey: userDefaultsKey)
+            }
+        }
     }
     
     func clearScrollView() {
@@ -84,11 +104,9 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             let lb = UILabel()
             lb.textAlignment = .center
             lb.textColor = .white
-            let xPosition = self.couponView.frame.width// * CGFloat(1)
-            lb.frame = CGRect(x: xPosition, y: 0, width: self.couponView.frame.width, height: self.couponView.frame.height)
+            lb.frame = CGRect(x: 0, y: 0, width: self.couponView.frame.width, height: self.couponView.frame.height)
             lb.text = "등록된 쿠폰이 없습니다."
             lb.font = UIFont(name: "NanumSquareRoundR", size: 17)
-            lb.backgroundColor = .red
             scrollView.contentSize.width = self.couponView.frame.width// * CGFloat(1)
             scrollView.addSubview(lb)
         } else {
