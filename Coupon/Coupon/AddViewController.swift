@@ -47,7 +47,6 @@ class AddViewController: UIViewController, UITextFieldDelegate,UIImagePickerCont
         super.viewDidLoad()
 
         categoryButton = [cafe,restaurant,shopping,convenienceStore]
-//        showDatePicker()
         price.delegate = self
         content.layer.borderColor = #colorLiteral(red: 0.7999381423, green: 0.8000349402, blue: 0.7999051213, alpha: 1)
         content.layer.borderWidth = 1.0
