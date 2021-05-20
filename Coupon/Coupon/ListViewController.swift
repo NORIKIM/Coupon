@@ -62,29 +62,29 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     // 셀 편집 활성화
-        func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-            return true
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    // 셀 편집에 대한 동작
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let index = indexPath.row
+        let data = db.readDB(select: "전체")
+        let select = data[index].id
+        
+        if editingStyle == .delete {
+            db.delete(cell: select) // select == id
+            couponlist.remove(at: index)
+            
+            var expireCoupon = UserDefaults.standard.object(forKey: "couponIndex") as! [Int]
+            for idx in 0 ..< expireCoupon.count {
+                if select == expireCoupon[idx] {
+                    expireCoupon.remove(at: idx)
+                    UserDefaults.standard.set(expireCoupon, forKey: "couponIndex")
+                }
+            }
+            self.list.reloadData()
         }
         
-        // 셀 편집에 대한 동작
-        func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-            let index = indexPath.row
-            let data = db.readDB(select: "전체")
-            let select = data[index].id
-
-            if editingStyle == .delete {
-                db.delete(cell: select)
-                couponlist.remove(at: index)
-                
-                var expireCoupon = UserDefaults.standard.object(forKey: "couponIndex") as! [Int]
-                for idx in 0 ..< expireCoupon.count {
-                    if index == idx {
-                        expireCoupon.remove(at: idx)
-                        UserDefaults.standard.set(expireCoupon, forKey: "couponIndex")
-                    }
-                }
-                self.list.reloadData()
-            }
-            
-        }
+    }
 }
