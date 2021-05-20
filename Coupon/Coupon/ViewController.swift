@@ -46,10 +46,16 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             userDefaults.set([1], forKey: userDefaultsKey)
             return
         } else {
-            var couponIndexArr = userDefaults.object(forKey: userDefaultsKey) as! [Int]
+            var couponIndexArr = userDefaults.object(forKey: userDefaultsKey) as! [Int] //[0] = 1
             let dateformatter = DateFormatter()
             dateformatter.dateFormat = "yyyyMMdd"
-            let baseDate = dateformatter.string(from: data[couponIndexArr[0]].expireDate)
+            
+            var baseDate = ""
+            if couponIndexArr.count == 0 {
+                baseDate = dateformatter.string(from: data[0].expireDate)
+            } else {
+                baseDate = dateformatter.string(from: data[couponIndexArr[0] - 1].expireDate)
+            }
             let addedDate = dateformatter.string(from: data[data.count-1].expireDate)
             
             if baseDate > addedDate {
