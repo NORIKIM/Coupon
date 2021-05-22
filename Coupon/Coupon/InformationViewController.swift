@@ -23,6 +23,7 @@ class InformationViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.title = "쿠폰 정보"
         category.delegate = self
         shopName.delegate = self
         price.delegate = self
