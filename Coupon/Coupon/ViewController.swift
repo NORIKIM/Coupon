@@ -41,7 +41,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     func findExpireCoupon() -> Void {
         let maxID = db.getID()
-        var couponIndexArr = userDefaults.object(forKey: userDefaultsKey) as? [Int]
+        let couponIndexArr = userDefaults.object(forKey: userDefaultsKey) as? [Int]
         
         if data.count == 1 {
             userDefaults.set([1], forKey: userDefaultsKey)
