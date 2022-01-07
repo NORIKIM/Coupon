@@ -35,17 +35,23 @@ struct Database {
     
     // create table
     func createTable() {
+        let checkTable = "SELECT name FROM sqlite_master WHERE name='coupon'"
         let creatQuery = "CREATE TABLE IF NOT EXISTS coupon(id INTEGER primary key, category TEXT, shop TEXT, price TEXT, expireDate TEXT, content TEXT, contentPhoto BLOB)"
         var createStmt: OpaquePointer? = nil
         
-        if sqlite3_prepare_v2(db, creatQuery, -1, &createStmt, nil) == SQLITE_OK {
-            if sqlite3_step(createStmt) == SQLITE_DONE {
-                print("SUCCESS create coupon table")
-            } else {
-                print("create table statement could not be prepared")
+        if sqlite3_prepare_v2(db, checkTable, -1, &createStmt, nil) == SQLITE_OK {
+            print("SUCCESS call coupon table")
+        } else {
+            if sqlite3_prepare_v2(db, creatQuery, -1, &createStmt, nil) == SQLITE_OK {
+                if sqlite3_step(createStmt) == SQLITE_DONE {
+                    print("SUCCESS create coupon table")
+                } else {
+                    print("create table statement could not be prepared")
+                }
+                sqlite3_finalize(createStmt)
             }
-            sqlite3_finalize(createStmt)
         }
+        
     }
     
     // read db
