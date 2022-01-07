@@ -17,13 +17,13 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     var data = [Coupon]()
     let userDefaults = UserDefaults.standard
     let userDefaultsKey = "couponIndex"
+    var sevendays = [Coupon]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        data = db.readDB(select: "전체")
         deleteExpireCoupon()
-        setCouponScreen()
         NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: NSNotification.Name(rawValue: "save"), object: nil)
+        sevendays = db.sevenDays()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -100,44 +100,46 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     // 임박한 쿠폰 보여주는 뷰 세팅
     func setCouponScreen() {
-        let couponIndexArr = userDefaults.object(forKey: userDefaultsKey) as? [Int] ?? [Int]()
+        scrollView.layer.cornerRadius = 10
+        scrollView.layer.borderColor = UIColor(red: 221/255.0, green: 221/255.0, blue: 221/255.0, alpha: 1).cgColor
+        scrollView.layer.borderWidth = 1
+        
+        //let couponIndexArr = userDefaults.object(forKey: userDefaultsKey) as? [Int] ?? [Int]()
 
-        if couponIndexArr.count == 1 || couponIndexArr.count == 0 {
+        if sevendays.count < 2 {
             pageControl.numberOfPages = 0
         } else {
-            pageControl.numberOfPages = couponIndexArr.count
+            pageControl.numberOfPages = sevendays.count
         }
         
-        if couponIndexArr.count == 0 {
+        if sevendays.count == 0 {
             clearScrollView()
-            let lb = UILabel()
-            lb.textAlignment = .center
-            lb.textColor = .white
-            lb.frame = CGRect(x: 0, y: 0, width: self.couponView.frame.width, height: self.couponView.frame.height)
-            lb.text = "등록된 쿠폰이 없습니다."
-            lb.font = UIFont(name: "NanumSquareRoundR", size: 17)
+            let contentLb = UILabel()
+            contentLb.textAlignment = .center
+            contentLb.textColor = .black
+            contentLb.frame = CGRect(x: 0, y: 0, width: self.couponView.frame.width, height: self.couponView.frame.height)
+            contentLb.text = "등록된 쿠폰이 없습니다."
+            contentLb.font = UIFont(name: "NanumSquareRoundR", size: 17)
             scrollView.contentSize.width = self.couponView.frame.width// * CGFloat(1)
-            scrollView.addSubview(lb)
+            scrollView.addSubview(contentLb)
         } else {
             clearScrollView()
             
             let dateFormat = DateFormatter()
             dateFormat.dateFormat = "yyyy년 MM월 dd일"
             
-            for coupon in 0 ..< couponIndexArr.count {
-                let couponData = db.readDB(select: "전체", id: couponIndexArr[coupon])[0]
-                let date = dateFormat.string(from: couponData.expireDate)
+            for i in 0 ..< sevendays.count {
+                let coupon = sevendays[i]
+                let expireDate = dateFormat.string(from: coupon.expireDate)
+                let couponLb = UILabel(frame: CGRect(x: self.couponView.frame.size.width * CGFloat(i), y: 0, width: self.couponView.frame.size.width, height: self.couponView.frame.size.height))
+                couponLb.textAlignment = .center
+                couponLb.textColor = .black
+                couponLb.numberOfLines = 3
+                couponLb.text = "<  \(coupon.category)  > \n \(coupon.shop) \n \(expireDate)"
+                couponLb.font = UIFont(name: "NanumSquareRoundR", size: 17)
                 
-                let lb = UILabel()
-                lb.textAlignment = .center
-                lb.textColor = .white
-                lb.frame = CGRect(x: self.couponView.frame.width * CGFloat(coupon), y: 0, width: self.couponView.frame.width, height: self.couponView.frame.height)
-                lb.numberOfLines = 3
-                lb.text = "\(couponData.category) \n \(couponData.shop) \n \(date)"
-                lb.font = UIFont(name: "NanumSquareRoundR", size: 17)
-                
-                scrollView.addSubview(lb)
-                scrollView.contentSize.width = self.couponView.frame.width * CGFloat(couponIndexArr.count)
+                scrollView.addSubview(couponLb)
+                scrollView.contentSize.width = self.couponView.frame.width * CGFloat(sevendays.count)
             }
         }
         scrollView.delegate = self
