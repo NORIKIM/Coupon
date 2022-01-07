@@ -153,18 +153,45 @@ struct Database {
     
     // ID 최대값
     func getID() -> Int {
-            let selectIDQuery = "SELECT max(id) FROM coupon"
-            var selectStmt: OpaquePointer? = nil
-            var index = 0
-            if sqlite3_prepare_v2(db, selectIDQuery, -1, &selectStmt, nil) == SQLITE_OK {
-                while sqlite3_step(selectStmt) == SQLITE_ROW {
-                    index = Int(sqlite3_column_int(selectStmt, 0))
-                }
-            } else {
-                print("ERROR select statement could not be prepared")
+        let selectIDQuery = "SELECT max(id) FROM coupon"
+        var selectStmt: OpaquePointer? = nil
+        var index = 0
+        if sqlite3_prepare_v2(db, selectIDQuery, -1, &selectStmt, nil) == SQLITE_OK {
+            while sqlite3_step(selectStmt) == SQLITE_ROW {
+                index = Int(sqlite3_column_int(selectStmt, 0))
             }
-            sqlite3_finalize(selectStmt)
-            return index
+        } else {
+            print("ERROR select statement could not be prepared")
         }
+        sqlite3_finalize(selectStmt)
+        return index
+    }
+    
+    func sevenDays() -> [Coupon] {
+        let selectQuery = "SELECT * FROM coupon WHERE DATETIME('now', '-7 day')"
+        var selectStmt: OpaquePointer? = nil
+        var coupon = [Coupon]()
+        
+        if sqlite3_prepare_v2(db, selectQuery, -1, &selectStmt, nil) == SQLITE_OK {
+            while sqlite3_step(selectStmt) == SQLITE_ROW {
+                let id = Int(sqlite3_column_int(selectStmt, 0))
+                let category = String(describing: String(cString: sqlite3_column_text(selectStmt, 1)))
+                let shop = String(describing: String(cString: sqlite3_column_text(selectStmt, 2)))
+                let price = String(describing: String(cString: sqlite3_column_text(selectStmt, 3)))
+                let expireDate = Date(timeIntervalSinceReferenceDate: sqlite3_column_double(selectStmt, 4))
+                let content = String(describing: String(cString: sqlite3_column_text(selectStmt, 5)))
+                
+                let lenght:Int = Int(sqlite3_column_bytes(selectStmt, 6))
+                let contentPhoto : NSData = NSData(bytes: sqlite3_column_blob(selectStmt, 6), length: lenght)
+                let contentImg = UIImage(data: contentPhoto as Data)
+                coupon.append(Coupon(id: id, category: category, shop: shop, price: price, expireDate: expireDate, content: content, contentPhoto: contentImg))
+            }
+        } else {
+            print("ERROR select statement could not be prepared")
+        }
+        sqlite3_finalize(selectStmt)
+        return coupon
+    }
 
 }
+
