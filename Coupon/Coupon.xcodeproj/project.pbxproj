@@ -76,16 +76,11 @@
 		3CC3C783251CB57300A90018 /* Coupon */ = {
 			isa = PBXGroup;
 			children = (
-				3CC89D9725F24AFD006CF678 /* Font */,
 				3CC3C784251CB57300A90018 /* AppDelegate.swift */,
 				3CC3C786251CB57300A90018 /* SceneDelegate.swift */,
-				3CC3C788251CB57300A90018 /* ViewController.swift */,
-				3C4F16B4251F1CAA0059C61F /* AddViewController.swift */,
-				3C34730425DD07E500655858 /* InformationViewController.swift */,
-				3C4FBBF2258B60F400AB1CE1 /* PhotoZoomViewController.swift */,
-				3C4FBBF5258B6A2800AB1CE1 /* ListViewController.swift */,
-				3C3D11A1259B654600926442 /* Database.swift */,
-				3C4F16B6251F28590059C61F /* Coupon.swift */,
+				3CCA5EF3279036F10060839C /* data */,
+				3CCA5EF2279036DC0060839C /* view */,
+				3CC89D9725F24AFD006CF678 /* Font */,
 				3CC3C78A251CB57300A90018 /* Main.storyboard */,
 				3CC3C78D251CB57B00A90018 /* Assets.xcassets */,
 				3CC3C78F251CB57B00A90018 /* LaunchScreen.storyboard */,
@@ -103,6 +98,27 @@
 				3C9B141625FCEE8C00A1C98C /* NanumSquareRoundR.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		3CCA5EF2279036DC0060839C /* view */ = {
+			isa = PBXGroup;
+			children = (
+				3C4F16B4251F1CAA0059C61F /* AddViewController.swift */,
+				3C34730425DD07E500655858 /* InformationViewController.swift */,
+				3C4FBBF2258B60F400AB1CE1 /* PhotoZoomViewController.swift */,
+				3C4FBBF5258B6A2800AB1CE1 /* ListViewController.swift */,
+				3CC3C788251CB57300A90018 /* ViewController.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		3CCA5EF3279036F10060839C /* data */ = {
+			isa = PBXGroup;
+			children = (
+				3C3D11A1259B654600926442 /* Database.swift */,
+				3C4F16B6251F28590059C61F /* Coupon.swift */,
+			);
+			path = data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
