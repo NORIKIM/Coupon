@@ -39,17 +39,13 @@ struct Database {
         let creatQuery = "CREATE TABLE IF NOT EXISTS coupon(id INTEGER primary key, category TEXT, shop TEXT, price TEXT, expireDate TEXT, content TEXT, contentPhoto BLOB)"
         var createStmt: OpaquePointer? = nil
         
-        if sqlite3_prepare_v2(db, checkTable, -1, &createStmt, nil) == SQLITE_OK {
-            print("SUCCESS call coupon table")
-        } else {
-            if sqlite3_prepare_v2(db, creatQuery, -1, &createStmt, nil) == SQLITE_OK {
-                if sqlite3_step(createStmt) == SQLITE_DONE {
-                    print("SUCCESS create coupon table")
-                } else {
-                    print("create table statement could not be prepared")
-                }
-                sqlite3_finalize(createStmt)
+        if sqlite3_prepare_v2(db, creatQuery, -1, &createStmt, nil) == SQLITE_OK {
+            if sqlite3_step(createStmt) == SQLITE_DONE {
+                print("SUCCESS create coupon table")
+            } else {
+                print("create table statement could not be prepared")
             }
+            sqlite3_finalize(createStmt)
         }
         
     }
@@ -81,7 +77,7 @@ struct Database {
                 coupon.append(Coupon(id: id, category: category, shop: shop, price: price, expireDate: expireDate, content: content, contentPhoto: contentImg))
             }
         } else {
-            print("ERROR select statement could not be prepared")
+            print("ERROR readDB: select statement could not be prepared")
         }
         sqlite3_finalize(selectStmt)
         return coupon
@@ -161,7 +157,7 @@ struct Database {
                 index = Int(sqlite3_column_int(selectStmt, 0))
             }
         } else {
-            print("ERROR select statement could not be prepared")
+            print("ERROR getID: select statement could not be prepared")
         }
         sqlite3_finalize(selectStmt)
         return index
@@ -187,7 +183,7 @@ struct Database {
                 coupon.append(Coupon(id: id, category: category, shop: shop, price: price, expireDate: expireDate, content: content, contentPhoto: contentImg))
             }
         } else {
-            print("ERROR select statement could not be prepared")
+            print("ERROR sevenDays: select statement could not be prepared")
         }
         sqlite3_finalize(selectStmt)
         return coupon
