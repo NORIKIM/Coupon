@@ -10,6 +10,7 @@ import UIKit
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var list: UITableView!
+    
     var couponlist: [Coupon] = []
     let db = Database.shared
     var category = ""
@@ -17,36 +18,30 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        couponlist = db.readDB(select: category)
+        couponlist = db.readDB(select: "전체")
+        list.register(UINib(nibName: "ListCell", bundle: nil), forCellReuseIdentifier: "cell")
     }
-    
     override func viewWillAppear(_ animated: Bool) {
-        couponlist = db.readDB(select: category)
+        couponlist = db.readDB(select: "전체")
+        list.reloadData()
     }
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         couponlist.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ListCell
         let dateFormat = DateFormatter()
         dateFormat.dateFormat = "yyyy년 MM월 dd일"
         let today = dateFormat.string(from: Date())
         let date = dateFormat.string(from: couponlist[indexPath.row].expireDate)
         
         if today > date {
-            let expireLB = UILabel(frame: CGRect(x: cell.frame.width / 2, y: cell.frame.height / 2, width: 30, height: 10))
-            expireLB.text = "만료"
-            expireLB.font = UIFont.systemFont(ofSize: 13)
-            expireLB.textColor = UIColor.red
-            cell.addSubview(expireLB)
-            //            cell.backgroundColor = UIColor.systemGray5
+            cell.endDateLb.isHidden = false
         }
-        
-        cell.textLabel?.text = couponlist[indexPath.row].shop
-        cell.detailTextLabel?.text = date
+        cell.shopNameLb.text = couponlist[indexPath.row].shop
+        cell.expirationDateLb.text = date
         
         return cell
     }
