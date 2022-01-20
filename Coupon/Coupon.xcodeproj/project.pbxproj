@@ -23,6 +23,8 @@
 		3CC3C78C251CB57300A90018 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CC3C78A251CB57300A90018 /* Main.storyboard */; };
 		3CC3C78E251CB57B00A90018 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CC3C78D251CB57B00A90018 /* Assets.xcassets */; };
 		3CC3C791251CB57B00A90018 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CC3C78F251CB57B00A90018 /* LaunchScreen.storyboard */; };
+		3CCA5EF827998A450060839C /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCA5EF627998A450060839C /* ListCell.swift */; };
+		3CCA5EF927998A450060839C /* ListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CCA5EF727998A450060839C /* ListCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		3CC3C78D251CB57B00A90018 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3CC3C790251CB57B00A90018 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3CC3C792251CB57B00A90018 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3CCA5EF627998A450060839C /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
+		3CCA5EF727998A450060839C /* ListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,12 +80,14 @@
 		3CC3C783251CB57300A90018 /* Coupon */ = {
 			isa = PBXGroup;
 			children = (
+				3CC89D9725F24AFD006CF678 /* Font */,
 				3CC3C784251CB57300A90018 /* AppDelegate.swift */,
 				3CC3C786251CB57300A90018 /* SceneDelegate.swift */,
 				3CCA5EF3279036F10060839C /* data */,
 				3CCA5EF2279036DC0060839C /* view */,
-				3CC89D9725F24AFD006CF678 /* Font */,
 				3CC3C78A251CB57300A90018 /* Main.storyboard */,
+				3CCA5EF627998A450060839C /* ListCell.swift */,
+				3CCA5EF727998A450060839C /* ListCell.xib */,
 				3CC3C78D251CB57B00A90018 /* Assets.xcassets */,
 				3CC3C78F251CB57B00A90018 /* LaunchScreen.storyboard */,
 				3CC3C792251CB57B00A90018 /* Info.plist */,
@@ -180,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CC3C791251CB57B00A90018 /* LaunchScreen.storyboard in Resources */,
+				3CCA5EF927998A450060839C /* ListCell.xib in Resources */,
 				3C9B141B25FCEE8C00A1C98C /* NanumSquareRoundEB.ttf in Resources */,
 				3C9B141825FCEE8C00A1C98C /* NanumSquareRoundL.ttf in Resources */,
 				3CC3C78E251CB57B00A90018 /* Assets.xcassets in Resources */,
@@ -199,6 +206,7 @@
 				3C4F16B7251F28590059C61F /* Coupon.swift in Sources */,
 				3CC3C789251CB57300A90018 /* ViewController.swift in Sources */,
 				3C4FBBF3258B60F400AB1CE1 /* PhotoZoomViewController.swift in Sources */,
+				3CCA5EF827998A450060839C /* ListCell.swift in Sources */,
 				3CC3C785251CB57300A90018 /* AppDelegate.swift in Sources */,
 				3C4F16B5251F1CAA0059C61F /* AddViewController.swift in Sources */,
 				3CC3C787251CB57300A90018 /* SceneDelegate.swift in Sources */,
