@@ -10,13 +10,13 @@ import UIKit
 
 class ListCell: UITableViewCell {
 
+    @IBOutlet weak var backView: UIView!
     @IBOutlet weak var shopNameLb: UILabel!
     @IBOutlet weak var expirationDateLb: UILabel!
     @IBOutlet weak var endDateLb: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

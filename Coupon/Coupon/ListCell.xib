@@ -12,48 +12,68 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="ListCell" customModule="Coupon" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5H-SA-7sW">
-                        <rect key="frame" x="16" y="0.0" width="288" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nib-rk-Jhq">
-                        <rect key="frame" x="16" y="23" width="0.0" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="만료" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H0b-gX-7C7">
-                        <rect key="frame" x="274.5" y="23" width="29.5" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" systemColor="systemRedColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="igo-3O-ZEu">
+                        <rect key="frame" x="16" y="7" width="288" height="46"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGV-eS-Obw">
+                                <rect key="frame" x="5" y="0.0" width="253" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCg-6K-I7v">
+                                <rect key="frame" x="5" y="23" width="253" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="만료" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jd1-jI-SCi">
+                                <rect key="frame" x="258" y="0.0" width="30" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="T2w-ma-Xqw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Jd1-jI-SCi" firstAttribute="top" secondItem="igo-3O-ZEu" secondAttribute="top" id="6wa-wj-Hxc"/>
+                            <constraint firstAttribute="bottom" secondItem="Jd1-jI-SCi" secondAttribute="bottom" id="BFA-hl-RUV"/>
+                            <constraint firstItem="oGV-eS-Obw" firstAttribute="height" secondItem="igo-3O-ZEu" secondAttribute="height" multiplier="0.5" id="Ec4-IG-Jad"/>
+                            <constraint firstItem="Jd1-jI-SCi" firstAttribute="leading" secondItem="oGV-eS-Obw" secondAttribute="trailing" id="OnK-ds-xSf"/>
+                            <constraint firstAttribute="height" constant="46" id="aoP-EX-pwG"/>
+                            <constraint firstItem="oGV-eS-Obw" firstAttribute="leading" secondItem="igo-3O-ZEu" secondAttribute="leading" constant="5" id="bWb-1K-rUw"/>
+                            <constraint firstAttribute="bottom" secondItem="QCg-6K-I7v" secondAttribute="bottom" id="fug-yP-2K8"/>
+                            <constraint firstItem="QCg-6K-I7v" firstAttribute="top" secondItem="oGV-eS-Obw" secondAttribute="bottom" id="gE9-Bk-GT9"/>
+                            <constraint firstItem="oGV-eS-Obw" firstAttribute="top" secondItem="igo-3O-ZEu" secondAttribute="top" id="hJD-ER-yxa"/>
+                            <constraint firstItem="QCg-6K-I7v" firstAttribute="top" secondItem="oGV-eS-Obw" secondAttribute="bottom" id="oLO-W8-3Eu"/>
+                            <constraint firstAttribute="trailing" secondItem="Jd1-jI-SCi" secondAttribute="trailing" id="uHc-Fu-GTZ"/>
+                            <constraint firstItem="QCg-6K-I7v" firstAttribute="leading" secondItem="igo-3O-ZEu" secondAttribute="leading" constant="5" id="w5K-xw-yK0"/>
+                            <constraint firstItem="Jd1-jI-SCi" firstAttribute="leading" secondItem="QCg-6K-I7v" secondAttribute="trailing" id="wU4-AW-ygM"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="j5H-SA-7sW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="5Tr-Fk-gGa"/>
-                    <constraint firstItem="nib-rk-Jhq" firstAttribute="top" secondItem="j5H-SA-7sW" secondAttribute="bottom" constant="2" id="BqA-Ag-fUb"/>
-                    <constraint firstAttribute="trailing" secondItem="H0b-gX-7C7" secondAttribute="trailing" constant="16" id="JLT-bI-Za0"/>
-                    <constraint firstItem="H0b-gX-7C7" firstAttribute="top" secondItem="j5H-SA-7sW" secondAttribute="bottom" constant="2" id="MWQ-Pj-ygX"/>
-                    <constraint firstAttribute="bottom" secondItem="nib-rk-Jhq" secondAttribute="bottom" id="UHy-6H-mpo"/>
-                    <constraint firstAttribute="trailing" secondItem="j5H-SA-7sW" secondAttribute="trailing" constant="16" id="i1R-My-jmN"/>
-                    <constraint firstAttribute="bottom" secondItem="H0b-gX-7C7" secondAttribute="bottom" id="pao-Py-Pz1"/>
-                    <constraint firstItem="nib-rk-Jhq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="q4G-DV-AEb"/>
-                    <constraint firstItem="j5H-SA-7sW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="rhG-3j-AJR"/>
+                    <constraint firstItem="igo-3O-ZEu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="13S-pS-LEi"/>
+                    <constraint firstAttribute="bottom" secondItem="igo-3O-ZEu" secondAttribute="bottom" constant="7" id="FU5-IE-GXj"/>
+                    <constraint firstAttribute="trailing" secondItem="igo-3O-ZEu" secondAttribute="trailing" constant="16" id="PjW-ta-DJA"/>
+                    <constraint firstItem="igo-3O-ZEu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="aaQ-nN-72W"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="endDateLb" destination="H0b-gX-7C7" id="PsW-dh-SEp"/>
-                <outlet property="expirationDateLb" destination="nib-rk-Jhq" id="hUw-mq-aSI"/>
-                <outlet property="shopNameLb" destination="j5H-SA-7sW" id="zxo-ZZ-Ruv"/>
+                <outlet property="backView" destination="igo-3O-ZEu" id="U29-29-jgU"/>
+                <outlet property="endDateLb" destination="Jd1-jI-SCi" id="Qhd-Xa-t9S"/>
+                <outlet property="expirationDateLb" destination="QCg-6K-I7v" id="rTi-8x-wuM"/>
+                <outlet property="shopNameLb" destination="oGV-eS-Obw" id="zzd-4M-vuu"/>
             </connections>
             <point key="canvasLocation" x="142" y="112"/>
         </tableViewCell>
