@@ -25,7 +25,10 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         couponlist = db.readDB(select: "전체")
         list.reloadData()
     }
-    
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         couponlist.count
     }
@@ -37,7 +40,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         let today = dateFormat.string(from: Date())
         let date = dateFormat.string(from: couponlist[indexPath.row].expireDate)
         
-        if today > date {
+        if today.filter("0123456789".contains) > date.filter("0123456789".contains) {
             cell.endDateLb.isHidden = false
         }
         cell.shopNameLb.text = couponlist[indexPath.row].shop
