@@ -10,6 +10,7 @@ import UIKit
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var list: UITableView!
+    @IBOutlet weak var noResultLb: UILabel!
     
     var couponlist: [Coupon] = []
     let db = Database.shared
@@ -37,12 +38,20 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ListCell
         let dateFormat = DateFormatter()
         dateFormat.dateFormat = "yyyy년 MM월 dd일"
-        let today = dateFormat.string(from: Date())
         let date = dateFormat.string(from: couponlist[indexPath.row].expireDate)
         
-        if today.filter("0123456789".contains) > date.filter("0123456789".contains) {
-            cell.endDateLb.isHidden = false
+        if couponlist.count != 0 {
+            noResultLb.isHidden = true
+        } else {
+            noResultLb.isHidden = false
         }
+        
+        if Date().dateCompare(fromDate: couponlist[indexPath.row].expireDate) == "Past" {
+            cell.endDateLb.isHidden = false
+        } else {
+            cell.endDateLb.isHidden = true
+        }
+        
         cell.shopNameLb.text = couponlist[indexPath.row].shop
         cell.expirationDateLb.text = date
         
@@ -74,15 +83,42 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
             db.delete(cell: select) // select == id
             couponlist.remove(at: index)
             
-            var expireCoupon = UserDefaults.standard.object(forKey: "couponIndex") as! [Int]
-            for idx in 0 ..< expireCoupon.count {
-                if select == expireCoupon[idx] {
-                    expireCoupon.remove(at: idx)
-                    UserDefaults.standard.set(expireCoupon, forKey: "couponIndex")
-                }
+//            var expireCoupon = UserDefaults.standard.object(forKey: "couponIndex") as! [Int]
+//            for idx in 0 ..< expireCoupon.count {
+//                if select == expireCoupon[idx] {
+//                    expireCoupon.remove(at: idx)
+//                    UserDefaults.standard.set(expireCoupon, forKey: "couponIndex")
+//                }
+//            }
+            if couponlist.count != 0 {
+                noResultLb.isHidden = true
+            } else {
+                noResultLb.isHidden = false
             }
             self.list.reloadData()
         }
         
     }
+}
+
+extension Date {
+    public func dateCompare(fromDate: Date) -> String {
+            var strDateMessage:String = ""
+            let result:ComparisonResult = self.compare(fromDate)
+            switch result {
+            case .orderedAscending:
+                strDateMessage = "Future"
+                break
+            case .orderedDescending:
+                strDateMessage = "Past"
+                break
+            case .orderedSame:
+                strDateMessage = "Same"
+                break
+            default:
+                strDateMessage = "Error"
+                break
+            }
+            return strDateMessage
+        }
 }
