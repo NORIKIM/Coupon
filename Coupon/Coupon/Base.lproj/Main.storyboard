@@ -90,19 +90,31 @@
                                     <outlet property="delegate" destination="vWb-yw-SLh" id="v9A-Yd-IDZ"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="등록된 쿠폰이 없습니다" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G5a-9w-nwI">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                                <color key="backgroundColor" white="1" alpha="0.31201840753424659" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dag-i9-xBA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="dag-i9-xBA" firstAttribute="bottom" secondItem="G5a-9w-nwI" secondAttribute="bottom" id="3fK-4b-WLb"/>
                             <constraint firstItem="dag-i9-xBA" firstAttribute="bottom" secondItem="XlQ-uk-j3l" secondAttribute="bottom" id="3iL-MF-scI"/>
+                            <constraint firstItem="dag-i9-xBA" firstAttribute="trailing" secondItem="G5a-9w-nwI" secondAttribute="trailing" id="DhW-xa-El5"/>
                             <constraint firstItem="dag-i9-xBA" firstAttribute="trailing" secondItem="XlQ-uk-j3l" secondAttribute="trailing" id="Mh7-D8-pYd"/>
                             <constraint firstItem="XlQ-uk-j3l" firstAttribute="leading" secondItem="dag-i9-xBA" secondAttribute="leading" id="PQc-Kv-v56"/>
+                            <constraint firstItem="G5a-9w-nwI" firstAttribute="leading" secondItem="dag-i9-xBA" secondAttribute="leading" id="ZBW-5c-kgl"/>
                             <constraint firstItem="XlQ-uk-j3l" firstAttribute="top" secondItem="dag-i9-xBA" secondAttribute="top" id="ZCl-yw-0Pi"/>
+                            <constraint firstItem="G5a-9w-nwI" firstAttribute="top" secondItem="dag-i9-xBA" secondAttribute="top" id="l64-md-Zr9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Och-hf-CJ7"/>
                     <connections>
                         <outlet property="list" destination="XlQ-uk-j3l" id="1XA-VL-fsx"/>
+                        <outlet property="noResultLb" destination="G5a-9w-nwI" id="qlO-5g-eCT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ur-95-aPR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
