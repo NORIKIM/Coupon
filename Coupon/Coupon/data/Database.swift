@@ -35,7 +35,6 @@ struct Database {
     
     // create table
     func createTable() {
-        let checkTable = "SELECT name FROM sqlite_master WHERE name='coupon'"
         let creatQuery = "CREATE TABLE IF NOT EXISTS coupon(id INTEGER primary key, category TEXT, shop TEXT, price TEXT, expireDate TEXT, content TEXT, contentPhoto BLOB)"
         var createStmt: OpaquePointer? = nil
         
