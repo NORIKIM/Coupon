@@ -25,6 +25,7 @@
 		3CC3C791251CB57B00A90018 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CC3C78F251CB57B00A90018 /* LaunchScreen.storyboard */; };
 		3CCA5EF827998A450060839C /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCA5EF627998A450060839C /* ListCell.swift */; };
 		3CCA5EF927998A450060839C /* ListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CCA5EF727998A450060839C /* ListCell.xib */; };
+		9DF3E691279ECCE100277539 /* 업데이트사항 in Resources */ = {isa = PBXBuildFile; fileRef = 9DF3E690279ECCE100277539 /* 업데이트사항 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		3CC3C792251CB57B00A90018 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CCA5EF627998A450060839C /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 		3CCA5EF727998A450060839C /* ListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListCell.xib; sourceTree = "<group>"; };
+		9DF3E690279ECCE100277539 /* 업데이트사항 */ = {isa = PBXFileReference; lastKnownFileType = text; path = "업데이트사항"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				3C4FBBF2258B60F400AB1CE1 /* PhotoZoomViewController.swift */,
 				3C4FBBF5258B6A2800AB1CE1 /* ListViewController.swift */,
 				3CC3C788251CB57300A90018 /* ViewController.swift */,
+				9DF3E690279ECCE100277539 /* 업데이트사항 */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CC3C791251CB57B00A90018 /* LaunchScreen.storyboard in Resources */,
+				9DF3E691279ECCE100277539 /* 업데이트사항 in Resources */,
 				3CCA5EF927998A450060839C /* ListCell.xib in Resources */,
 				3C9B141B25FCEE8C00A1C98C /* NanumSquareRoundEB.ttf in Resources */,
 				3C9B141825FCEE8C00A1C98C /* NanumSquareRoundL.ttf in Resources */,
