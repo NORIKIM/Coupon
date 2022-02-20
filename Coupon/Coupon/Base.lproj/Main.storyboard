@@ -230,34 +230,31 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="frw-YE-Aw9">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="frw-YE-Aw9" userLabel="카메라">
                                 <rect key="frame" x="67" y="291" width="90" height="70"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="4RI-cV-1Kr">
+                                        <rect key="frame" x="0.0" y="0.5" width="90" height="68"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Yj-k7-Zbg">
-                                        <rect key="frame" x="0.0" y="0.0" width="20" height="70"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="20" id="hYS-tY-FeZ"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="70"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="TheIndependenceHallofKorea-Regular" family="독립기념관체" pointSize="23"/>
-                                        <state key="normal" title="+">
+                                        <state key="normal">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="addPhoto:" destination="5Ak-3m-I8g" eventType="touchUpInside" id="JGc-Fy-z9f"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="4RI-cV-1Kr">
-                                        <rect key="frame" x="20" y="0.5" width="70" height="68"/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </imageView>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Qf-0Y-7ya">
-                                        <rect key="frame" x="70" y="0.0" width="20" height="20"/>
+                                        <rect key="frame" x="65" y="0.0" width="25" height="25"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="ZP0-KE-U9u"/>
-                                            <constraint firstAttribute="width" constant="20" id="ew7-OM-qe3"/>
+                                            <constraint firstAttribute="height" constant="25" id="ZP0-KE-U9u"/>
+                                            <constraint firstAttribute="width" constant="25" id="ew7-OM-qe3"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="clear.fill" catalog="system">
@@ -270,13 +267,14 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="4RI-cV-1Kr" firstAttribute="leading" secondItem="frw-YE-Aw9" secondAttribute="leading" id="Ioa-WX-Vcd"/>
                                     <constraint firstAttribute="trailing" secondItem="2Qf-0Y-7ya" secondAttribute="trailing" id="MRC-Cq-fvo"/>
                                     <constraint firstItem="4RI-cV-1Kr" firstAttribute="top" secondItem="frw-YE-Aw9" secondAttribute="top" id="NBC-a9-fwC"/>
                                     <constraint firstItem="5Yj-k7-Zbg" firstAttribute="top" secondItem="frw-YE-Aw9" secondAttribute="top" id="Rwp-Wh-ipZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="5Yj-k7-Zbg" secondAttribute="trailing" id="SQD-ri-07I"/>
                                     <constraint firstAttribute="width" constant="90" id="WoZ-gZ-byU"/>
                                     <constraint firstAttribute="height" constant="70" id="ZIv-5Q-7bK"/>
                                     <constraint firstItem="2Qf-0Y-7ya" firstAttribute="top" secondItem="frw-YE-Aw9" secondAttribute="top" id="dEb-Ci-m0q"/>
-                                    <constraint firstItem="4RI-cV-1Kr" firstAttribute="leading" secondItem="5Yj-k7-Zbg" secondAttribute="trailing" id="h2D-WB-9gq"/>
                                     <constraint firstAttribute="bottom" secondItem="5Yj-k7-Zbg" secondAttribute="bottom" id="hNm-4c-9Cx"/>
                                     <constraint firstAttribute="bottom" secondItem="4RI-cV-1Kr" secondAttribute="bottom" id="kQv-iq-8Su"/>
                                     <constraint firstAttribute="trailing" secondItem="4RI-cV-1Kr" secondAttribute="trailing" id="nAd-fe-YFq"/>

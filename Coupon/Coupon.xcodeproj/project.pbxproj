@@ -82,6 +82,7 @@
 		3CC3C783251CB57300A90018 /* Coupon */ = {
 			isa = PBXGroup;
 			children = (
+				9DF3E690279ECCE100277539 /* 업데이트사항 */,
 				3CC89D9725F24AFD006CF678 /* Font */,
 				3CC3C784251CB57300A90018 /* AppDelegate.swift */,
 				3CC3C786251CB57300A90018 /* SceneDelegate.swift */,
@@ -116,7 +117,6 @@
 				3C4FBBF2258B60F400AB1CE1 /* PhotoZoomViewController.swift */,
 				3C4FBBF5258B6A2800AB1CE1 /* ListViewController.swift */,
 				3CC3C788251CB57300A90018 /* ViewController.swift */,
-				9DF3E690279ECCE100277539 /* 업데이트사항 */,
 			);
 			path = view;
 			sourceTree = "<group>";
