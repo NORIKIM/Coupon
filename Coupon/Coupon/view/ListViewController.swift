@@ -36,6 +36,8 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ListCell
+        let index = indexPath.row
+        
         let dateFormat = DateFormatter()
         dateFormat.dateFormat = "yyyy년 MM월 dd일"
         let date = dateFormat.string(from: couponlist[indexPath.row].expireDate)
@@ -46,14 +48,22 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
             noResultLb.isHidden = false
         }
         
+        // 쿠폰 날짜 체크하여 만료 확인
         if Date().dateCompare(fromDate: couponlist[indexPath.row].expireDate) == "Past" {
             cell.endDateLb.isHidden = false
         } else {
             cell.endDateLb.isHidden = true
         }
         
-        cell.shopNameLb.text = couponlist[indexPath.row].shop
+        cell.shopNameLb.text = couponlist[index].shop
         cell.expirationDateLb.text = date
+        if let price = couponlist[index].price {
+            if price.isEmpty == false {
+                cell.priceLb.text = "\(price)원"
+            }
+        }
+        
+        
         
         return cell
     }

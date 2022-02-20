@@ -14,6 +14,7 @@ class ListCell: UITableViewCell {
     @IBOutlet weak var shopNameLb: UILabel!
     @IBOutlet weak var expirationDateLb: UILabel!
     @IBOutlet weak var endDateLb: UILabel!
+    @IBOutlet weak var priceLb: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

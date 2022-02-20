@@ -23,12 +23,13 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGV-eS-Obw">
                                 <rect key="frame" x="5" y="0.0" width="253" height="23"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCg-6K-I7v">
-                                <rect key="frame" x="5" y="23" width="253" height="23"/>
+                                <rect key="frame" x="5" y="23" width="126.5" height="23"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -42,13 +43,23 @@
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MeQ-6m-Hdu">
+                                <rect key="frame" x="131.5" y="23" width="126.5" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="MeQ-6m-Hdu" secondAttribute="bottom" id="3gI-2p-3p0"/>
                             <constraint firstItem="Jd1-jI-SCi" firstAttribute="top" secondItem="igo-3O-ZEu" secondAttribute="top" id="6wa-wj-Hxc"/>
                             <constraint firstAttribute="bottom" secondItem="Jd1-jI-SCi" secondAttribute="bottom" id="BFA-hl-RUV"/>
                             <constraint firstItem="oGV-eS-Obw" firstAttribute="height" secondItem="igo-3O-ZEu" secondAttribute="height" multiplier="0.5" id="Ec4-IG-Jad"/>
+                            <constraint firstItem="QCg-6K-I7v" firstAttribute="width" secondItem="oGV-eS-Obw" secondAttribute="width" multiplier="0.5" id="GPJ-gW-UZZ"/>
+                            <constraint firstItem="Jd1-jI-SCi" firstAttribute="leading" secondItem="MeQ-6m-Hdu" secondAttribute="trailing" id="MfI-uO-Jys"/>
                             <constraint firstItem="Jd1-jI-SCi" firstAttribute="leading" secondItem="oGV-eS-Obw" secondAttribute="trailing" id="OnK-ds-xSf"/>
+                            <constraint firstItem="MeQ-6m-Hdu" firstAttribute="top" secondItem="oGV-eS-Obw" secondAttribute="bottom" id="Qmf-Iy-PY6"/>
                             <constraint firstAttribute="height" constant="46" id="aoP-EX-pwG"/>
                             <constraint firstItem="oGV-eS-Obw" firstAttribute="leading" secondItem="igo-3O-ZEu" secondAttribute="leading" constant="5" id="bWb-1K-rUw"/>
                             <constraint firstAttribute="bottom" secondItem="QCg-6K-I7v" secondAttribute="bottom" id="fug-yP-2K8"/>
@@ -56,8 +67,8 @@
                             <constraint firstItem="oGV-eS-Obw" firstAttribute="top" secondItem="igo-3O-ZEu" secondAttribute="top" id="hJD-ER-yxa"/>
                             <constraint firstItem="QCg-6K-I7v" firstAttribute="top" secondItem="oGV-eS-Obw" secondAttribute="bottom" id="oLO-W8-3Eu"/>
                             <constraint firstAttribute="trailing" secondItem="Jd1-jI-SCi" secondAttribute="trailing" id="uHc-Fu-GTZ"/>
+                            <constraint firstItem="MeQ-6m-Hdu" firstAttribute="leading" secondItem="QCg-6K-I7v" secondAttribute="trailing" id="vLX-8C-exU"/>
                             <constraint firstItem="QCg-6K-I7v" firstAttribute="leading" secondItem="igo-3O-ZEu" secondAttribute="leading" constant="5" id="w5K-xw-yK0"/>
-                            <constraint firstItem="Jd1-jI-SCi" firstAttribute="leading" secondItem="QCg-6K-I7v" secondAttribute="trailing" id="wU4-AW-ygM"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -73,6 +84,7 @@
                 <outlet property="backView" destination="igo-3O-ZEu" id="U29-29-jgU"/>
                 <outlet property="endDateLb" destination="Jd1-jI-SCi" id="Qhd-Xa-t9S"/>
                 <outlet property="expirationDateLb" destination="QCg-6K-I7v" id="rTi-8x-wuM"/>
+                <outlet property="priceLb" destination="MeQ-6m-Hdu" id="Z69-tV-tsF"/>
                 <outlet property="shopNameLb" destination="oGV-eS-Obw" id="zzd-4M-vuu"/>
             </connections>
             <point key="canvasLocation" x="142" y="112"/>
